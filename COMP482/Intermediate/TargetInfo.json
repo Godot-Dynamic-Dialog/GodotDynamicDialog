@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "COMP482",
+			"Path": "..\\Source\\COMP482.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "COMP482Editor",
+			"Path": "..\\Source\\COMP482Editor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

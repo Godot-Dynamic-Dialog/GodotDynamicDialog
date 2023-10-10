@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"E:\\Unreal\\COMP482\\Source\\COMP482\\COMP482.Build.cs",
+		"E:\\Unreal\\COMP482\\Source\\COMP482.Target.cs",
+		"E:\\Unreal\\COMP482\\Source\\COMP482Editor.Target.cs"
+	],
+	"EngineVersion": "5.3.1"
+}
