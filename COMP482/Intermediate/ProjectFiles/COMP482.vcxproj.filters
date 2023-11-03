@@ -46,5 +46,11 @@
     <ClInclude Include="..\..\Source\COMP482\MyActor.h">
       <Filter>Source\COMP482</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\COMP482\MyClass.cpp">
+      <Filter>Source\COMP482</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\COMP482\MyClass.h">
+      <Filter>Source\COMP482</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
