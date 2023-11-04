@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Intermediate", "Intermediate", "{308F1C84-D6F6-4D11-A0AD-B8D1D0F5CF91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{358B1A54-3F3A-4396-9776-8E45FF4CB534}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildRulesProjects", "BuildRulesProjects", "{9BD6AE8D-D294-483B-8513-C0F5D684B7DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "COMP482ModuleRules", "Intermediate\Build\BuildRulesProjects\COMP482ModuleRules\COMP482ModuleRules.csproj", "{1E7991BE-5FD5-4022-91CA-A458520C9B9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E7991BE-5FD5-4022-91CA-A458520C9B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E7991BE-5FD5-4022-91CA-A458520C9B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E7991BE-5FD5-4022-91CA-A458520C9B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E7991BE-5FD5-4022-91CA-A458520C9B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{358B1A54-3F3A-4396-9776-8E45FF4CB534} = {308F1C84-D6F6-4D11-A0AD-B8D1D0F5CF91}
+		{9BD6AE8D-D294-483B-8513-C0F5D684B7DE} = {358B1A54-3F3A-4396-9776-8E45FF4CB534}
+		{1E7991BE-5FD5-4022-91CA-A458520C9B9E} = {9BD6AE8D-D294-483B-8513-C0F5D684B7DE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16270B62-F41F-4DCF-A875-D728A73F156A}
+	EndGlobalSection
+EndGlobal
