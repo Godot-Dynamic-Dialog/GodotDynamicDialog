@@ -73,5 +73,5 @@ Plugins/*/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 
-# api key file - git ignored for now
-COMP482/API_KEY.txt
+# .env file containing keys
+.env
