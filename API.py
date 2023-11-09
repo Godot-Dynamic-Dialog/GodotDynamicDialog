@@ -5,7 +5,7 @@ from Database import database
 
 load_dotenv(override=True)
 
-#gather API key from .env file. Make sure to update your personal API key in the .env file for now.
+#gather API key from .env file
 openai.api_key  = os.getenv('API_KEY')
 
 #API function
