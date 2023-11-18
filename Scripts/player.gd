@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var AnimatedSprite = $Sprite
 
+
 const MAX_SPEED = 65
 const ACCELERATION = 600
 const FRICTION = 550
