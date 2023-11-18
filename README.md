@@ -60,8 +60,7 @@ For more information on how to use Godot Dynamic Dialog, including tutorials, AP
 
 Assets used in this project are courtesy of the following creators:
 
-- Character sprite retrieved from [Axulart](https://axulart.itch.io/small-8-direction-characters).
-- Fruit sprites retrieved from [Ninjikin](https://ninjikin.itch.io/fruit).
+- Game Asset Pack from [Sharm](https://opengameart.org/content/tiny-16-basic).
 
 We sincerely thank the artists for making these resources available for use in game development.
 
