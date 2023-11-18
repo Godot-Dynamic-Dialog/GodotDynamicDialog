@@ -335,8 +335,11 @@ sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 script = ExtResource("1_qy06e")
 
 [node name="Player" parent="." instance=ExtResource("2_smu4t")]
-z_index = 2
-position = Vector2(202, 142)
+z_index = 1
+position = Vector2(184, 234)
+MAX_SPEED = null
+ACCELERATION = null
+FRICTION = null
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fuq7a")
