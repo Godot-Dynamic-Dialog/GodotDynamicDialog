@@ -335,7 +335,7 @@ sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 script = ExtResource("1_qy06e")
 
 [node name="Player" parent="." instance=ExtResource("2_smu4t")]
-z_index = 2
+z_index = 1
 position = Vector2(202, 142)
 
 [node name="TileMap" type="TileMap" parent="."]
