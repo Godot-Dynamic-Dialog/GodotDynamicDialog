@@ -7,11 +7,21 @@ extends CharacterBody2D
 @export var ACCELERATION = 600
 @export var FRICTION = 550
 
+enum {
+	MOVE,
+	ATTACK
+}
+
+var state = MOVE
 var axis = Vector2.ZERO
 var player_attacking = false
 
 func _physics_process(delta):
-	move(delta)
+	match state:
+		MOVE:
+			move(delta)
+		ATTACK:
+			attack(delta)
 
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -30,7 +40,18 @@ func move(delta):
 	else: 
 		animation_tree.set("parameters/Idle/blend_position", axis)
 		animation_tree.set("parameters/Run/blend_position", axis)
+		animation_tree.set("parameters/Attack/blend_position", axis)
 		animation_state.travel("Run")
 		velocity += (axis * ACCELERATION * delta)
 		velocity = velocity.limit_length(MAX_SPEED)
 	move_and_slide()
+	
+	if (Input.is_action_just_pressed("attack")):
+		state = ATTACK
+
+func attack(delta):
+	velocity = Vector2.ZERO
+	animation_state.travel("Attack")
+
+func attack_animation_finished():
+	state = MOVE
