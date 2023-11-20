@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxan7ldn2c83d"]
+
+[ext_resource type="Texture2D" uid="uid://psnxjtlcduqy" path="res://Assets/watermelon.png" id="1_ivih8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f2g2x"]
+radius = 2.17213
+height = 7.16317
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_ivih8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = -2.27416
+shape = SubResource("CapsuleShape2D_f2g2x")

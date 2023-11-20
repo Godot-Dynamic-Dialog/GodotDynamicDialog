@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cremcdet2rlpy"]
+
+[ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="1_7fr5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgdk"]
+size = Vector2(16, 16)
+
+[node name="well" type="StaticBody2D"]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hbgdk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7fr5r")
+hframes = 8
+vframes = 15
+frame = 31
