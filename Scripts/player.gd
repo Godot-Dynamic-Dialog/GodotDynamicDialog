@@ -1,16 +1,20 @@
 extends CharacterBody2D
-@onready var AnimatedSprite = $Sprite
+@onready var animation_player = $AnimationPlayer
 
 
-const MAX_SPEED = 65
-const ACCELERATION = 600
-const FRICTION = 550
+@export var MAX_SPEED = 65
+@export var ACCELERATION = 600
+@export var FRICTION = 550
 
 var axis = Vector2.ZERO
+var player_attacking = false
 
 func _physics_process(delta):
-	move(delta)
-	animate()
+	if (Input.is_action_just_pressed("attack")):
+		print("Attack")
+	elif (!player_attacking):
+		move(delta)
+		animate()
 
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -36,16 +40,17 @@ func animate():
 		if abs(axis.x) > abs(axis.y):
 			# Moving more horizontally
 			if axis.x > 0:
-				AnimatedSprite.play("right")
+				animation_player.play("right")
 			else:
-				AnimatedSprite.play("left")
+				animation_player.play("left")
 		else:
 			# Moving more vertically
 			if axis.y > 0:
-				AnimatedSprite.play("forward")
+				animation_player.play("forward")
 			else:
-				AnimatedSprite.play("back")
+				animation_player.play("back")
 	else:
+		pass
 		# No movement, stop the animation on the current frame
-		AnimatedSprite.stop()
-		AnimatedSprite.frame = 1	
+		#AnimatedSprite.stop()
+		#AnimatedSprite.frame = 0	
