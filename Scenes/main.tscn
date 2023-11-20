@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=13 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.cs" id="1_qy06e"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/player.tscn" id="2_smu4t"]
+[ext_resource type="Script" path="res://Scenes/TextReplace.gd" id="3_jjlcf"]
+[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="4_7frbr"]
 [ext_resource type="PackedScene" uid="uid://cremcdet2rlpy" path="res://Scenes/Objects/well.tscn" id="4_7xcy5"]
 [ext_resource type="Script" path="res://Scenes/TileMap.gd" id="4_f5hy2"]
 [ext_resource type="PackedScene" uid="uid://b0ye6ppn8gkyf" path="res://Scenes/Objects/chest.tscn" id="5_whfj4"]
@@ -350,6 +352,53 @@ limit_right = 656
 limit_bottom = 336
 editor_draw_limits = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+script = ExtResource("3_jjlcf")
+
+[node name="Button" type="Button" parent="Player/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.889
+anchor_right = 0.091
+anchor_bottom = 0.972
+offset_left = -0.144
+offset_top = -0.0240173
+offset_right = 0.0559998
+offset_bottom = 0.0479889
+theme_override_fonts/font = ExtResource("4_7frbr")
+theme_override_font_sizes/font_size = 7
+text = "Enter"
+
+[node name="TextEdit" type="TextEdit" parent="Player/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.091
+anchor_top = 0.889
+anchor_right = 0.323
+anchor_bottom = 0.977
+offset_left = 0.0559998
+offset_top = -0.0240173
+offset_right = -0.0320053
+offset_bottom = -0.0320129
+theme_override_fonts/font = ExtResource("4_7frbr")
+theme_override_font_sizes/font_size = 7
+placeholder_text = "Type prompt here"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Player/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.289
+anchor_top = 0.75
+anchor_right = 0.596
+anchor_bottom = 0.889
+offset_left = 0.0240021
+offset_top = -1.52588e-05
+offset_right = 0.135986
+offset_bottom = -0.0240173
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_7frbr")
+theme_override_font_sizes/font_size = 7
+text = "maybe this time it'll work"
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fuq7a")
 format = 2
@@ -377,3 +426,5 @@ position = Vector2(352, 192)
 position = Vector2(392, 40)
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[connection signal="pressed" from="Player/CanvasLayer/Button" to="Player/CanvasLayer" method="_on_button_pressed"]
