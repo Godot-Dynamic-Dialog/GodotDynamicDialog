@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://culk7qt4b4ddq"]
+[gd_scene load_steps=42 format=3 uid="uid://culk7qt4b4ddq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_x4vye"]
 [ext_resource type="Texture2D" uid="uid://kqaxsf4ugu2j" path="res://Assets/character.png" id="2_ka1ql"]
@@ -496,12 +496,9 @@ transitions = ["Run", "Idle", SubResource("AnimationNodeStateMachineTransition_q
 radius = 7.0
 height = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tkkyn"]
-radius = 25.7292
-
-[sub_resource type="LabelSettings" id="LabelSettings_o3hoo"]
-line_spacing = 1.0
-font_size = 8
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hwj1r"]
+radius = 4.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -542,28 +539,10 @@ light_mask = 2
 shape = SubResource("CapsuleShape2D_tod3v")
 debug_color = Color(0.823529, 0.380392, 0.317647, 0.419608)
 
-[node name="InteractionComponents" type="Node2D" parent="."]
-z_index = 1
-position = Vector2(-3, 0)
-
-[node name="InteractionArea" type="Area2D" parent="InteractionComponents"]
-position = Vector2(60, -19)
+[node name="ActionableFinder" type="Area2D" parent="Marker2D"]
 collision_layer = 0
-collision_mask = 4
-monitorable = false
+collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/InteractionArea"]
-position = Vector2(-57, 20)
-scale = Vector2(0.52768, -0.553718)
-shape = SubResource("CircleShape2D_tkkyn")
-
-[node name="Label" type="Label" parent="InteractionComponents"]
-offset_left = -9.0
-offset_top = -26.0
-offset_right = 16.0
-offset_bottom = -14.0
-label_settings = SubResource("LabelSettings_o3hoo")
-horizontal_alignment = 1
-
-[connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
-[connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/ActionableFinder"]
+position = Vector2(7.00001, 1.99997)
+shape = SubResource("CapsuleShape2D_hwj1r")

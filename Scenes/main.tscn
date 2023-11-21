@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=14 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scripts/Main.cs" id="1_qy06e"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ye6ppn8gkyf" path="res://Scenes/Objects/chest.tscn" id="5_whfj4"]
 [ext_resource type="PackedScene" uid="uid://07ugbrxmb7nr" path="res://Scenes/Objects/tree.tscn" id="6_v8wjo"]
 [ext_resource type="PackedScene" uid="uid://boi6ofya8suhr" path="res://Scenes/Objects/cave_entrance.tscn" id="7_risp2"]
+[ext_resource type="PackedScene" uid="uid://r5nirb85gn1l" path="res://Scenes/Objects/banana.tscn" id="11_l65tx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
 texture = ExtResource("2_ih2nm")
@@ -426,5 +427,8 @@ position = Vector2(352, 192)
 position = Vector2(392, 40)
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="banana" parent="." instance=ExtResource("11_l65tx")]
+position = Vector2(311, 147)
 
 [connection signal="pressed" from="Player/CanvasLayer/Button" to="Player/CanvasLayer" method="_on_button_pressed"]

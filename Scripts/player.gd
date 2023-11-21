@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
 
+@onready var all_interactions = []
+@onready var interactLabel = $InteractionComponents/Label
+
 @export var MAX_SPEED = 65
 @export var ACCELERATION = 600
 @export var FRICTION = 550
@@ -55,3 +58,25 @@ func attack(delta):
 
 func attack_animation_finished():
 	state = MOVE
+
+
+	
+#INTERACTION FUNCTIONS
+
+#SIGNAL ON AREA ENTERED
+func _on_interaction_area_area_entered(area):
+	all_interactions.insert(0, area)
+	update_interactions()
+
+#SIGNAL ON AREA EXITED
+func _on_interaction_area_area_exited(area):
+	all_interactions.erase(area)
+	update_interactions()
+
+#function to update label
+func update_interactions():
+	if all_interactions:
+		#grabs interct_label variable defined in each object
+		interactLabel.text = all_interactions[0].interact_label
+	else:
+		interactLabel.text = "No objects found"
