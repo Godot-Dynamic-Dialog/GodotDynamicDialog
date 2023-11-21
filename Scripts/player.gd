@@ -30,7 +30,7 @@ func get_input_axis():
 	
 func move(delta):
 	axis = get_input_axis()
-	
+	print(axis)
 	if (axis == Vector2.ZERO):
 		animation_state.travel("Idle")
 		if (velocity.length() > (FRICTION * delta)):

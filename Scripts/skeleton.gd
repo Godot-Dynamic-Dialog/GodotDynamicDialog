@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 @onready var player = $"../Player"
-@onready var animationTree = get_tree().get_root().get_node("Main").get_node("skeleton").get_node("AnimationTree")
+@onready var animation_player = get_tree().get_root().get_node("Main").get_node("ghost").get_node("AnimationPlayer")
 
-const speed = 25.0
+const SPEED = 25.0
 
 func _physics_process(delta):
-	#animationTree.set("parameters/Run/blend_position", axis)
 	var direction = (player.global_position - global_position).normalized()
-	velocity = direction * speed
+	velocity = direction * SPEED
+	
 	move_and_slide()
+	
+	if velocity.length() > 0:
+		animation_player.play("forward")

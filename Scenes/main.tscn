@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ye6ppn8gkyf" path="res://Scenes/Objects/chest.tscn" id="5_whfj4"]
 [ext_resource type="PackedScene" uid="uid://07ugbrxmb7nr" path="res://Scenes/Objects/tree.tscn" id="6_v8wjo"]
 [ext_resource type="PackedScene" uid="uid://boi6ofya8suhr" path="res://Scenes/Objects/cave_entrance.tscn" id="7_risp2"]
-[ext_resource type="PackedScene" uid="uid://bxx5taw2bblgt" path="res://Scenes/Mobs/skeleton.tscn" id="11_h8170"]
+[ext_resource type="PackedScene" uid="uid://bxx5taw2bblgt" path="res://Scenes/Mobs/ghost.tscn" id="11_h8170"]
 [ext_resource type="Script" path="res://Scripts/skeleton.gd" id="12_7loa6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
@@ -429,10 +429,10 @@ position = Vector2(392, 40)
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="skeleton" parent="." instance=ExtResource("11_h8170")]
+[node name="ghost" parent="." instance=ExtResource("11_h8170")]
 position = Vector2(122, 124)
 script = ExtResource("12_7loa6")
 
 [connection signal="pressed" from="Player/CanvasLayer/Button" to="Player/CanvasLayer" method="_on_button_pressed"]
 
-[editable path="skeleton"]
+[editable path="ghost"]
