@@ -432,8 +432,6 @@ position = Vector2(392, 40)
 [node name="ghost" parent="." instance=ExtResource("11_h8170")]
 position = Vector2(122, 124)
 script = ExtResource("12_7loa6")
-[node name="banana" parent="." instance=ExtResource("11_l65tx")]
-position = Vector2(311, 147)
 
 [connection signal="pressed" from="Player/CanvasLayer/Button" to="Player/CanvasLayer" method="_on_button_pressed"]
 
