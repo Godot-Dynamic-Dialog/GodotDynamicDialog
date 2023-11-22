@@ -24,7 +24,7 @@ func _physics_process(delta):
 		MOVE:
 			move(delta)
 		ATTACK:
-			attack(delta)
+			attack()
 
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -52,15 +52,13 @@ func move(delta):
 	if (Input.is_action_just_pressed("attack")):
 		state = ATTACK
 
-func attack(delta):
+func attack():
 	velocity = Vector2.ZERO
 	animation_state.travel("Attack")
 
 func attack_animation_finished():
 	state = MOVE
 
-
-	
 #INTERACTION FUNCTIONS
 
 #SIGNAL ON AREA ENTERED
