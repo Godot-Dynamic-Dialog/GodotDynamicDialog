@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=16 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_qy06e"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://boi6ofya8suhr" path="res://Scenes/Objects/cave_entrance.tscn" id="7_risp2"]
 [ext_resource type="PackedScene" uid="uid://bxx5taw2bblgt" path="res://Scenes/Mobs/Ghost/ghost.tscn" id="11_5kdk5"]
 [ext_resource type="Script" path="res://Scenes/Mobs/Ghost/ghost.gd" id="12_0qknc"]
+[ext_resource type="PackedScene" uid="uid://r5nirb85gn1l" path="res://Scenes/Objects/banana.tscn" id="13_pn3s8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
 texture = ExtResource("2_ih2nm")
@@ -430,6 +431,9 @@ position = Vector2(392, 40)
 [node name="Ghost" parent="." instance=ExtResource("11_5kdk5")]
 position = Vector2(359, 117)
 script = ExtResource("12_0qknc")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("13_pn3s8")]
+position = Vector2(259, 238)
 
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_button_pressed"]
 
