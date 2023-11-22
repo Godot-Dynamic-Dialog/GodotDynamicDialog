@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://culk7qt4b4ddq"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_x4vye"]
-[ext_resource type="Texture2D" uid="uid://kqaxsf4ugu2j" path="res://Assets/character.png" id="2_ka1ql"]
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_qlbjc"]
+[ext_resource type="Texture2D" uid="uid://kqaxsf4ugu2j" path="res://Assets/character.png" id="2_svemd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vpbqf"]
 radius = 7.0
@@ -505,10 +505,10 @@ font_size = 8
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
-script = ExtResource("1_x4vye")
+script = ExtResource("1_qlbjc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_ka1ql")
+texture = ExtResource("2_svemd")
 hframes = 4
 vframes = 8
 

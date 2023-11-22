@@ -8,5 +8,3 @@ class_name Interactable extends Area2D
 
 #value of interaction , item pickup / interaction, etc
 @export var interact_value =  "none"
-
-

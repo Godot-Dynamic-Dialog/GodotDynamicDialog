@@ -9,6 +9,8 @@ export_presets.cfg
 # Imported translations (automatically generated from CSV files)
 *.translation
 
+.csproj.old
+
 # Visual Studio
 .vs/
 
@@ -19,3 +21,5 @@ mono_crash.*.json
 
 # Project Specific
 .env
+
+.tmp
