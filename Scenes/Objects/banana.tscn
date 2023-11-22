@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://r5nirb85gn1l"]
 
 [ext_resource type="Texture2D" uid="uid://dl5tdamrkleyc" path="res://Assets/banana.png" id="1_evp1s"]
-[ext_resource type="PackedScene" uid="uid://wn2tfo2th3ss" path="res://Scenes/InteractArea.tscn" id="2_uajx3"]
+[ext_resource type="PackedScene" uid="uid://wn2tfo2th3ss" path="res://Scenes/Player/InteractArea.tscn" id="2_uajx3"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ikm2"]
 height = 22.0
