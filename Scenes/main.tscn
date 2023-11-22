@@ -432,8 +432,9 @@ position = Vector2(392, 40)
 position = Vector2(359, 117)
 script = ExtResource("12_0qknc")
 
-[node name="StaticBody2D" parent="." instance=ExtResource("13_pn3s8")]
+[node name="Banana" parent="." instance=ExtResource("13_pn3s8")]
 position = Vector2(259, 238)
+collision_mask = 4
 
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_button_pressed"]
 
