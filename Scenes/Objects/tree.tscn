@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://07ugbrxmb7nr"]
+[gd_scene load_steps=4 format=3 uid="uid://07ugbrxmb7nr"]
 
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="1_rmki2"]
+[ext_resource type="PackedScene" uid="uid://cb1bu1vix2h4u" path="res://Scenes/InteractArea.tscn" id="2_lyoom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbgdk"]
 size = Vector2(16, 16)
@@ -15,3 +16,6 @@ texture = ExtResource("1_rmki2")
 hframes = 8
 vframes = 15
 frame = 38
+
+[node name="InteractArea" parent="." instance=ExtResource("2_lyoom")]
+interact_label = "Tree"

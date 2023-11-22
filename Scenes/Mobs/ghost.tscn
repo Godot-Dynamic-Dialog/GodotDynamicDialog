@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxx5taw2bblgt"]
+[gd_scene load_steps=8 format=3 uid="uid://bxx5taw2bblgt"]
 
 [ext_resource type="Texture2D" uid="uid://jetnawbeeoap" path="res://Assets/mobs.png" id="1_66nvo"]
+[ext_resource type="Script" path="res://Scripts/area_enter.gd" id="2_1peba"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b14s"]
 radius = 4.0
@@ -45,6 +46,9 @@ _data = {
 "forward": SubResource("Animation_yvget")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pimou"]
+radius = 95.0053
+
 [node name="ghost" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -60,3 +64,10 @@ shape = SubResource("CapsuleShape2D_2b14s")
 libraries = {
 "": SubResource("AnimationLibrary_u6o83")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_1peba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pimou")
+debug_color = Color(0.588235, 0.509804, 0.560784, 0.419608)
