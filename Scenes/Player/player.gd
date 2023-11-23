@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")
 
+@onready var all_interactions = []
+@onready var interactLabel = $InteractionComponents/Label
+
 @export var MAX_SPEED = 65
 @export var ACCELERATION = 600
 @export var FRICTION = 550
@@ -21,7 +24,7 @@ func _physics_process(delta):
 		MOVE:
 			move(delta)
 		ATTACK:
-			attack(delta)
+			attack()
 
 func get_input_axis():
 	axis.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -30,7 +33,7 @@ func get_input_axis():
 	
 func move(delta):
 	axis = get_input_axis()
-	
+	print(axis)
 	if (axis == Vector2.ZERO):
 		animation_state.travel("Idle")
 		if (velocity.length() > (FRICTION * delta)):
@@ -49,9 +52,29 @@ func move(delta):
 	if (Input.is_action_just_pressed("attack")):
 		state = ATTACK
 
-func attack(delta):
+func attack():
 	velocity = Vector2.ZERO
 	animation_state.travel("Attack")
 
 func attack_animation_finished():
 	state = MOVE
+
+#INTERACTION FUNCTIONS
+
+#SIGNAL ON AREA ENTERED
+func _on_interaction_area_area_entered(area):
+	all_interactions.insert(0, area)
+	update_interactions()
+
+#SIGNAL ON AREA EXITED
+func _on_interaction_area_area_exited(area):
+	all_interactions.erase(area)
+	update_interactions()
+
+#function to update label
+func update_interactions():
+	if all_interactions:
+		#grabs interct_label variable defined in each object
+		interactLabel.text = all_interactions[0].interact_label
+	else:
+		interactLabel.text = "No objects found"

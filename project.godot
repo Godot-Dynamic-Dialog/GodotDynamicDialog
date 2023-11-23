@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotDynamicDialog"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
 config/icon="res://icon.png"
 
@@ -23,8 +23,8 @@ InteractionManager="*res://Scenes/InteractionManager.tscn"
 
 window/size/viewport_width=384
 window/size/viewport_height=216
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
 [dotnet]
@@ -72,6 +72,7 @@ attack={
 
 2d_render/layer_1="World"
 2d_render/layer_2="Hitbox"
+2d_physics/layer_3="interactions"
 
 [rendering]
 

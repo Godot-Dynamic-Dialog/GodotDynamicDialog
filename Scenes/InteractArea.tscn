@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://wn2tfo2th3ss"]
+
+[ext_resource type="Script" path="res://Scenes/Player/actionable.gd" id="1_dopub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8k3o"]
+radius = 5.09902
+
+[node name="InteractArea" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_dopub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d8k3o")
