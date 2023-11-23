@@ -19,5 +19,3 @@ shape = SubResource("CapsuleShape2D_7ikm2")
 position = Vector2(-1, 0)
 scale = Vector2(1.89249, 1.67312)
 interact_label = "Bananana"
-interact_type = "text"
-interact_value = "1"

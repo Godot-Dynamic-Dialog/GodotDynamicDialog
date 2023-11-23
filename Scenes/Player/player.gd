@@ -76,5 +76,10 @@ func update_interactions():
 	if all_interactions:
 		#grabs interct_label variable defined in each object
 		interactLabel.text = all_interactions[0].interact_label
+		
+		#increment interact_counter variable
+		all_interactions[0].interact_counter += 1
+		#debugging output
+		print(all_interactions[0].interact_counter)
 	else:
-		interactLabel.text = "No objects found"
+		interactLabel.text = ""
