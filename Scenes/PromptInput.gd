@@ -24,8 +24,41 @@ func _process(delta):
 
 
 func _on_gd_gpt_pressed():	
-	print("GPT Function Called")
-	var prompt : String = get_node("TextEdit").text
+	# var prompt : String = get_node("TextEdit").text
+	
+	# Prompt variables
+	#var NPC : String = "an old wise man"
+	var MC : String =  "an adventurer"
+	var apple : String = "you have just seen an apple"
+	var hunger : String = "you are quite hungry"
+	#var action : String = "MC has just finished slaying a dragon"
+	var env : String = "It is a dry desert day"
+	var hp : String = "65"#str(65)
+	var mood : String = "exhausted"
+	var promptStruct = (
+#"
+#You are %s. 
+#Main character (MC) is %s, 
+#%s. %s. 
+#MC's HP is %s%%. 
+#Say something to MC. Your mood is %s. 
+#Don't have to comment on all of the above, 
+#only respond with the text. Stay under 400 characters.
+#")
+"
+You are a character with an internal monologue. 
+You are %s. 
+%s. %s. %s. 
+Your HP is %s. 
+Your mood is %s. 
+Don't comment on all of the above, 
+only respond with the text of the monologue. 
+Stay under 200 characters.
+")
+	#var prompt = promptStruct % [NPC, MC, action, env, hp, mood]
+	var prompt = promptStruct % [MC, env, apple, hunger, hp, mood]
+	print("Prompt:\n", prompt)
+	
 	var messages = [{
 		"role": "user",
 		"content": prompt
@@ -50,12 +83,11 @@ func _on_gd_gpt_pressed():
 
 
 func _on_request_completed(result, response_code, headers, body):
-	print("New function called")
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	var message = response["choices"][0]["message"]["content"]
-	print("Message received, sending to label")
+
 	get_node("Label").set_text(message)
 	
-	print(message)
+	print("Response:\n", message)
