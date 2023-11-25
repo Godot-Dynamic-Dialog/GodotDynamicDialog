@@ -65,6 +65,10 @@ func attack_animation_finished():
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
 	update_interactions()
+	
+	DialogueManager.increment_context("health", 10)
+	DialogueManager.trigger_dialogue("health")
+	print(DialogueManager.game_context)
 
 #SIGNAL ON AREA EXITED
 func _on_interaction_area_area_exited(area):

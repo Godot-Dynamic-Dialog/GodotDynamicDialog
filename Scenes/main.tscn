@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=15 format=3 uid="uid://c4lhqu3mr88aq"]
 
-[ext_resource type="Script" path="res://Scenes/Main.cs" id="1_qy06e"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_smu4t"]
 [ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="2_uvonq"]
@@ -342,7 +341,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_qy06e")
 
 [node name="PromptInput" type="CanvasLayer" parent="."]
 script = ExtResource("2_uvonq")

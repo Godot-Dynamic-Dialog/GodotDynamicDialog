@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3 uid="uid://dubcq73un7smm"]
+
+[ext_resource type="Script" path="res://DialogueSystem/DialogueManager/PlayerDialogue.gd" id="1_gsjay"]
+
+[resource]
+script = ExtResource("1_gsjay")
+id = "Adam"
+conditions = {}
+text = "Full Health"

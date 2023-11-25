@@ -12,12 +12,14 @@ config_version=5
 
 config/name="GodotDynamicDialog"
 run/main_scene="res://Scenes/Main.tscn"
-config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.png"
 
 [autoload]
 
 InteractionManager="*res://Scenes/InteractionManager.tscn"
+DialogueDatabase="*res://DialogueManager/DialogueDatabase.gd"
+DialogueManager="*res://DialogueManager/DialogueManager.gd"
 
 [display]
 
