@@ -431,12 +431,10 @@ position = Vector2(352, 192)
 position = Vector2(392, 40)
 
 [node name="Ghost" parent="." instance=ExtResource("11_5kdk5")]
-position = Vector2(359, 117)
+position = Vector2(384, 168)
 
 [node name="Banana" parent="." instance=ExtResource("13_pn3s8")]
 position = Vector2(259, 238)
 collision_mask = 4
 
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_gd_gpt_pressed"]
-
-[editable path="Ghost"]
