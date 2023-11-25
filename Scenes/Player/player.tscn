@@ -504,7 +504,7 @@ line_spacing = 1.0
 font_size = 8
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_qlbjc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -539,7 +539,7 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(8, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hitbox"]
+[node name="HitboxCollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hitbox"]
 light_mask = 2
 shape = SubResource("CapsuleShape2D_tod3v")
 debug_color = Color(0.823529, 0.380392, 0.317647, 0.419608)

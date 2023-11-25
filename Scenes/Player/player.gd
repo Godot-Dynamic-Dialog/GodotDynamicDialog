@@ -62,7 +62,7 @@ func attack_animation_finished():
 	get_node("%Hitbox").visible = false
 
 func _on_hitbox_body_entered(body):
-	if (body.has_method("take_damage")):
+	if (body.has_method("take_damage") and (state == ATTACK)):
 		body.take_damage()
 
 #INTERACTION FUNCTIONS
