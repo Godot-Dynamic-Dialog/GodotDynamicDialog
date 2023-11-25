@@ -20,3 +20,6 @@ func chasePlayer():
 
 func stopChase():
 	chase = false
+
+func take_damage():
+	queue_free()

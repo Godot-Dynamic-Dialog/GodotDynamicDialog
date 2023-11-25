@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://culk7qt4b4ddq"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_qlbjc"]
-[ext_resource type="Texture2D" uid="uid://kqaxsf4ugu2j" path="res://Assets/character.png" id="2_svemd"]
+[ext_resource type="Texture2D" path="res://Assets/character.png" id="2_svemd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vpbqf"]
 radius = 7.0
@@ -535,6 +535,8 @@ rotation = 1.5708
 metadata/_edit_group_ = true
 
 [node name="Hitbox" type="Area2D" parent="Marker2D"]
+unique_name_in_owner = true
+visible = false
 position = Vector2(8, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hitbox"]
@@ -565,5 +567,6 @@ offset_bottom = -14.0
 label_settings = SubResource("LabelSettings_o3hoo")
 horizontal_alignment = 1
 
+[connection signal="body_entered" from="Marker2D/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
