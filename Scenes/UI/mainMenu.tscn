@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbcy5ij8pkf5k"]
+
+[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_2uyp7"]
+[ext_resource type="Texture2D" uid="uid://cycv3bhhqpyyo" path="res://icon.png" id="1_x0cuf"]
+[ext_resource type="Script" path="res://Scenes/UI/PlayButton.gd" id="2_nmf3s"]
+[ext_resource type="Script" path="res://Scenes/UI/ExitButton.gd" id="3_fxpcw"]
+
+[sub_resource type="Theme" id="Theme_uqqsp"]
+default_font = ExtResource("1_2uyp7")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 328.0
+offset_bottom = 184.0
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer2/BoxContainer"]
+custom_minimum_size = Vector2(50, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_x0cuf")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2uyp7")
+theme_override_font_sizes/font_size = 24
+text = "Godot Dynamic Dialog"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="Play" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_uqqsp")
+theme_override_font_sizes/font_size = 10
+text = "Play"
+script = ExtResource("2_nmf3s")
+
+[node name="Exit" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_uqqsp")
+theme_override_font_sizes/font_size = 10
+text = "Exit
+"
+script = ExtResource("3_fxpcw")
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="VBoxContainer/VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="VBoxContainer/VBoxContainer/Exit" method="_on_pressed"]
