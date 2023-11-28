@@ -1,12 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbcy5ij8pkf5k"]
+[gd_scene load_steps=16 format=3 uid="uid://bbcy5ij8pkf5k"]
 
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_2uyp7"]
 [ext_resource type="Texture2D" uid="uid://cycv3bhhqpyyo" path="res://icon.png" id="1_x0cuf"]
+[ext_resource type="Texture2D" uid="uid://dixct1ewdl6mv" path="res://Assets/background.jpg" id="1_yikjn"]
 [ext_resource type="Script" path="res://Scenes/UI/PlayButton.gd" id="2_nmf3s"]
 [ext_resource type="Script" path="res://Scenes/UI/ExitButton.gd" id="3_fxpcw"]
 
 [sub_resource type="Theme" id="Theme_uqqsp"]
 default_font = ExtResource("1_2uyp7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63ed5"]
+bg_color = Color(0.768627, 0.768627, 0.768627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b73bd"]
+bg_color = Color(0.545098, 0.545098, 0.545098, 1)
+
+[sub_resource type="Theme" id="Theme_jlqyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3822w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe4kd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7fgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dimc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gio7a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfwh1"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,12 +37,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Backdrop" type="Sprite2D" parent="."]
+modulate = Color(0.105882, 0.117647, 0.113725, 1)
+position = Vector2(192, 104)
+scale = Vector2(0.164208, 0.164207)
+texture = ExtResource("1_yikjn")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 16.0
-offset_right = 328.0
-offset_bottom = 184.0
+offset_right = 384.0
+offset_bottom = 216.0
 alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
@@ -46,23 +71,70 @@ text = "Godot Dynamic Dialog"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 1.23
+theme_override_constants/separation = 10
+alignment = 1
 metadata/_edit_group_ = true
 
 [node name="Play" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_uqqsp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_63ed5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b73bd")
 text = "Play"
 script = ExtResource("2_nmf3s")
 
 [node name="Exit" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_uqqsp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_63ed5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b73bd")
 text = "Exit
 "
 script = ExtResource("3_fxpcw")
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_jlqyy")
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("1_2uyp7")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3822w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xe4kd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j7fgf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2dimc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gio7a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rfwh1")
+text = "Developer Mode"
+alignment = 1
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 192.0
+offset_right = 384.0
+offset_bottom = 216.0
+
+[node name="LinkButton" type="LinkButton" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Github"
+uri = "https://github.com/Godot-Dynamic-Dialog/GodotDynamicDialog"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="VBoxContainer/VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="VBoxContainer/VBoxContainer/Exit" method="_on_pressed"]
