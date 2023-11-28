@@ -344,6 +344,7 @@ sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 script = ExtResource("1_qy06e")
 
 [node name="PromptInput" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("2_uvonq")
 
 [node name="Button" type="Button" parent="PromptInput"]
