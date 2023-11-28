@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxx5taw2bblgt"]
 
 [ext_resource type="Script" path="res://Scenes/Mobs/Ghost/ghost.gd" id="1_21p80"]
-[ext_resource type="Texture2D" path="res://Assets/mobs.png" id="1_ro660"]
+[ext_resource type="Texture2D" uid="uid://jetnawbeeoap" path="res://Assets/mobs.png" id="1_ro660"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2b14s"]
 radius = 4.0
