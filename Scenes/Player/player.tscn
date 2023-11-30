@@ -504,7 +504,7 @@ line_spacing = 1.0
 font_size = 8
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
+collision_layer = 3
 script = ExtResource("1_qlbjc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -535,9 +535,11 @@ rotation = 1.5708
 metadata/_edit_group_ = true
 
 [node name="Hitbox" type="Area2D" parent="Marker2D"]
+unique_name_in_owner = true
+visible = false
 position = Vector2(8, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hitbox"]
+[node name="HitboxCollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hitbox"]
 light_mask = 2
 shape = SubResource("CapsuleShape2D_tod3v")
 debug_color = Color(0.823529, 0.380392, 0.317647, 0.419608)
@@ -565,5 +567,6 @@ offset_bottom = -14.0
 label_settings = SubResource("LabelSettings_o3hoo")
 horizontal_alignment = 1
 
+[connection signal="body_entered" from="Marker2D/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]

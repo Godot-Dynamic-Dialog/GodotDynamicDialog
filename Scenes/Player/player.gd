@@ -33,7 +33,7 @@ func get_input_axis():
 	
 func move(delta):
 	axis = get_input_axis()
-	print(axis)
+	#print(axis)
 	if (axis == Vector2.ZERO):
 		animation_state.travel("Idle")
 		if (velocity.length() > (FRICTION * delta)):
@@ -53,11 +53,17 @@ func move(delta):
 		state = ATTACK
 
 func attack():
+	get_node("%Hitbox").visible = true
 	velocity = Vector2.ZERO
 	animation_state.travel("Attack")
 
 func attack_animation_finished():
 	state = MOVE
+	get_node("%Hitbox").visible = false
+
+func _on_hitbox_body_entered(body):
+	if (body.has_method("take_damage") and (state == ATTACK)):
+		body.take_damage()
 
 #INTERACTION FUNCTIONS
 
@@ -76,5 +82,12 @@ func update_interactions():
 	if all_interactions:
 		#grabs interct_label variable defined in each object
 		interactLabel.text = all_interactions[0].interact_label
+		
+		#increment interact_counter variable
+		all_interactions[0].interact_counter += 1
+		#debugging output
+		print(all_interactions[0].interact_counter)
 	else:
-		interactLabel.text = "No objects found"
+		interactLabel.text = ""
+
+
