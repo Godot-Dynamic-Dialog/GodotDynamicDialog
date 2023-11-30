@@ -53,11 +53,17 @@ func move(delta):
 		state = ATTACK
 
 func attack():
+	get_node("%Hitbox").visible = true
 	velocity = Vector2.ZERO
 	animation_state.travel("Attack")
 
 func attack_animation_finished():
 	state = MOVE
+	get_node("%Hitbox").visible = false
+
+func _on_hitbox_body_entered(body):
+	if (body.has_method("take_damage") and (state == ATTACK)):
+		body.take_damage()
 
 #INTERACTION FUNCTIONS
 
@@ -87,3 +93,5 @@ func update_interactions():
 		print(all_interactions[0].interact_counter)
 	else:
 		interactLabel.text = ""
+
+
