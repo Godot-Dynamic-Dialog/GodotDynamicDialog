@@ -18,6 +18,8 @@ config/icon="res://icon.png"
 [autoload]
 
 InteractionManager="*res://Scenes/InteractionManager.tscn"
+DialogueDatabase="*res://DialogueManager/DialogueDatabase.gd"
+DialogueManager="*res://DialogueManager/DialogueManager.gd"
 Rain="*res://Scenes/Weather/Rain.gd"
 MainMenu="*res://Scenes/UI/mainMenu.gd"
 
