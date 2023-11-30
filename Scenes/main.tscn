@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=19 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_qy06e"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
@@ -11,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://07ugbrxmb7nr" path="res://Scenes/Objects/tree.tscn" id="6_v8wjo"]
 [ext_resource type="PackedScene" uid="uid://boi6ofya8suhr" path="res://Scenes/Objects/cave_entrance.tscn" id="7_risp2"]
 [ext_resource type="PackedScene" uid="uid://bxx5taw2bblgt" path="res://Scenes/Mobs/Ghost/ghost.tscn" id="11_5kdk5"]
+[ext_resource type="PackedScene" uid="uid://d2stelkgoeaop" path="res://Scenes/Weather/Rain.tscn" id="13_p0a21"]
 [ext_resource type="PackedScene" uid="uid://r5nirb85gn1l" path="res://Scenes/Objects/banana.tscn" id="13_pn3s8"]
+[ext_resource type="Script" path="res://Scenes/Weather/Rain.gd" id="14_fouvh"]
+[ext_resource type="PackedScene" uid="uid://ddhe3kgfx53ce" path="res://Scenes/Weather/HeavyRain.tscn" id="15_nwwl1"]
+[ext_resource type="Script" path="res://Scenes/Weather/HeavyRain.gd" id="16_llvw4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
 texture = ExtResource("2_ih2nm")
@@ -438,4 +442,15 @@ position = Vector2(384, 168)
 position = Vector2(259, 238)
 collision_mask = 4
 
+[node name="MainRain" parent="." instance=ExtResource("13_p0a21")]
+script = ExtResource("14_fouvh")
+
+[node name="MainHeavyRain" parent="." instance=ExtResource("15_nwwl1")]
+script = ExtResource("16_llvw4")
+
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_gd_gpt_pressed"]
+[connection signal="tree_exiting" from="PromptInput/Button" to="." method="_on_button_tree_exiting"]
+[connection signal="hidden" from="MainRain" to="MainRain" method="_on_hidden"]
+[connection signal="ready" from="MainRain" to="." method="_on_rain_ready"]
+[connection signal="ready" from="MainRain" to="MainRain" method="_on_ready"]
+[connection signal="tree_exiting" from="MainRain" to="MainRain" method="_on_tree_exiting"]
