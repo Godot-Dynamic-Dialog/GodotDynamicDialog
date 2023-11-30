@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 InteractionManager="*res://Scenes/InteractionManager.tscn"
 Rain="*res://Scenes/Weather/Rain.gd"
+MainMenu="*res://Scenes/UI/mainMenu.gd"
 
 [display]
 

@@ -15,7 +15,7 @@ orbit_velocity_max = 0.0
 [node name="Node2D" type="Node2D"]
 
 [node name="Rain2D" type="GPUParticles2D" parent="."]
-position = Vector2(353, -180)
+position = Vector2(203, -10)
 scale = Vector2(2.01418, 1.6688)
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_25fxg")

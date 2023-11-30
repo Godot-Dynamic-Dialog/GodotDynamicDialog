@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbcy5ij8pkf5k"]
+[gd_scene load_steps=18 format=3 uid="uid://bbcy5ij8pkf5k"]
 
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_2uyp7"]
+[ext_resource type="Script" path="res://Scenes/UI/mainMenu.gd" id="1_i7ne0"]
 [ext_resource type="Texture2D" uid="uid://cycv3bhhqpyyo" path="res://icon.png" id="1_x0cuf"]
 [ext_resource type="Texture2D" uid="uid://dixct1ewdl6mv" path="res://Assets/background.jpg" id="1_yikjn"]
 [ext_resource type="Script" path="res://Scenes/UI/PlayButton.gd" id="2_nmf3s"]
@@ -37,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i7ne0")
 
 [node name="Backdrop" type="Sprite2D" parent="."]
 modulate = Color(0.105882, 0.117647, 0.113725, 1)
@@ -150,4 +152,7 @@ uri = "https://github.com/Godot-Dynamic-Dialog/GodotDynamicDialog"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="VBoxContainer/VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Options" to="VBoxContainer/VBoxContainer/Options" method="_on_pressed"]
+[connection signal="tree_entered" from="VBoxContainer/VBoxContainer/Options" to="VBoxContainer/VBoxContainer/Options" method="_on_tree_entered"]
+[connection signal="tree_exited" from="VBoxContainer/VBoxContainer/Options" to="VBoxContainer/VBoxContainer/Options" method="_on_tree_exited"]
+[connection signal="tree_exiting" from="VBoxContainer/VBoxContainer/Options" to="VBoxContainer/VBoxContainer/Options" method="_on_tree_exiting"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="VBoxContainer/VBoxContainer/Exit" method="_on_pressed"]

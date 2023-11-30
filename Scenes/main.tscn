@@ -444,6 +444,8 @@ collision_mask = 4
 script = ExtResource("14_26mcp")
 
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_gd_gpt_pressed"]
+[connection signal="tree_exiting" from="PromptInput/Button" to="." method="_on_button_tree_exiting"]
 [connection signal="hidden" from="MainRain" to="MainRain" method="_on_hidden"]
 [connection signal="ready" from="MainRain" to="." method="_on_rain_ready"]
 [connection signal="ready" from="MainRain" to="MainRain" method="_on_ready"]
+[connection signal="tree_exiting" from="MainRain" to="MainRain" method="_on_tree_exiting"]
