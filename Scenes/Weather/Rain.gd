@@ -1,22 +1,16 @@
-extends CheckButton
+extends Node2D
 
-@export var rainState = false
 
+# Called when the node enters the scene tree for the first time.
 
 func _ready():
-	var rain = get_node("/root/MainMenu")
-	print(rain.getRainState)
-	if (rain.getRainState() == true):
-		button_pressed = true
-		
-
-func _on_toggled(button_pressed):
-	var rain = get_node("/root/MainMenu")
-	if (button_pressed == true):
-		rain.rainState = true
-	else:
-		rain.rainState = false
-		
-	print("BUTTON PRESSED, state is now: ", rain.rainState)
-
-
+	var rain_reference = get_node("/root/MainMenu")
+	var rainState = rain_reference.getRainState()
+	
+	print("Current rainstate: ", rainState)
+	if (rainState != 1):
+		hide()
+	
+	
+	
+	
