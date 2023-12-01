@@ -71,6 +71,10 @@ func _on_hitbox_body_entered(body):
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
 	update_interactions()
+	
+	DialogueManager.increment_context("health", 10)
+	DialogueManager.trigger_dialogue("health")
+	print(DialogueManager.game_context)
 
 #SIGNAL ON AREA EXITED
 func _on_interaction_area_area_exited(area):
