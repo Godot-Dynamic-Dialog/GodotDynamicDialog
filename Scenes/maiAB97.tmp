@@ -395,6 +395,13 @@ theme_override_font_sizes/font_size = 7
 text = "GPT Response"
 autowrap_mode = 2
 
+[node name="AiResponseLabel" type="RichTextLabel" parent="PromptInput"]
+offset_left = 30.0
+offset_top = 142.0
+offset_right = 121.0
+offset_bottom = 177.0
+text = "sample text"
+
 [node name="Player" parent="." instance=ExtResource("2_smu4t")]
 z_index = 2
 position = Vector2(202, 142)
