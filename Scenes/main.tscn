@@ -1,5 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://c4lhqu3mr88aq"]
 
+[ext_resource type="Script" path="res://Scenes/Global.gd" id="1_xba4t"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_smu4t"]
 [ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="2_uvonq"]
@@ -14,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://r5nirb85gn1l" path="res://Scenes/Objects/banana.tscn" id="13_pn3s8"]
 [ext_resource type="Script" path="res://Scenes/Weather/Rain.gd" id="14_fouvh"]
 [ext_resource type="PackedScene" uid="uid://ddhe3kgfx53ce" path="res://Scenes/Weather/HeavyRain.tscn" id="15_nwwl1"]
-[ext_resource type="Script" path="res://Scenes/CaveEntrance.gd" id="16_hvdhl"]
+[ext_resource type="PackedScene" uid="uid://hcdtajw7vlmj" path="res://Scenes/Portal.tscn" id="16_2nrf0"]
 [ext_resource type="Script" path="res://Scenes/Weather/HeavyRain.gd" id="16_llvw4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
@@ -344,10 +345,8 @@ texture = ExtResource("2_ih2nm")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl1mm"]
-size = Vector2(12, 16)
-
 [node name="Main" type="Node2D"]
+script = ExtResource("1_xba4t")
 
 [node name="PromptInput" type="CanvasLayer" parent="."]
 script = ExtResource("2_uvonq")
@@ -449,13 +448,9 @@ script = ExtResource("14_fouvh")
 [node name="MainHeavyRain" parent="." instance=ExtResource("15_nwwl1")]
 script = ExtResource("16_llvw4")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(395, 44)
-script = ExtResource("16_hvdhl")
-
-[node name="CaveEntrance" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -2)
-shape = SubResource("RectangleShape2D_pl1mm")
+[node name="Portal" parent="." instance=ExtResource("16_2nrf0")]
+next_scene_path = "res://Scenes/Cave.tscn"
+player_spawn_location = Vector2(-8, -8)
 
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_gd_gpt_pressed"]
 [connection signal="tree_exiting" from="PromptInput/Button" to="." method="_on_button_tree_exiting"]
@@ -463,4 +458,3 @@ shape = SubResource("RectangleShape2D_pl1mm")
 [connection signal="ready" from="MainRain" to="." method="_on_rain_ready"]
 [connection signal="ready" from="MainRain" to="MainRain" method="_on_ready"]
 [connection signal="tree_exiting" from="MainRain" to="MainRain" method="_on_tree_exiting"]
-[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]

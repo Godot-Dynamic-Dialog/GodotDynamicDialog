@@ -22,6 +22,7 @@ DialogueDatabase="*res://DialogueManager/DialogueDatabase.gd"
 DialogueManager="*res://DialogueManager/DialogueManager.gd"
 Rain="*res://Scenes/Weather/Rain.gd"
 MainMenu="*res://Scenes/UI/mainMenu.gd"
+Global="*res://Scenes/Global.gd"
 
 [display]
 
@@ -76,7 +77,9 @@ attack={
 
 2d_render/layer_1="World"
 2d_render/layer_2="Hitbox"
+2d_physics/layer_2="Player"
 2d_physics/layer_3="interactions"
+2d_physics/layer_4="Portal"
 
 [rendering]
 

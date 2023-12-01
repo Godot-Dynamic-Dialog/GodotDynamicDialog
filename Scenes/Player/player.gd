@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var interactLabel = $InteractionComponents/Label
 
+
+
 @export var MAX_SPEED = 65
 @export var ACCELERATION = 600
 @export var FRICTION = 550
@@ -18,6 +20,9 @@ enum {
 var state = MOVE
 var axis = Vector2.ZERO
 var player_attacking = false
+
+
+
 
 func _physics_process(delta):
 	match state:
@@ -94,4 +99,5 @@ func update_interactions():
 	else:
 		interactLabel.text = ""
 
-
+func _ready():
+	self.global_position = Global.player_map_position

@@ -4,7 +4,6 @@ var dialogue_database = DialogueDatabase
 
 var game_context = {}
 
-var player_location = Vector2(202,142)
 
 #@onready var dialogue_box = $DialogueBox
 #@onready var dialogue_text = dialogue_box.get_node("DialogueText")

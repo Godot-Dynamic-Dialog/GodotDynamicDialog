@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="1_y12gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br6cu"]
-size = Vector2(16, 16)
+size = Vector2(16, 4)
 
 [node name="cave_entrance" type="StaticBody2D"]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_br6cu")
 
 [node name="Sprite" type="Sprite2D" parent="."]
