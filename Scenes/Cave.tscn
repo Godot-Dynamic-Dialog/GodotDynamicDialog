@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://m2hetha383la"]
+[gd_scene load_steps=7 format=3 uid="uid://m2hetha383la"]
 
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="1_pp2yt"]
+[ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_gfx07"]
+[ext_resource type="Script" path="res://Scenes/CaveExit.gd" id="2_s31u2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncpbu"]
 texture = ExtResource("1_pp2yt")
@@ -331,7 +333,15 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(0, 0, 3, 1, 65536, 3, 2, 131072, 3, 65534, 131072, 4, -2, 131072, 4, -65538, 131072, 4, -131074, 131072, 4, 65538, 131072, 4, 131074, 131072, 4, 196610, 131072, 4, 262147, 65536, 3, 262148, 65536, 3, 262149, 65536, 3, 262150, 65536, 3, 262151, 65536, 3, 262152, 65536, 3, -196610, 131072, 4, -262146, 131072, 4, -327682, 131072, 4, -393218, 131072, 4, -458754, 131072, 4, -524290, 131072, 4, 262153, 65536, 3, 262154, 65536, 3, 262155, 65536, 3, 262156, 65536, 3, 65535, 393216, 1, -589825, 458752, 1, -655360, 458752, 1, -655359, 458752, 1, -655358, 458752, 1, -655357, 458752, 1, -655356, 458752, 1, -655355, 458752, 1, -655354, 458752, 1, -655353, 458752, 1, -655352, 458752, 1, -655351, 458752, 1, -655350, 458752, 1, -655349, 458752, 1, -655348, 458752, 1, -589826, 131072, 4, -655347, 0, 4, -589811, 0, 4, -524275, 0, 4, -458739, 0, 4, -393203, 0, 4, -327667, 0, 4, -65523, 0, 4, 13, 0, 4, -131059, 0, 4, -196595, 0, 4, -262131, 0, 4, 65549, 0, 4, 131085, 0, 4, 196621, 0, 4, -458753, 327680, 6, -524289, 327680, 5, -589823, 458752, 6, -589822, 327680, 7, -131067, 458752, 4, -458747, 458752, 4, -458742, 458752, 4, -131062, 458752, 4, -196602, 458752, 2, -196601, 458752, 2, -131065, 393216, 2, -131063, 393216, 2, -196599, 458752, 2, -196600, 458752, 2, -131064, 393216, 2, -393209, 393216, 2, -393208, 393216, 2, -393207, 393216, 2, -458743, 458752, 2, -458744, 458752, 2, -458745, 458752, 2, -458746, 458752, 2, -131066, 393216, 2, -393210, 393216, 2)
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_s31u2")
 
 [node name="CaveExit" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-8.5, 8)
 shape = SubResource("RectangleShape2D_4vc6o")
+
+[node name="Player" parent="." instance=ExtResource("2_gfx07")]
+position = Vector2(-8, -13)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]

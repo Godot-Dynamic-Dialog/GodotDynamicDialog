@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=17 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Main.cs" id="1_qy06e"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
@@ -342,13 +342,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k51ky"]
-size = Vector2(14, 16)
+size = Vector2(14, 18)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qy06e")
 
 [node name="PromptInput" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("2_uvonq")
 
 [node name="Button" type="Button" parent="PromptInput"]
@@ -443,13 +442,14 @@ position = Vector2(259, 238)
 collision_mask = 4
 
 [node name="Area2D" type="Area2D" parent="."]
-
-[node name="CaveEntrance" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(392, 40)
-shape = SubResource("RectangleShape2D_k51ky")
 script = ExtResource("14_bpkq8")
 
+[node name="CaveEntrance" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(392, 41)
+shape = SubResource("RectangleShape2D_k51ky")
+
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_button_pressed"]
-[connection signal="area_entered" from="Area2D" to="Area2D/CaveEntrance" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D/CaveEntrance" method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
 
 [editable path="Ghost"]
