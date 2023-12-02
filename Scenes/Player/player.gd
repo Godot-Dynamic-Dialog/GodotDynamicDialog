@@ -99,5 +99,8 @@ func update_interactions():
 	else:
 		interactLabel.text = ""
 
+
+#had to have this down here elsewise it caused issues with above code
+#allows the position of the player to be manipulated, used by portals (doorways)
 func _ready():
 	self.global_position = Global.player_map_position

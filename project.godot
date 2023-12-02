@@ -23,6 +23,7 @@ DialogueManager="*res://DialogueManager/DialogueManager.gd"
 Rain="*res://Scenes/Weather/Rain.gd"
 MainMenu="*res://Scenes/UI/mainMenu.gd"
 Global="*res://Scenes/Global.gd"
+SceneTransition="*res://Scenes/UI/SceneTransition.tscn"
 
 [display]
 

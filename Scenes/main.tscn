@@ -451,6 +451,7 @@ script = ExtResource("16_llvw4")
 [node name="Portal" parent="." instance=ExtResource("16_2nrf0")]
 next_scene_path = "res://Scenes/Cave.tscn"
 player_spawn_location = Vector2(-8, -8)
+player_direction_facing = Vector2(0, 1)
 
 [connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_gd_gpt_pressed"]
 [connection signal="tree_exiting" from="PromptInput/Button" to="." method="_on_button_tree_exiting"]
