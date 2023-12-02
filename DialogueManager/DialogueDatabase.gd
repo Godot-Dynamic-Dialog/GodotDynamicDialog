@@ -4,21 +4,21 @@ extends Node
 var dialogues = []
 
 func _init():
-	var high_health = PlayerDialogue.new()
-	high_health.set_data({
-		"id": "health",
-		"conditions": {"health": 100},
-		"text": "High Health",
-		})
-	dialogues.append(high_health)
-	
-	var low_health = PlayerDialogue.new()
-	low_health.set_data({
-		"id": "health",
-		"conditions": {"health": 50},
-		"text": "Low Health",
-		})
-	dialogues.append(low_health)
+	load_dialogues()
+
+func load_dialogues():
+	var filePath = "res://DialogueManager/dialogues.json"
+	if FileAccess.file_exists(filePath):
+		var dataFile = FileAccess.open(filePath, FileAccess.READ)
+		var result = JSON.parse_string(dataFile.get_as_text())
+		for dialogue_data in result:
+			var dialogue = PlayerDialogue.new()
+			dialogue.id = dialogue_data["id"]
+			dialogue.conditions = dialogue_data["conditions"]
+			dialogue.text = dialogue_data["text"]
+			dialogues.append(dialogue)
+	else:
+		print("Failed to open dialogues.json")
 
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
