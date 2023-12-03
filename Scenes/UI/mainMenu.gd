@@ -1,10 +1,6 @@
 extends Control
 
-@export var rainState = 0
-#rain states:
-	# 0 == No rain
-	# 1 == Light rain
-	# 2 == Heavy rain
+
 	
 	
 # Called when the node enters the scene tree for the first time.
@@ -15,9 +11,7 @@ func _ready():
 func _process(delta):
 	pass
 
-#getter for grabbing current rainstate
-func getRainState():
-	return rainState
+
 
 #PLAY BUTTON
 func _on_play_pressed():
