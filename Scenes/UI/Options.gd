@@ -2,6 +2,7 @@ extends Control
 
 @onready var dropdown = $VBoxContainer/VBoxContainer/dropdown
 @onready var fruit_slider = $VBoxContainer/VBoxContainer/fruit_slider
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var database = get_node("/root/DialogueDatabase")
