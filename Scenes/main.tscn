@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=17 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_smu4t"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://boi6ofya8suhr" path="res://Scenes/Objects/cave_entrance.tscn" id="7_risp2"]
 [ext_resource type="PackedScene" uid="uid://bxx5taw2bblgt" path="res://Scenes/Mobs/Ghost/ghost.tscn" id="11_5kdk5"]
 [ext_resource type="PackedScene" uid="uid://d2stelkgoeaop" path="res://Scenes/Weather/Rain.tscn" id="13_p0a21"]
-[ext_resource type="PackedScene" uid="uid://r5nirb85gn1l" path="res://Scenes/Objects/banana.tscn" id="13_pn3s8"]
 [ext_resource type="Script" path="res://Scenes/Weather/Rain.gd" id="14_fouvh"]
 [ext_resource type="PackedScene" uid="uid://ddhe3kgfx53ce" path="res://Scenes/Weather/HeavyRain.tscn" id="15_nwwl1"]
 [ext_resource type="Script" path="res://Scenes/Weather/HeavyRain.gd" id="16_llvw4"]
@@ -435,10 +434,6 @@ position = Vector2(392, 40)
 
 [node name="Ghost" parent="." instance=ExtResource("11_5kdk5")]
 position = Vector2(384, 168)
-
-[node name="Banana" parent="." instance=ExtResource("13_pn3s8")]
-position = Vector2(259, 238)
-collision_mask = 4
 
 [node name="MainRain" parent="." instance=ExtResource("13_p0a21")]
 script = ExtResource("14_fouvh")
