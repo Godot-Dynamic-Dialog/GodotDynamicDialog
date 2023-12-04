@@ -6,6 +6,9 @@ var apple = preload("res://Scenes/Objects/apple.tscn")
 var watermelon = preload("res://Scenes/Objects/watermelon.tscn")
 var banana = preload("res://Scenes/Objects/banana.tscn")
 
+#total number of fruits collected - incremented when item picked up
+var fruits_collected = 0
+
 ###--- Rain state variable ---###
 # Rain states:
 	# 0 == No rain -- default
@@ -15,7 +18,6 @@ var banana = preload("res://Scenes/Objects/banana.tscn")
 @export var rainState = 0
 @export var numOfFruits = 0
 @export var fruits = [apple, watermelon, banana]
-
 
 func _init():
 	load_dialogues()
@@ -33,7 +35,6 @@ func load_dialogues():
 			dialogues.append(dialogue)
 	else:
 		print("Failed to open dialogues.json")
-
 
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
@@ -55,4 +56,5 @@ func getRainState():
 
 func getNumOfFruits():
 	return numOfFruits
+	
 	

@@ -22,8 +22,8 @@ DialogueDatabase="*res://DialogueManager/DialogueDatabase.gd"
 DialogueManager="*res://DialogueManager/DialogueManager.gd"
 Rain="*res://Scenes/Weather/Rain.gd"
 MainMenu="*res://Scenes/UI/mainMenu.gd"
-Apple="*res://Scenes/Objects/apple.tscn"
-Banana="*res://Scenes/Objects/banana.tscn"
+Apple="*res://Scenes/Objects/Old/apple.tscn"
+Banana="*res://Scenes/Objects/Old/banana.tscn"
 
 [display]
 

@@ -497,7 +497,7 @@ radius = 7.0
 height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkkyn"]
-radius = 25.7292
+radius = 14.7373
 
 [sub_resource type="LabelSettings" id="LabelSettings_o3hoo"]
 line_spacing = 1.0
@@ -546,7 +546,8 @@ debug_color = Color(0.823529, 0.380392, 0.317647, 0.419608)
 
 [node name="InteractionComponents" type="Node2D" parent="."]
 z_index = 1
-position = Vector2(-3, 0)
+position = Vector2(-2, 10)
+scale = Vector2(0.590166, 0.557411)
 
 [node name="InteractionArea" type="Area2D" parent="InteractionComponents"]
 position = Vector2(60, -19)
@@ -555,8 +556,8 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/InteractionArea"]
-position = Vector2(-57, 20)
-scale = Vector2(0.52768, -0.553718)
+position = Vector2(-56.6111, 17.206)
+scale = Vector2(0.459903, -0.481958)
 shape = SubResource("CircleShape2D_tkkyn")
 
 [node name="Label" type="Label" parent="InteractionComponents"]

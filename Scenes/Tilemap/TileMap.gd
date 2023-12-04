@@ -6,7 +6,7 @@ func _ready():
 	var fruits = DialogueDatabase
 	print("NUMBER OF FRUITS SPAWNED IN THIS INSTANCE: ", fruits.getNumOfFruits())
 	spawn(fruits.getNumOfFruits())
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # x = number of object instances to spaw
