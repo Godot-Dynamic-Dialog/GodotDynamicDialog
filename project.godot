@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GodotDynamicDialog"
 run/main_scene="res://Scenes/UI/mainMenu.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.png"
 
 [autoload]
@@ -24,6 +24,8 @@ Rain="*res://Scenes/Weather/Rain.gd"
 MainMenu="*res://Scenes/UI/mainMenu.gd"
 Global="*res://Scenes/Global.gd"
 SceneTransition="*res://Scenes/UI/SceneTransition.tscn"
+Apple="*res://Scenes/Objects/Old/apple.tscn"
+Banana="*res://Scenes/Objects/Old/banana.tscn"
 
 [display]
 

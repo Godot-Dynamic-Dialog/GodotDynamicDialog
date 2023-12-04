@@ -69,7 +69,7 @@ func attack_animation_finished():
 func _on_hitbox_body_entered(body):
 	if (body.has_method("take_damage") and (state == ATTACK)):
 		body.take_damage()
-
+	
 #INTERACTION FUNCTIONS
 
 #SIGNAL ON AREA ENTERED
@@ -77,10 +77,10 @@ func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
 	update_interactions()
 	
-	DialogueManager.increment_context("health", 10)
-	DialogueManager.trigger_dialogue("health")
-	print(DialogueManager.game_context)
-
+	
+	if area.has_method("collect"):
+		area.collect()
+		
 #SIGNAL ON AREA EXITED
 func _on_interaction_area_area_exited(area):
 	all_interactions.erase(area)
@@ -92,10 +92,6 @@ func update_interactions():
 		#grabs interct_label variable defined in each object
 		interactLabel.text = all_interactions[0].interact_label
 		
-		#increment interact_counter variable
-		all_interactions[0].interact_counter += 1
-		#debugging output
-		print(all_interactions[0].interact_counter)
 	else:
 		interactLabel.text = ""
 
