@@ -18,38 +18,23 @@ var banana = preload("res://Scenes/Objects/banana.tscn")
 
 
 func _init():
-	var high_health = PlayerDialogue.new()
-	high_health.set_data({
-		"id": "health",
-		"conditions": {"health": 100},
-		"text": "High Health",
-		})
-	dialogues.append(high_health)
-	
-	var low_health = PlayerDialogue.new()
-	low_health.set_data({
-		"id": "health",
-		"conditions": {"health": 50},
-		"text": "Low Health",
-		})
-	dialogues.append(low_health)
-	
-	var no_rain = PlayerDialogue.new()
-	no_rain.set_data({
-		"id": "rain",
-		"conditions": {"rain": 0},
-		"text": "No Rain",
-	})
-	dialogues.append(no_rain)
-	
-	var light_rain = PlayerDialogue.new()
-	no_rain.set_data({
-		"id": "rain",
-		"conditions": {"rain": 1},
-		"text": "It is lightly raining",
-	})
-	dialogues.append(light_rain)
-	
+	load_dialogues()
+
+func load_dialogues():
+	var filePath = "res://DialogueManager/dialogues.json"
+	if FileAccess.file_exists(filePath):
+		var dataFile = FileAccess.open(filePath, FileAccess.READ)
+		var result = JSON.parse_string(dataFile.get_as_text())
+		for dialogue_data in result:
+			var dialogue = PlayerDialogue.new()
+			dialogue.id = dialogue_data["id"]
+			dialogue.conditions = dialogue_data["conditions"]
+			dialogue.text = dialogue_data["text"]
+			dialogues.append(dialogue)
+	else:
+		print("Failed to open dialogues.json")
+
+
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
 		if dialogue.id == event_id:

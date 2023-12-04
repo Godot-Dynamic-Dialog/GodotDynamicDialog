@@ -1,0 +1,10 @@
+[{
+    "id": "health",
+    "conditions": {"health": 100},
+    "text": "High Health"
+},
+{
+    "id": "health",
+    "conditions": {"health": 50},
+    "text": "Low Health"
+}]
