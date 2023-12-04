@@ -35,7 +35,7 @@ func load_dialogues():
 			dialogues.append(dialogue)
 	else:
 		print("Failed to open dialogues.json")
-	
+
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
 		if dialogue.id == event_id:
