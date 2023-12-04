@@ -1,28 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxan7ldn2c83d"]
+[gd_scene load_steps=4 format=3 uid="uid://lcvbg5jnamtj"]
 
+[ext_resource type="PackedScene" uid="uid://dbcv1lvs4wld" path="res://Scenes/Objects/fruits.tscn" id="1_3m8gl"]
 [ext_resource type="Texture2D" uid="uid://psnxjtlcduqy" path="res://Assets/watermelon.png" id="1_ivih8"]
-[ext_resource type="Script" path="res://Scenes/Objects/object_pickup.gd" id="1_w55tp"]
-[ext_resource type="PackedScene" uid="uid://wn2tfo2th3ss" path="res://Scenes/InteractArea.tscn" id="2_817wg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h46da"]
-radius = 6.08276
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbeym"]
+resource_local_to_scene = true
 
-[node name="StaticBody2D" type="StaticBody2D"]
-script = ExtResource("1_w55tp")
+[node name="watermelon" instance=ExtResource("1_3m8gl")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.375, 0.375)
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_mbeym")
+
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_ivih8")
 
-[node name="InteractArea" parent="." instance=ExtResource("2_817wg")]
-position = Vector2(1, 0)
-interact_label = "Watermelon"
-
-[node name="PickupArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-shape = SubResource("CircleShape2D_h46da")
-
-[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_area_entered"]
-[connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]
+[node name="InteractArea" parent="." index="2"]
+position = Vector2(1, 1)
+scale = Vector2(1.71605, 1.61765)
+interact_label = "watermelon"
+item_id = 1
+interaction_variable = "num_watermelon"
