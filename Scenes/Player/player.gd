@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var interactLabel = $InteractionComponents/Label
 
+
+
 @export var MAX_SPEED = 65
 @export var ACCELERATION = 600
 @export var FRICTION = 550
@@ -18,6 +20,9 @@ enum {
 var state = MOVE
 var axis = Vector2.ZERO
 var player_attacking = false
+
+
+
 
 func _physics_process(delta):
 	match state:
@@ -91,3 +96,7 @@ func update_interactions():
 		interactLabel.text = ""
 
 
+#had to have this down here elsewise it caused issues with above code
+#allows the position of the player to be manipulated, used by portals (doorways)
+func _ready():
+	self.global_position = Global.player_map_position
