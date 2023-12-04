@@ -2,6 +2,20 @@
 extends Node
 
 var dialogues = []
+var apple = preload("res://Scenes/Objects/apple.tscn")
+var watermelon = preload("res://Scenes/Objects/watermelon.tscn")
+var banana = preload("res://Scenes/Objects/banana.tscn")
+
+###--- Rain state variable ---###
+# Rain states:
+	# 0 == No rain -- default
+	# 1 == Light rain
+	# 2 == Heavy rain
+	
+@export var rainState = 0
+@export var numOfFruits = 0
+@export var fruits = [apple, watermelon, banana]
+
 
 func _init():
 	load_dialogues()
@@ -20,6 +34,7 @@ func load_dialogues():
 	else:
 		print("Failed to open dialogues.json")
 
+
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
 		if dialogue.id == event_id:
@@ -31,3 +46,13 @@ func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDial
 			if conditions_met:
 				return dialogue
 	return null
+
+
+#getter for grabbing current rainstate
+func getRainState():
+	return rainState
+
+
+func getNumOfFruits():
+	return numOfFruits
+	

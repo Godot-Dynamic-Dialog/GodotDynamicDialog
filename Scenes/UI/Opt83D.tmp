@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8avj8dg4andl"]
+[gd_scene load_steps=8 format=3 uid="uid://c8avj8dg4andl"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Options.gd" id="1_goqlf"]
 [ext_resource type="Texture2D" uid="uid://dixct1ewdl6mv" path="res://Assets/background.jpg" id="1_h1tn8"]
+[ext_resource type="Texture2D" uid="uid://cycv3bhhqpyyo" path="res://icon.png" id="2_aavqo"]
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="3_govfu"]
 
 [sub_resource type="Theme" id="Theme_uqqsp"]
@@ -29,17 +30,35 @@ script = ExtResource("1_goqlf")
 [node name="Backdrop" type="Sprite2D" parent="."]
 modulate = Color(0.105882, 0.117647, 0.113725, 1)
 position = Vector2(192, 104)
-scale = Vector2(0.164, 0.164)
+scale = Vector2(0.164208, 0.164207)
 texture = ExtResource("1_h1tn8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = -18.0
-offset_right = 480.0
-offset_bottom = 198.0
-scale = Vector2(0.86979, 1.06979)
+offset_right = 384.0
+offset_bottom = 216.0
 alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer2/BoxContainer"]
+custom_minimum_size = Vector2(50, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_aavqo")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_govfu")
+theme_override_font_sizes/font_size = 24
+text = "Godot Dynamic Dialog"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -50,7 +69,17 @@ theme_override_constants/separation = 10
 alignment = 1
 metadata/_edit_group_ = true
 
-[node name="dropdown" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_uqqsp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_63ed5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b73bd")
+text = "Back
+"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -60,10 +89,6 @@ popup/item_1/text = "Light Rain"
 popup/item_1/id = 1
 popup/item_2/text = "Heavy Rain"
 popup/item_2/id = 2
-
-[node name="fruit_slider" type="HSlider" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
-max_value = 50.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -84,43 +109,7 @@ theme_override_font_sizes/font_size = 8
 text = "Github"
 uri = "https://github.com/Godot-Dynamic-Dialog/GodotDynamicDialog"
 
-[node name="back" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 174.0
-offset_top = -1.0
-offset_right = 198.0
-offset_bottom = 20.0
-
-[node name="Back" type="Button" parent="back"]
-layout_mode = 2
-theme = SubResource("Theme_uqqsp")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_63ed5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_b73bd")
-text = "Back
-"
-
-[node name="Rain Type" type="Label" parent="."]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 68.0
-offset_right = 118.0
-offset_bottom = 94.0
-text = "Rain Type
-"
-
-[node name="Fruit Spawns" type="Label" parent="."]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 102.0
-offset_right = 142.0
-offset_bottom = 128.0
-text = "Fruit spawns
-"
-
-[connection signal="item_focused" from="VBoxContainer/VBoxContainer/dropdown" to="." method="_on_option_button_item_focused"]
-[connection signal="item_selected" from="VBoxContainer/VBoxContainer/dropdown" to="." method="_on_option_button_item_selected"]
-[connection signal="value_changed" from="VBoxContainer/VBoxContainer/fruit_slider" to="." method="_on_fruit_slider_value_changed"]
-[connection signal="pressed" from="back/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="back/Back" to="back/Back" method="_on_pressed" flags=18]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Back" to="VBoxContainer/VBoxContainer/Back" method="_on_pressed" flags=18]
+[connection signal="item_focused" from="VBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_item_focused"]
+[connection signal="item_selected" from="VBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
