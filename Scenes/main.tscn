@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=19 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_xba4t"]
+[ext_resource type="PackedScene" uid="uid://cl3pe88eyrurq" path="res://Scenes/PropmtInput.tscn" id="2_ieakw"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_smu4t"]
-[ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="2_uvonq"]
-[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="4_7frbr"]
 [ext_resource type="PackedScene" uid="uid://cremcdet2rlpy" path="res://Scenes/Objects/well.tscn" id="4_7xcy5"]
 [ext_resource type="PackedScene" uid="uid://b0ye6ppn8gkyf" path="res://Scenes/Objects/chest.tscn" id="5_whfj4"]
 [ext_resource type="Script" path="res://Scenes/Tilemap/TileMap.gd" id="6_d8ysi"]
@@ -348,55 +347,7 @@ sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xba4t")
 
-[node name="PromptInput" type="CanvasLayer" parent="."]
-script = ExtResource("2_uvonq")
-
-[node name="Button" type="Button" parent="PromptInput"]
-anchors_preset = -1
-anchor_left = 0.016
-anchor_top = 0.889
-anchor_right = 0.091
-anchor_bottom = 0.972
-offset_left = -2.144
-offset_top = 0.976013
-offset_right = -1.944
-offset_bottom = 1.04802
-theme_override_fonts/font = ExtResource("4_7frbr")
-theme_override_font_sizes/font_size = 7
-text = "Enter"
-
-[node name="TextEdit" type="TextEdit" parent="PromptInput"]
-anchors_preset = -1
-anchor_left = 0.091
-anchor_top = 0.889
-anchor_right = 0.323
-anchor_bottom = 0.977
-offset_left = 0.0559998
-offset_top = -0.0240173
-offset_right = -0.0320053
-offset_bottom = -0.0320129
-theme_override_fonts/font = ExtResource("4_7frbr")
-theme_override_font_sizes/font_size = 7
-placeholder_text = "Type prompt here"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="PromptInput"]
-anchors_preset = -1
-anchor_left = 0.289
-anchor_top = 0.75
-anchor_right = 0.596
-anchor_bottom = 0.889
-offset_left = -103.976
-offset_top = -56.0
-offset_right = -61.864
-offset_bottom = -4.024
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.258824)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_7frbr")
-theme_override_font_sizes/font_size = 7
-text = "GPT Response"
-autowrap_mode = 2
+[node name="PromptInput" parent="." instance=ExtResource("2_ieakw")]
 
 [node name="Player" parent="." instance=ExtResource("2_smu4t")]
 z_index = 2
@@ -453,8 +404,6 @@ next_scene_path = "res://Scenes/Cave.tscn"
 player_spawn_location = Vector2(-8, -8)
 player_direction_facing = Vector2(0, 1)
 
-[connection signal="pressed" from="PromptInput/Button" to="PromptInput" method="_on_gd_gpt_pressed"]
-[connection signal="tree_exiting" from="PromptInput/Button" to="." method="_on_button_tree_exiting"]
 [connection signal="hidden" from="MainRain" to="MainRain" method="_on_hidden"]
 [connection signal="ready" from="MainRain" to="." method="_on_rain_ready"]
 [connection signal="ready" from="MainRain" to="MainRain" method="_on_ready"]
