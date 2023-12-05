@@ -99,5 +99,4 @@ func _on_request_completed(result, response_code, headers, body):
 
 	# Change on-screen text
 	get_node("Label").set_text(message)
-	
 	print("Response:\n", message)
