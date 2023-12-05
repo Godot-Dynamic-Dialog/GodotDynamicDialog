@@ -10,6 +10,10 @@ var game_context = {}
 
 func update_context(key: String, value) -> void:
 	game_context[key] = value
+
+func get_context(key: String):
+	var context = game_context[key]
+	return context
 	
 	# Function to update the game context, incrementing the value if the key exists
 func increment_context(key: String, increment: int = 1) -> void:

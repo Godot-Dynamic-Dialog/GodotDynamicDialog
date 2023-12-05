@@ -16,8 +16,8 @@ func collect():
 	#DialogueDatabase.fruits_collected += 1
 	#print(DialogueDatabase.fruits_collected)
 	var current_fruit = $InteractArea.interact_label
-	DialogueManager.increment_context("total_fruit", 1)
-	DialogueManager.trigger_dialogue("total_fruit")
+	DialogueManager.increment_context("hunger", 10)
+	DialogueManager.trigger_dialogue("hunger")
 	
 	DialogueManager.increment_context("health", 10)
 	DialogueManager.trigger_dialogue("health")

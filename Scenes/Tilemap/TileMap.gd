@@ -17,7 +17,7 @@ func spawn(x):
 		var fruits = database.fruits
 		var kinds = fruits[randi()% fruits.size()]
 		var fruit = kinds.instantiate()
-		fruit.position = Vector2(randi_range(100,300), randi_range(-50, -150))
+		fruit.position = Vector2(randi_range(100,300), randi_range(-50, -130))
 		fruit.z_index = 1
 		add_child(fruit)
 		x -= 1
