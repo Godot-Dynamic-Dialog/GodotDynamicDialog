@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl3pe88eyrurq"]
+[gd_scene load_steps=4 format=3 uid="uid://cl3pe88eyrurq"]
 
 [ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="1_iwidv"]
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="2_n2rs8"]
+[ext_resource type="Script" path="res://addons/HTTPSSEClient/HTTPSSEClient_modified.gd" id="3_wr48q"]
 
 [node name="PromptInput" type="CanvasLayer"]
 script = ExtResource("1_iwidv")
@@ -52,5 +53,8 @@ theme_override_fonts/font = ExtResource("2_n2rs8")
 theme_override_font_sizes/font_size = 7
 text = "GPT Response"
 autowrap_mode = 2
+
+[node name="HTTPSSEClient" type="Node" parent="."]
+script = ExtResource("3_wr48q")
 
 [connection signal="pressed" from="Button" to="." method="_on_gd_gpt_pressed"]

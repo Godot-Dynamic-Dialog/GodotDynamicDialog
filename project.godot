@@ -39,6 +39,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="GodotDynamicDialog"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/HTTPSSEClient/plugin.cfg")
+
 [input]
 
 move_up={
