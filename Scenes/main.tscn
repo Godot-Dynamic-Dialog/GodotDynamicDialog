@@ -353,7 +353,6 @@ sources/1 = SubResource("TileSetScenesCollectionSource_xhsrj")
 [node name="Main" type="Node2D"]
 
 [node name="PromptInput" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("2_uvonq")
 
 [node name="Button" type="Button" parent="PromptInput"]

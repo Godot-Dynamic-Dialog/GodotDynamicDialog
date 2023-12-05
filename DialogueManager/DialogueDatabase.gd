@@ -16,7 +16,7 @@ var fruits_collected = 0
 	# 2 == Heavy rain
 	
 @export var rainState = 0
-@export var numOfFruits = 0
+@export var numOfFruits = 50
 @export var fruits = [apple, watermelon, banana]
 
 func _init():

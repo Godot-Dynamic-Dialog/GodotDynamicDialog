@@ -1,30 +1,51 @@
-[{
-	"id": "health",
-	"conditions": {"health": 100},
-	"text": "High Health"
-},
-{
-	"id": "health",
-	"conditions": {"health": 50},
-	"text": "Low Health"
-},
-{
-	"id": "total_fruit",
-	"conditions": {"total_fruit": 5},
-	"text": "Lots of fruit"
-},
-{
-	"id": "total_apple",
-	"conditions": {"total_apple": 5},
-	"text": "Lots of apples"
-},
-{
-	"id": "total_watermelon",
-	"conditions": {"total_watermelon": 5},
-	"text": "Lots of watermelon"
-},
-{
-	"id": "total_banana",
-	"conditions": {"total_banana": 5},
-	"text": "Lots of bananas"
-}]
+[
+	{
+		"id": "health",
+		"conditions": {
+			"health": 100
+		},
+		"text": "High Health"
+	},
+	{
+		"id": "health",
+		"conditions": {
+			"health": 50
+		},
+		"text": "Low Health"
+	},
+	{
+		"id": "hunger",
+		"conditions": {
+			"hunger": 5
+		},
+		"text": "Hunger satisfied"
+	},
+	{
+		"id": "hunger",
+		"conditions": {
+			"hunger": 1
+		},
+		"text": "Still hungry"
+	},
+	{
+		"id": "total_apple",
+		"conditions": {
+			"total_apple": 5
+		},
+		"text": "Lots of apples"
+	},
+	{
+		"id": "total_watermelon",
+		"conditions": {
+			"total_watermelon": 5
+		},
+		"text": "Lots of watermelon"
+	},
+	{
+		"id": "total_banana",
+		"conditions": {
+			"total_banana": 5
+		},
+		"text": "Lots of bananas"
+	}
+]
