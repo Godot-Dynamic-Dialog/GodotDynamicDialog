@@ -86,23 +86,25 @@ func _on_gd_gpt_pressed():
 	#var NPC : String = "an old wise man"
 	#var action : String = "MC has just finished slaying a dragon"
 	var MC : String =  "an adventurer"
-	var apple : String = "you see an apple"
-	var extra : String = "you just saw an apple tree."
-	var hunger : String = "you are quite hungry"
+	var apple : String = str(DialogueManager.get_context("total_apple"))
+	#var extra : String = "you just saw an apple tree."
+	var hunger : String = str(DialogueManager.get_context("hunger"))
 	var env : String = "It is a dry desert day"
-	var hp : String = str(65)
+	var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
 	var promptStruct = (
 # Monologue Prompt
 "
 You are a character with an internal monologue. 
 You are %s. 
-%s. %s. %s. %s. 
+%s.
+Your Hunger points are %s / 100.
+You have eaten %s apples.
 Your HP is %s. 
-Your mood is %s. 
+Your mood is %s.
 Don't need to comment on all of the above, 
 only respond with the text of the monologue. 
-Stay under 300 characters.
+Stay under 150 characters.
 ")
 
 	var prompt = promptStruct % [MC, env, hunger, apple, extra, hp, mood]
@@ -152,5 +154,4 @@ func _on_request_completed(result, response_code, headers, body):
 
 	# Change on-screen text
 	get_node("Label").set_text(message)
-	
 	print("Response:\n", message)
