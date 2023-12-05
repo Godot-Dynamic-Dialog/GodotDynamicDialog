@@ -21,7 +21,6 @@ func _on_back_pressed():
 func _on_option_button_item_selected(index):
 	var rain = get_node("/root/DialogueDatabase")
 	rain.rainState = index
-	Global.rainState = rain.rainState
 
 
 func _on_fruit_slider_value_changed(value):
