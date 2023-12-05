@@ -87,7 +87,7 @@ func _on_gd_gpt_pressed():
 	#var action : String = "MC has just finished slaying a dragon"
 	var MC : String =  "an adventurer"
 	var apple : String = str(DialogueManager.get_context("total_apple"))
-	#var extra : String = "you just saw an apple tree."
+	var extra : String = "you just saw an apple tree."
 	var hunger : String = str(DialogueManager.get_context("hunger"))
 	var env : String = "It is a dry desert day"
 	var hp : String = str(DialogueManager.get_context("health"))
@@ -101,6 +101,7 @@ You are %s.
 Your Hunger points are %s / 100.
 You have eaten %s apples.
 Your HP is %s. 
+%s 
 Your mood is %s.
 Don't need to comment on all of the above, 
 only respond with the text of the monologue. 
