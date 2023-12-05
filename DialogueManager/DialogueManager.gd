@@ -4,6 +4,7 @@ var dialogue_database = DialogueDatabase
 
 var game_context = {}
 
+
 #@onready var dialogue_box = $DialogueBox
 #@onready var dialogue_text = dialogue_box.get_node("DialogueText")
 
