@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://m2hetha383la"]
+[gd_scene load_steps=12 format=3 uid="uid://m2hetha383la"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_8mbyw"]
 [ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="1_pp2yt"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Scenes/CaveFruitSpawn.gd" id="3_m88q7"]
 [ext_resource type="PackedScene" uid="uid://cl3pe88eyrurq" path="res://Scenes/PropmtInput.tscn" id="5_ugwpr"]
 [ext_resource type="PackedScene" uid="uid://dga31it1rxr3q" path="res://Scenes/Mobs/Slime/Bat.tscn" id="7_purr7"]
+[ext_resource type="PackedScene" uid="uid://cvhu1xm2ecqne" path="res://Scenes/ShowDialogueHUD.tscn" id="8_ig5lf"]
+[ext_resource type="PackedScene" uid="uid://c7di5npf3casw" path="res://Scenes/UI/ExitGameButton.tscn" id="9_jxfd6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncpbu"]
 texture = ExtResource("1_pp2yt")
@@ -395,3 +397,7 @@ player_direction_facing = Vector2(0, -1)
 
 [node name="Bat" parent="." instance=ExtResource("7_purr7")]
 position = Vector2(129, -64)
+
+[node name="ShowDialogueHUD" parent="." instance=ExtResource("8_ig5lf")]
+
+[node name="ExitGameButton" parent="." instance=ExtResource("9_jxfd6")]

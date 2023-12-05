@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvhu1xm2ecqne"]
+
+[ext_resource type="Script" path="res://Scenes/ShowDialogueHUD.gd" id="1_prukx"]
+[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_sw1ca"]
+
+[node name="ShowDialogueHUD" type="CanvasLayer"]
+script = ExtResource("1_prukx")
+
+[node name="NamesOfContexts" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -299.0
+offset_bottom = -152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "total_fruit:
+health:
+total_apple:
+total_banana:
+total_watermelon:
+rain_state:"
+autowrap_mode = 2
+
+[node name="NumOfFruit" type="Label" parent="NamesOfContexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.518
+anchor_bottom = 3.273
+offset_left = 43.512
+offset_right = -299.03
+offset_bottom = -194.018
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "0"
+autowrap_mode = 2
+
+[node name="Health" type="Label" parent="NamesOfContexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.518
+anchor_bottom = 3.273
+offset_left = 26.0
+offset_top = 11.0
+offset_right = -299.03
+offset_bottom = -183.018
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "0
+"
+
+[node name="TotalApple" type="Label" parent="NamesOfContexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.518
+anchor_bottom = 3.273
+offset_left = 45.0
+offset_top = 21.0
+offset_right = -299.03
+offset_bottom = -174.018
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 6
+text = "0"
+
+[node name="TotalBanana" type="Label" parent="NamesOfContexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.518
+anchor_bottom = 3.273
+offset_left = 51.0
+offset_top = 31.0
+offset_right = -299.637
+offset_bottom = -163.018
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "0"
+
+[node name="TotalWatermelon" type="Label" parent="NamesOfContexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.518
+anchor_bottom = 3.273
+offset_left = 66.0
+offset_top = 42.0
+offset_right = -299.03
+offset_bottom = -163.018
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "0"
+
+[node name="RainState" type="Label" parent="NamesOfContexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.518
+anchor_bottom = 3.273
+offset_left = 41.0
+offset_top = 51.0
+offset_right = -301.03
+offset_bottom = -154.018
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "0"
