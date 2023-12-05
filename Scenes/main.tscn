@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=24 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_xba4t"]
 [ext_resource type="PackedScene" uid="uid://cl3pe88eyrurq" path="res://Scenes/PromptInput.tscn" id="2_ieakw"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://Scenes/Weather/HeavyRain.gd" id="16_llvw4"]
 [ext_resource type="PackedScene" uid="uid://lcvbg5jnamtj" path="res://Scenes/Objects/watermelon.tscn" id="16_tqygu"]
 [ext_resource type="PackedScene" uid="uid://bt81ja7c3kxxw" path="res://Scenes/Objects/banana.tscn" id="17_y71rb"]
+[ext_resource type="PackedScene" uid="uid://cvhu1xm2ecqne" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
+[ext_resource type="PackedScene" uid="uid://c7di5npf3casw" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
 texture = ExtResource("2_ih2nm")
@@ -420,6 +422,10 @@ position = Vector2(80, 232)
 
 [node name="banana" parent="." instance=ExtResource("17_y71rb")]
 position = Vector2(128, 232)
+
+[node name="ShowDialogueHUD" parent="." instance=ExtResource("19_qcixd")]
+
+[node name="ExitGameButton" parent="." instance=ExtResource("20_ojuqt")]
 
 [node name="PromptInput" parent="." instance=ExtResource("2_ieakw")]
 

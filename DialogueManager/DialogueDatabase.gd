@@ -18,6 +18,7 @@ var fruits_collected = 0
 @export var rainState = 0
 @export var numOfFruits = 50
 @export var fruits = [apple, watermelon, banana]
+@export var developer_mode = 0
 
 func _init():
 	load_dialogues()
