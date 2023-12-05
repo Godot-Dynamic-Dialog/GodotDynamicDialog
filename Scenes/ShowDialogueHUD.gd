@@ -2,13 +2,20 @@ extends Label
 
 var JSON_URL = "res://DialogueManager/dialogues.json"
 
+#sets the rain state right away, doesn't need to be constantly updated
+func _ready():
+	if(Global.rainState == 0):
+		$RainState.text = str("No Rain")
+	elif(Global.rainState == 1):
+		$RainState.text = str("Light Rain")
+	else:
+		$RainState.text = str("Heavy Rain")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # using this to have a constant update to the values as I do not fully know how to update only when a prompt is changed
 func _process(delta):
-	var file = FileAccess.open(JSON_URL, FileAccess.READ)
-	$Health.text = str(0)
-	$Hunger.text = str(0)
-	$TotalApple.text = str(0)
-	$TotalBanana.text = str(0)
-	$TotalWatermelon.text = str(0)
-	$RainState.text = str(0)
+	$Health.text = str(DialogueManager.game_context["health"])
+	$Hunger.text = str(DialogueManager.game_context["hunger"])
+	$TotalApple.text = str(DialogueManager.game_context["total_apple"])
+	$TotalBanana.text = str(DialogueManager.game_context["total_banana"])
+	$TotalWatermelon.text = str(DialogueManager.game_context["total_watermelon"])
+	
