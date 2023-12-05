@@ -393,11 +393,11 @@ next_scene_path = "res://Scenes/main.tscn"
 player_spawn_location = Vector2(391, 54)
 player_direction_facing = Vector2(0, -1)
 
-[node name="PromptInput" parent="." instance=ExtResource("5_ugwpr")]
-
 [node name="Bat" parent="." instance=ExtResource("7_purr7")]
 position = Vector2(129, -64)
 
 [node name="ShowDialogueHUD" parent="." instance=ExtResource("8_ig5lf")]
 
 [node name="ExitGameButton" parent="." instance=ExtResource("9_jxfd6")]
+
+[node name="PromptInput" parent="." instance=ExtResource("5_ugwpr")]

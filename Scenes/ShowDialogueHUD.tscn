@@ -4,33 +4,41 @@
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_sw1ca"]
 
 [node name="ShowDialogueHUD" type="CanvasLayer"]
-script = ExtResource("1_prukx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 0.224
+anchor_bottom = 0.292
+offset_right = -0.0160065
+offset_bottom = -0.0720062
+color = Color(1, 1, 1, 0.313726)
 
 [node name="NamesOfContexts" type="Label" parent="."]
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -299.0
-offset_bottom = -152.0
+offset_bottom = -150.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
-text = "total_fruit:
+text = "hunger:
 health:
 total_apple:
 total_banana:
 total_watermelon:
 rain_state:"
 autowrap_mode = 2
+script = ExtResource("1_prukx")
 
-[node name="NumOfFruit" type="Label" parent="NamesOfContexts"]
+[node name="Hunger" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.518
 anchor_bottom = 3.273
-offset_left = 43.512
+offset_left = 28.0
 offset_right = -299.03
-offset_bottom = -194.018
+offset_bottom = -205.018
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
