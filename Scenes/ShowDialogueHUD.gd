@@ -4,9 +4,9 @@ var JSON_URL = "res://DialogueManager/dialogues.json"
 
 #sets the rain state right away, doesn't need to be constantly updated
 func _ready():
-	if(Global.rainState == 0):
+	if(DialogueDatabase.rainState == 0):
 		$RainState.text = str("No Rain")
-	elif(Global.rainState == 1):
+	elif(DialogueDatabase.rainState == 1):
 		$RainState.text = str("Light Rain")
 	else:
 		$RainState.text = str("Heavy Rain")

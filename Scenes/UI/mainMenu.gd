@@ -28,3 +28,7 @@ func _on_exit_pressed():
 #LINK BUTTON
 func _on_link_button_pressed():
 	OS.shell_open("https://github.com/Godot-Dynamic-Dialog/GodotDynamicDialog")
+
+
+func _on_check_button_toggled(button_pressed):
+	DialogueDatabase.developer_mode = 1

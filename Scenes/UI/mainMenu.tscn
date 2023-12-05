@@ -155,4 +155,5 @@ uri = "https://github.com/Godot-Dynamic-Dialog/GodotDynamicDialog"
 [connection signal="tree_exiting" from="VBoxContainer/VBoxContainer/Options" to="VBoxContainer/VBoxContainer/Options" method="_on_tree_exiting"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="VBoxContainer/VBoxContainer/Exit" method="_on_pressed"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="CenterContainer/LinkButton" to="." method="_on_link_button_pressed"]

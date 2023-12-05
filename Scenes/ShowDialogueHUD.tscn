@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvhu1xm2ecqne"]
+[gd_scene load_steps=4 format=3 uid="uid://cvhu1xm2ecqne"]
 
 [ext_resource type="Script" path="res://Scenes/ShowDialogueHUD.gd" id="1_prukx"]
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_sw1ca"]
+[ext_resource type="Script" path="res://Scenes/ShowHud.gd" id="1_vg2at"]
 
 [node name="ShowDialogueHUD" type="CanvasLayer"]
+script = ExtResource("1_vg2at")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = -1
