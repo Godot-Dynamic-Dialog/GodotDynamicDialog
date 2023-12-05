@@ -1,4 +1,4 @@
-class_name Interactabled extends Area2D
+class_name Interactable extends Area2D
 
 #text displayed
 @export var interact_label = "none"
