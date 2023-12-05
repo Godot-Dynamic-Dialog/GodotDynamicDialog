@@ -9,7 +9,3 @@ func _ready():
 	
 	if (rainState != 1):
 		hide()
-	
-	
-	
-	
