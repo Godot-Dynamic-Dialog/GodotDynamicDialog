@@ -5,22 +5,29 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dpfe"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-bg_color = Color(1, 1, 1, 0.917647)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.32549, 0.32549, 0.32549, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
 [node name="ChatMessageAI" type="RichTextLabel"]
 z_index = 1
 z_as_relative = false
 anchors_preset = -1
-offset_right = 241.0
-offset_bottom = 50.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_right = 11.0
+offset_bottom = 2.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.203922, 0.203922, 0.203922, 1)
 theme_override_font_sizes/normal_font_size = 7
 theme_override_styles/normal = SubResource("StyleBoxFlat_7dpfe")
+text = "WELL AINT IT A BRIGHT DAY IN YE OLDE FARMTOWN EH LOTS OF TOMATOES AND POTATOES JUST WHAT YAH LIKE TO SEE ON A TUESDAY AFTERNOON"
 fit_content = true
 scroll_active = false
-scroll_following = true
 script = ExtResource("1_5f3fa")

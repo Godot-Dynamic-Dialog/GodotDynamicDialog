@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl3pe88eyrurq"]
+[gd_scene load_steps=7 format=3 uid="uid://cl3pe88eyrurq"]
 
 [ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="1_iwidv"]
+[ext_resource type="Texture2D" uid="uid://854xtp7idg8a" path="res://Assets/speech_tail.png" id="2_jau4u"]
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="2_n2rs8"]
 [ext_resource type="PackedScene" uid="uid://dw2eb0obqeyws" path="res://Scenes/chat_message_ai.tscn" id="2_yqakw"]
 [ext_resource type="Script" path="res://addons/HTTPSSEClient/HTTPSSEClient_modified.gd" id="3_wr48q"]
+[ext_resource type="Texture2D" uid="uid://bwn5kjltwjiou" path="res://Assets/speech_bubble_2.png" id="5_w0fqd"]
 
 [node name="PromptInput" type="CanvasLayer"]
 script = ExtResource("1_iwidv")
 
-[node name="ChatMessageAI" parent="." instance=ExtResource("2_yqakw")]
-offset_left = 73.0
-offset_top = 61.0
-offset_right = 171.0
-offset_bottom = 61.0
+[node name="SpeechTail" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(168.895, 105.931)
+scale = Vector2(0.287127, 0.318141)
+texture = ExtResource("2_jau4u")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -46,5 +49,33 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HTTPSSEClient" type="Node" parent="."]
 script = ExtResource("3_wr48q")
+
+[node name="SpeechFrame" type="MarginContainer" parent="."]
+offset_left = 78.0
+offset_top = 27.0
+offset_right = 186.0
+offset_bottom = 97.0
+scale = Vector2(0.6, 0.6)
+
+[node name="SpeechBubble" type="NinePatchRect" parent="SpeechFrame"]
+layout_mode = 2
+texture = ExtResource("5_w0fqd")
+patch_margin_left = 12
+patch_margin_top = 11
+patch_margin_right = 12
+patch_margin_bottom = 31
+
+[node name="SpeechTextFrame" type="MarginContainer" parent="SpeechFrame/SpeechBubble"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = -45.0
+offset_right = 98.0
+offset_bottom = 45.0
+grow_vertical = 0
+
+[node name="ChatMessageAI" parent="SpeechFrame/SpeechBubble/SpeechTextFrame" instance=ExtResource("2_yqakw")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Button" to="." method="_on_gd_gpt_pressed"]
