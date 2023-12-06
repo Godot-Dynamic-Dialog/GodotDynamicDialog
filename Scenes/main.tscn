@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=25 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_xba4t"]
 [ext_resource type="PackedScene" uid="uid://cl3pe88eyrurq" path="res://Scenes/PromptInput.tscn" id="2_ieakw"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bt81ja7c3kxxw" path="res://Scenes/Objects/banana.tscn" id="17_y71rb"]
 [ext_resource type="PackedScene" uid="uid://cvhu1xm2ecqne" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
 [ext_resource type="PackedScene" uid="uid://c7di5npf3casw" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
+[ext_resource type="PackedScene" uid="uid://d17knhs205d2j" path="res://Scenes/NPC/shopkeeper.tscn" id="21_rafgx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
 texture = ExtResource("2_ih2nm")
@@ -428,6 +429,9 @@ position = Vector2(128, 232)
 [node name="ExitGameButton" parent="." instance=ExtResource("20_ojuqt")]
 
 [node name="PromptInput" parent="." instance=ExtResource("2_ieakw")]
+
+[node name="shopkeeper" parent="." instance=ExtResource("21_rafgx")]
+position = Vector2(109, 33)
 
 [connection signal="hidden" from="MainRain" to="MainRain" method="_on_hidden"]
 [connection signal="ready" from="MainRain" to="." method="_on_rain_ready"]

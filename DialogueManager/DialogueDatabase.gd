@@ -8,6 +8,9 @@ var banana = preload("res://Scenes/Objects/banana.tscn")
 
 #total number of fruits collected - incremented when item picked up
 var fruits_collected = 0
+var NPC = false
+var rng = RandomNumberGenerator.new()
+var npc_mood = rng.randi_range(0, 5)
 
 ###--- Rain state variable ---###
 # Rain states:
@@ -57,5 +60,8 @@ func getRainState():
 
 func getNumOfFruits():
 	return numOfFruits
+	
+
+	
 	
 	
