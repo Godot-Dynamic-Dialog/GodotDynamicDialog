@@ -22,15 +22,20 @@ var stream_reply_final: String
 var stream_used_status_ai_message = false
 var stream_ongoing = false
 
+
+
+
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():#
 	# Instantiate HTTP request to GPT
 	request = HTTPRequest.new()
 	add_child(request)
 	#request.connect("request_completed", _on_request_completed)
-	message_processed.connect(_on_request_completed)
+	#message_processed.connect(_on_request_completed)
 	if stream:
 		$HTTPSSEClient.new_sse_event.connect(_on_new_sse_event)
+
 
 func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI):
 	for string in partial_reply:
@@ -46,11 +51,15 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 				# We reset the buffer
 				stream_reply_buffer = ""
 				
+			print("Response:\n\n", stream_reply_final)
 			# We append the whole message to our internal chat
 			#chat.append({"role": "assistant", "content":stream_reply_final})
 			# We reset the reply, ready for the next stream
 			stream_reply_final = ""
 			stream_used_status_ai_message = false
+			await get_tree().create_timer(2).timeout 
+			await get_tree().create_timer(2).timeout 
+			get_node("ChatMessageAI").set_text("")
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -69,8 +78,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			get_node("Label").set_text(stream_reply_buffer)
-			# print("Current buffer: ", stream_reply_buffer)
+			get_node("ChatMessageAI").set_text(stream_reply_buffer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,33 +90,83 @@ func _on_gd_gpt_pressed():
 	# var prompt : String = get_node("TextEdit").text
 	
 	# Prompt variables
-	# These first two are only for NPC interaction
-	#var NPC : String = "an old wise man"
-	#var action : String = "MC has just finished slaying a dragon"
+	
+	### NPC VARIABLES ###
+	var NPC : String = "a tavern keep"
+	var NPC2: String = "An adventurer just walked into your tavern."
+	var npc_mood: String = ""
+	if(DialogueDatabase.npc_mood == 0):
+		npc_mood = "Happy"
+	if(DialogueDatabase.npc_mood == 1):
+		npc_mood = "Sad"
+	if(DialogueDatabase.npc_mood == 2):
+		npc_mood = "Stressed"
+	if(DialogueDatabase.npc_mood == 3):
+		npc_mood = "Energetic"
+	if(DialogueDatabase.npc_mood == 4):
+		npc_mood = "Angry"
+	if(DialogueDatabase.npc_mood == 5):
+		npc_mood = "Sarcastic"
+	var NPC3 : String = ""
+	### END NPC VARIABLES ###
+	
+	
+	### ADVENTURER VARIABLES ###
 	var MC : String =  "an adventurer"
 	var apple : String = str(DialogueManager.get_context("total_apple"))
-	var extra : String = "you just saw an apple tree."
+	var banana : String = str(DialogueManager.get_context("total_banana"))
+	var watermelon : String = str(DialogueManager.get_context("total_watermelon"))
 	var hunger : String = str(DialogueManager.get_context("hunger"))
-	var env : String = "It is a dry desert day"
 	var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
-	var promptStruct = (
-# Monologue Prompt
-"
-You are a character with an internal monologue. 
+	var extra: String = ""
+	### END ADVENTURER VARIABLES ###
+	
+	### Weather ###
+	var weather: String = ""
+	if(DialogueDatabase.rainState == 0):
+		weather = "Sunny"
+	if(DialogueDatabase.rainState == 1):
+		weather = "Light rain"
+	if(DialogueDatabase.rainState == 2):
+		weather = "Pouring rain"
+		
+	### END VARIABLES ###
+	
+	# Checks dialogue database for the NPC boolean variable, to see whether you are in range of an NPC
+	# We can use this system with a number instead of bool for more prompt struct choices if we want
+	# variable can be changed based on different signals for NPCS, object interaction, etc
+	
+	var prompt = []
+	if (DialogueDatabase.NPC == true):
+		var promptStruct = (
+			# NPC Prompt
+			"
 You are %s. 
-%s.
-Your Hunger points are %s / 100.
-You have eaten %s apples.
-Your HP is %s. 
-%s 
-Your mood is %s.
+%s. 
+The weather is %s. 
+Your mood is %s. 
+Don't need to comment on all of the above, 
+only respond with the text of the monologue, 
+no quotations. 
+Stay under 150 characters.
+")
+		prompt = promptStruct % [NPC, NPC2, weather, npc_mood]
+	else:
+		var promptStruct = (
+			# Monologue Prompt
+			"
+You are %s in a foreign land. 
+You have eaten %s apples, %s watermelon, and %s bananas since discovering this area. 
+The weather is %s. 
+Your hunger points are at %s. 
+Your mood is %s. 
 Don't need to comment on all of the above, 
 only respond with the text of the monologue. 
 Stay under 150 characters.
 ")
-
-	var prompt = promptStruct % [MC, env, hunger, apple, extra, hp, mood]
+		prompt = promptStruct % [MC, apple, watermelon, banana, weather, hunger, mood]
+		
 	print("Prompt:\n", prompt)
 	
 	var ai_message = message_ai.instantiate()
@@ -131,28 +189,6 @@ func _call_gpt(prompt : String, ai_status_message : RichTextLabel) -> void:
 		"stream": stream,
 	})
 	
-	if stream:
-		$HTTPSSEClient.connect_to_host(host, path, headers, body, ai_status_message, 443)
-		stream_busy.emit(true)
-		stream_ongoing = true
-		
-	else:
-		var http_request = HTTPRequest.new()
-		add_child(http_request)
-		http_request.request_completed.connect(_on_request_completed)
-		
-		var error = http_request.request(url, headers, HTTPClient.METHOD_POST, body)
-		
-		if error != OK:
-			push_error("Something Went Wrong!")
-
-func _on_request_completed(result, response_code, headers, body):
-	# Get the message string from response
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	var response = json.get_data()
-	var message = response["choices"][0]["message"]["content"]
-
-	# Change on-screen text
-	get_node("Label").set_text(message)
-	print("Response:\n", message)
+	$HTTPSSEClient.connect_to_host(host, path, headers, body, ai_status_message, 443)
+	stream_busy.emit(true)
+	stream_ongoing = true
