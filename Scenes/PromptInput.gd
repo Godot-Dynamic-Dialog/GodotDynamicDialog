@@ -22,8 +22,10 @@ var stream_reply_final: String
 var stream_used_status_ai_message = false
 var stream_ongoing = false
 
+
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():#
 	# Instantiate HTTP request to GPT
 	request = HTTPRequest.new()
 	add_child(request)
@@ -31,6 +33,7 @@ func _ready():
 	message_processed.connect(_on_request_completed)
 	if stream:
 		$HTTPSSEClient.new_sse_event.connect(_on_new_sse_event)
+
 
 func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI):
 	for string in partial_reply:
@@ -82,33 +85,82 @@ func _on_gd_gpt_pressed():
 	# var prompt : String = get_node("TextEdit").text
 	
 	# Prompt variables
-	# These first two are only for NPC interaction
-	#var NPC : String = "an old wise man"
-	#var action : String = "MC has just finished slaying a dragon"
+	
+	### NPC VARIABLES ###
+	var NPC : String = "a tavern keep"
+	var NPC2: String = "An adventurer just walked into your tavern."
+	var npc_mood: String = ""
+	if(DialogueDatabase.npc_mood == 0):
+		npc_mood = "Happy"
+	if(DialogueDatabase.npc_mood == 1):
+		npc_mood = "Sad"
+	if(DialogueDatabase.npc_mood == 2):
+		npc_mood = "Stressed"
+	if(DialogueDatabase.npc_mood == 3):
+		npc_mood = "Energetic"
+	if(DialogueDatabase.npc_mood == 4):
+		npc_mood = "Angry"
+	if(DialogueDatabase.npc_mood == 5):
+		npc_mood = "Sarcastic"
+	var NPC3 : String = ""
+	### END NPC VARIABLES ###
+	
+	
+	### ADVENTURER VARIABLES ###
 	var MC : String =  "an adventurer"
 	var apple : String = str(DialogueManager.get_context("total_apple"))
-	var extra : String = "you just saw an apple tree."
+	var banana : String = str(DialogueManager.get_context("total_banana"))
+	var watermelon : String = str(DialogueManager.get_context("total_watermelon"))
 	var hunger : String = str(DialogueManager.get_context("hunger"))
-	var env : String = "It is a dry desert day"
 	var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
-	var promptStruct = (
-# Monologue Prompt
-"
-You are a character with an internal monologue. 
-You are %s. 
-%s.
-Your Hunger points are %s / 100.
-You have eaten %s apples.
-Your HP is %s. 
-%s 
-Your mood is %s.
-Don't need to comment on all of the above, 
-only respond with the text of the monologue. 
-Stay under 150 characters.
-")
-
-	var prompt = promptStruct % [MC, env, hunger, apple, extra, hp, mood]
+	var extra: String = ""
+	### END ADVENTURER VARIABLES ###
+	
+	### Weather ###
+	var weather: String = ""
+	if(DialogueDatabase.rainState == 0):
+		weather = "Sunny"
+	if(DialogueDatabase.rainState == 1):
+		weather = "Light rain"
+	if(DialogueDatabase.rainState == 2):
+		weather = "Pouring rain"
+		
+	### END VARIABLES ###
+	
+	# Checks dialogue database for the NPC boolean variable, to see whether you are in range of an NPC
+	# We can use this system with a number instead of bool for more prompt struct choices if we want
+	# variable can be changed based on different signals for NPCS, object interaction, etc
+	
+	var prompt = []
+	if (DialogueDatabase.NPC == true):
+		var promptStruct = (
+			# Monologue Prompt
+			"
+			You are %s.
+			%s.
+			The weather is %s.
+			Your mood is %s.
+			Don't need to comment on all of the above, 
+			only respond with the text of the monologue. 
+			Stay under 150 characters.
+			")
+		prompt = promptStruct % [NPC, NPC2, weather, npc_mood]
+	else:
+		var promptStruct = (
+			# Monologue Prompt
+			"
+			You are %s in a foreign land.
+			You have eaten %s apples, %s watermelon, and %s bananas since discovering this area.
+			The weather is %s.
+			Your hunger points are at %s.
+			Your mood is %s.
+			Don't need to comment on all of the above, 
+			only respond with the text of the monologue. 
+			Stay under 150 characters.
+			")
+		prompt = promptStruct % [MC, apple, watermelon, banana, weather, hunger, mood]
+		
 	print("Prompt:\n", prompt)
 	
 	var ai_message = message_ai.instantiate()
