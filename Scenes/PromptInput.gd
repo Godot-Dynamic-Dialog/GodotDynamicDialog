@@ -22,13 +22,15 @@ var stream_reply_final: String
 var stream_used_status_ai_message = false
 var stream_ongoing = false
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Instantiate HTTP request to GPT
 	request = HTTPRequest.new()
 	add_child(request)
 	#request.connect("request_completed", _on_request_completed)
-	message_processed.connect(_on_request_completed)
+	#message_processed.connect(_on_request_completed)
 	if stream:
 		$HTTPSSEClient.new_sse_event.connect(_on_new_sse_event)
 
@@ -51,6 +53,9 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			# We reset the reply, ready for the next stream
 			stream_reply_final = ""
 			stream_used_status_ai_message = false
+			await get_tree().create_timer(2).timeout 
+			await get_tree().create_timer(2).timeout 
+			get_node("ChatMessageAI").set_text("")
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -69,7 +74,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			get_node("Label").set_text(stream_reply_buffer)
+			get_node("ChatMessageAI").set_text(stream_reply_buffer)
 			# print("Current buffer: ", stream_reply_buffer)
 
 
@@ -92,23 +97,30 @@ func _on_gd_gpt_pressed():
 	var env : String = "It is a dry desert day"
 	var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
+	
+	var promptExtra : String = ""
+	print(DialogueManager.game_context)
+	for flag in DialogueManager.game_context:
+		var condition = DialogueManager.game_context[flag]
+
+		if condition is bool:
+			if condition == true:
+				var conditionText : String = DialogueManager.get_context(flag)
+				promptExtra += conditionText
+		else: # int
+			pass  # add code for int values
+	
 	var promptStruct = (
 # Monologue Prompt
 "
 You are a character with an internal monologue. 
-You are %s. 
-%s.
-Your Hunger points are %s / 100.
-You have eaten %s apples.
-Your HP is %s. 
-%s 
-Your mood is %s.
+%s
 Don't need to comment on all of the above, 
 only respond with the text of the monologue. 
 Stay under 150 characters.
 ")
 
-	var prompt = promptStruct % [MC, env, hunger, apple, extra, hp, mood]
+	var prompt = promptStruct % [promptExtra]#[MC, env, hunger, apple, extra, hp, mood]
 	print("Prompt:\n", prompt)
 	
 	var ai_message = message_ai.instantiate()
@@ -131,28 +143,28 @@ func _call_gpt(prompt : String, ai_status_message : RichTextLabel) -> void:
 		"stream": stream,
 	})
 	
-	if stream:
-		$HTTPSSEClient.connect_to_host(host, path, headers, body, ai_status_message, 443)
-		stream_busy.emit(true)
-		stream_ongoing = true
+	#if stream:
+	$HTTPSSEClient.connect_to_host(host, path, headers, body, ai_status_message, 443)
+	stream_busy.emit(true)
+	stream_ongoing = true
 		
-	else:
-		var http_request = HTTPRequest.new()
-		add_child(http_request)
-		http_request.request_completed.connect(_on_request_completed)
-		
-		var error = http_request.request(url, headers, HTTPClient.METHOD_POST, body)
-		
-		if error != OK:
-			push_error("Something Went Wrong!")
+#	else:
+#		var http_request = HTTPRequest.new()
+#		add_child(http_request)
+#		#http_request.request_completed.connect(_on_request_completed)
+#
+#		var error = http_request.request(url, headers, HTTPClient.METHOD_POST, body)
+#
+#		if error != OK:
+#			push_error("Something Went Wrong!")
 
-func _on_request_completed(result, response_code, headers, body):
-	# Get the message string from response
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	var response = json.get_data()
-	var message = response["choices"][0]["message"]["content"]
-
-	# Change on-screen text
-	get_node("Label").set_text(message)
-	print("Response:\n", message)
+#func _on_request_completed(result, response_code, headers, body):
+#	# Get the message string from response
+#	var json = JSON.new()
+#	json.parse(body.get_string_from_utf8())
+#	var response = json.get_data()
+#	var message = response["choices"][0]["message"]["content"]
+#
+#	# Change on-screen text
+#	get_node("Label").set_text(message)
+#	print("Response:\n", message)
