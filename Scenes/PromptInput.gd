@@ -51,6 +51,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 				# We reset the buffer
 				stream_reply_buffer = ""
 				
+			print("Response:\n\n", stream_reply_final)
 			# We append the whole message to our internal chat
 			#chat.append({"role": "assistant", "content":stream_reply_final})
 			# We reset the reply, ready for the next stream
@@ -78,7 +79,6 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			# We process the partial reply
 			stream_reply_buffer += string
 			get_node("ChatMessageAI").set_text(stream_reply_buffer)
-			# print("Current buffer: ", stream_reply_buffer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -140,30 +140,31 @@ func _on_gd_gpt_pressed():
 	var prompt = []
 	if (DialogueDatabase.NPC == true):
 		var promptStruct = (
-			# Monologue Prompt
+			# NPC Prompt
 			"
-			You are %s.
-			%s.
-			The weather is %s.
-			Your mood is %s.
-			Don't need to comment on all of the above, 
-			only respond with the text of the monologue. 
-			Stay under 150 characters.
-			")
+You are %s. 
+%s. 
+The weather is %s. 
+Your mood is %s. 
+Don't need to comment on all of the above, 
+only respond with the text of the monologue, 
+no quotations. 
+Stay under 150 characters.
+")
 		prompt = promptStruct % [NPC, NPC2, weather, npc_mood]
 	else:
 		var promptStruct = (
 			# Monologue Prompt
 			"
-			You are %s in a foreign land.
-			You have eaten %s apples, %s watermelon, and %s bananas since discovering this area.
-			The weather is %s.
-			Your hunger points are at %s.
-			Your mood is %s.
-			Don't need to comment on all of the above, 
-			only respond with the text of the monologue. 
-			Stay under 150 characters.
-			")
+You are %s in a foreign land. 
+You have eaten %s apples, %s watermelon, and %s bananas since discovering this area. 
+The weather is %s. 
+Your hunger points are at %s. 
+Your mood is %s. 
+Don't need to comment on all of the above, 
+only respond with the text of the monologue. 
+Stay under 150 characters.
+")
 		prompt = promptStruct % [MC, apple, watermelon, banana, weather, hunger, mood]
 		
 	print("Prompt:\n", prompt)
@@ -188,28 +189,6 @@ func _call_gpt(prompt : String, ai_status_message : RichTextLabel) -> void:
 		"stream": stream,
 	})
 	
-	#if stream:
 	$HTTPSSEClient.connect_to_host(host, path, headers, body, ai_status_message, 443)
 	stream_busy.emit(true)
 	stream_ongoing = true
-		
-#	else:
-#		var http_request = HTTPRequest.new()
-#		add_child(http_request)
-#		#http_request.request_completed.connect(_on_request_completed)
-#
-#		var error = http_request.request(url, headers, HTTPClient.METHOD_POST, body)
-#
-#		if error != OK:
-#			push_error("Something Went Wrong!")
-
-#func _on_request_completed(result, response_code, headers, body):
-#	# Get the message string from response
-#	var json = JSON.new()
-#	json.parse(body.get_string_from_utf8())
-#	var response = json.get_data()
-#	var message = response["choices"][0]["message"]["content"]
-#
-#	# Change on-screen text
-#	get_node("Label").set_text(message)
-#	print("Response:\n", message)
