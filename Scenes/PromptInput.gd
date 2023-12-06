@@ -59,7 +59,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			stream_used_status_ai_message = false
 			await get_tree().create_timer(2).timeout 
 			await get_tree().create_timer(2).timeout 
-			get_node("ChatMessageAI").set_text("")
+			get_node("SpeechFrame/SpeechBubble/SpeechTextFrame/ChatMessageAI").set_text("")
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -78,12 +78,16 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			get_node("ChatMessageAI").set_text(stream_reply_buffer)
+			get_node("SpeechFrame/SpeechBubble/SpeechTextFrame/ChatMessageAI").set_text(stream_reply_buffer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if get_node("SpeechFrame/SpeechBubble/SpeechTextFrame/ChatMessageAI").get_text() == "":
+		get_node("SpeechFrame/SpeechBubble/SpeechTextFrame/ChatMessageAI").hide()
+	else:
+		get_node("SpeechFrame/SpeechBubble/SpeechTextFrame/ChatMessageAI").show()
+	
 
 
 func _on_gd_gpt_pressed():	
