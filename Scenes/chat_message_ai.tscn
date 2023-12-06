@@ -14,6 +14,7 @@ corner_radius_bottom_left = 5
 [node name="ChatMessageAI" type="RichTextLabel"]
 z_index = 1
 z_as_relative = false
+anchors_preset = -1
 offset_right = 241.0
 offset_bottom = 50.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -21,4 +22,5 @@ theme_override_font_sizes/normal_font_size = 7
 theme_override_styles/normal = SubResource("StyleBoxFlat_7dpfe")
 fit_content = true
 scroll_active = false
+scroll_following = true
 script = ExtResource("1_5f3fa")
