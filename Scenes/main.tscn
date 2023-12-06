@@ -18,8 +18,8 @@
 [ext_resource type="Script" path="res://Scenes/Weather/HeavyRain.gd" id="16_llvw4"]
 [ext_resource type="PackedScene" uid="uid://lcvbg5jnamtj" path="res://Scenes/Objects/watermelon.tscn" id="16_tqygu"]
 [ext_resource type="PackedScene" uid="uid://bt81ja7c3kxxw" path="res://Scenes/Objects/banana.tscn" id="17_y71rb"]
-[ext_resource type="PackedScene" uid="uid://cvhu1xm2ecqne" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
-[ext_resource type="PackedScene" uid="uid://c7di5npf3casw" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
+[ext_resource type="PackedScene" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
 [ext_resource type="PackedScene" uid="uid://d17knhs205d2j" path="res://Scenes/NPC/shopkeeper.tscn" id="21_rafgx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
