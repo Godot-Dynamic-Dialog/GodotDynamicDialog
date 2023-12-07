@@ -22,10 +22,6 @@ var stream_reply_final: String
 var stream_used_status_ai_message = false
 var stream_ongoing = false
 
-
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():#
 	# Instantiate HTTP request to GPT
@@ -59,7 +55,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			stream_used_status_ai_message = false
 			await get_tree().create_timer(2).timeout 
 			await get_tree().create_timer(2).timeout 
-			get_node("SpeechFrame/ChatMessageAI").set_text("")
+			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -78,12 +74,12 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			get_node("SpeechFrame/ChatMessageAI").set_text(stream_reply_buffer)
+			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text(stream_reply_buffer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_node("SpeechFrame/ChatMessageAI").get_text() == "":
+	if get_node("SpeechFrame/TextMargins/ChatMessageAI").get_text() == "":
 		get_node("SpeechFrame").hide()
 	else:
 		get_node("SpeechFrame").show()

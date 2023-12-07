@@ -20,9 +20,6 @@ anti_aliasing = false
 
 [node name="ChatMessageAI" type="RichTextLabel"]
 anchors_preset = -1
-offset_right = 11.0
-offset_bottom = 2161.0
-grow_vertical = 2
 theme_override_colors/default_color = Color(0.203922, 0.203922, 0.203922, 1)
 theme_override_fonts/normal_font = ExtResource("1_kujgl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7dpfe")
