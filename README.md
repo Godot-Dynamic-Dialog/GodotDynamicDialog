@@ -1,13 +1,16 @@
-<img src="https://github.com/Godot-Dynamic-Dialog/UnrealDynamicDialog/assets/60556017/78da47e2-6371-46fe-870e-d026c4585977" width=180 align="right" />   
+<img src="https://github.com/Godot-Dynamic-Dialog/UnrealDynamicDialog/assets/60556017/78da47e2-6371-46fe-870e-d026c4585977" width=180 align="right" />
 
 # Godot Dynamic Dialog
 
 Welcome to the Godot Dynamic Dialog project! This innovative system is designed to revolutionize the way dialog is created and presented in gaming. By harnessing the context of a player's environment and the objects within it, our system dynamically generates dialog that is both engaging and relevant, offering a unique narrative experience every time.
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
 - [Documentation](#documentation)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
@@ -19,7 +22,6 @@ In the realm of interactive storytelling, dialog plays a crucial role in immersi
 ## Features
 
 - **Context-Aware Dialog**: Generate dialog that responds to the player's environment and actions.
-- **Seamless Integration**: Effortlessly integrates with Godot Engine, offering a smooth development experience.
 - **Diverse Narrative Possibilities**: Endless narrative options as dialog adapts to various in-game scenarios.
 - **Real-Time Updates**: Dialog evolves in real-time, reflecting the dynamic nature of gameplay.
 
@@ -27,34 +29,34 @@ In the realm of interactive storytelling, dialog plays a crucial role in immersi
 
 Godot Dynamic Dialog is built upon a robust selection of technologies, each chosen to deliver the best possible experience:
 
-- **Godot Engine**: For game development and immersive experiences.
-- **Microsoft Azure**: Providing cloud services for the project.
-- **SQL Server**: For database management and storage solutions.
-- **Python**: Leveraged for its powerful scripting capabilities and versatility.
-- **OpenAI API**: Utilized for advanced natural language processing to generate dialog.
+- [**Godot Engine**](https://godotengine.org/): For game development and immersive experiences.
+- [**GD Script**](https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_basics.html): For scripting in Godot Engine.
+- [**HTTPSSE Client**](https://docs.godotengine.org/en/stable/classes/class_httpclient.html): For real-time communication between Godot Engine and OpenAI API.
+- [**OpenAI API**](https://openai.com/blog/openai-api): Utilized for advanced natural language processing to generate dialog.
 
 ## Getting Started
 
-To get started with Godot Dynamic Dialog, please follow the installation guide below:
+To get started with Godot Dynamic Dialog, please follow our [Installation Guide](./Docs/Installation.md). This guide will walk you through the process of setting up the project on your local machine.
 
-1. **Prerequisites**
-   - Ensure you have Godot Engine installed and properly set up on your system.
-   - Obtain necessary credentials and access for Microsoft Azure and OpenAI API.
+## Project Structure
 
-2. **Installation**
-   - Clone the repository to your local machine.
-   - Install the required Python dependencies.
-   - Set up your SQL Server database by running the provided schema scripts (Coming Soon!)
+Our project is structured as follows:
 
-3. **Configuration**
-   - Configure your Azure and OpenAI API credentials as per the documentation.
-   - Update the Godot Engine settings to link with your Python scripts and SQL database.
+**`/addons`**: Contains Godot Engine addons used in the project. This includes the HTTPSSE Client.
 
-For detailed instructions, please refer to our documentation.
+**`/Assets`**: Contains all assets used in the project. This includes our sprites, fonts, and other resources.
+
+**`/Database`**: Contains the depreciated SQL database schema scripts. These will be implemented in the future if we decide to use a SQL database.
+
+**`/Docs`**: Contains all documentation for the project. This includes references and development guides.
+
+**`/DialogueManager`**: Contains the scripts and JSON Objects used in the dialogue system.
+
+**`/Scenes`**: Contains the scenes used in the project. Each scene contains its corresponding scripts alongside it.
 
 ## Documentation
 
-For more information on how to use Godot Dynamic Dialog, including tutorials, API references, and development guides, please be sure to stay posted for new documentation coming soon.
+For more information on how to use Godot Dynamic Dialog, including installation guides and references, please check out the [`/Docs`](./Docs/) Folder.
 
 ## Acknowledgments
 
