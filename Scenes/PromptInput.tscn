@@ -51,31 +51,23 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("3_wr48q")
 
 [node name="SpeechFrame" type="MarginContainer" parent="."]
-offset_left = 78.0
-offset_top = 27.0
-offset_right = 186.0
-offset_bottom = 97.0
-scale = Vector2(0.6, 0.6)
+offset_left = 115.0
+offset_top = 62.0
+offset_right = 290.0
+offset_bottom = 132.0
+scale = Vector2(0.4, 0.4)
 
 [node name="SpeechBubble" type="NinePatchRect" parent="SpeechFrame"]
 layout_mode = 2
 texture = ExtResource("5_w0fqd")
 patch_margin_left = 12
 patch_margin_top = 11
-patch_margin_right = 12
+patch_margin_right = 47
 patch_margin_bottom = 31
 
-[node name="SpeechTextFrame" type="MarginContainer" parent="SpeechFrame/SpeechBubble"]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 10.0
-offset_top = -45.0
-offset_right = 98.0
-offset_bottom = 45.0
-grow_vertical = 0
-
-[node name="ChatMessageAI" parent="SpeechFrame/SpeechBubble/SpeechTextFrame" instance=ExtResource("2_yqakw")]
+[node name="ChatMessageAI" parent="SpeechFrame" instance=ExtResource("2_yqakw")]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "WELL AINT IT A BRIGHT DAY IN YE OLDE FARMTOWN EH LOTS OF TOMATOES"
+autowrap_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_gd_gpt_pressed"]
