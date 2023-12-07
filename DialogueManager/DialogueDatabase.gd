@@ -12,6 +12,8 @@ var NPC = false
 var rng = RandomNumberGenerator.new()
 var npc_mood = rng.randi_range(0, 5)
 
+var NPC_text = ""
+
 ###--- Rain state variable ---###
 # Rain states:
 	# 0 == No rain -- default
