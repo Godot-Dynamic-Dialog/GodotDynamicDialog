@@ -16,6 +16,7 @@ var request : HTTPRequest
 signal message_processed(message)
 var message_ai = preload("res://Scenes/chat_message_ai.tscn")
 signal stream_busy(is_busy:bool)
+var npc_response_ongoing : bool = false
 
 var stream_reply_buffer: String
 var stream_reply_final: String
@@ -57,6 +58,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
 			await get_tree().create_timer(2).timeout 
 			DialogueDatabase.NPC_text = ""
+			npc_response_ongoing = false
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -75,7 +77,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			if (DialogueDatabase.NPC == true):
+			if DialogueDatabase.NPC or npc_response_ongoing:
 				if stream_reply_buffer != "":
 #					var npcNode = load("res://Scenes/NPC/shopkeeper.gd").new()
 #					npcNode._update_npc_text(stream_reply_buffer)
@@ -83,23 +85,19 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			else:
 				get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text(stream_reply_buffer)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if get_node("SpeechFrame/TextMargins/ChatMessageAI").get_text() == "":
 		get_node("SpeechFrame").hide()
 	else:
 		get_node("SpeechFrame").show()
-		
-	if get_node("SpeechFrame/TextMargins/ChatMessageAI").get_text() == "":
-		get_node("SpeechFrame").hide()
-	else:
-		get_node("SpeechFrame").show()
 	
-
 
 func _on_gd_gpt_pressed():	
 	# var prompt : String = get_node("TextEdit").text
-	
+	if DialogueDatabase.NPC:
+		npc_response_ongoing = true
 	# Prompt variables
 	
 	### NPC VARIABLES ###
