@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvhu1xm2ecqne"]
 
 [ext_resource type="Script" path="res://Scenes/ShowDialogueHUD.gd" id="1_prukx"]
-[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_sw1ca"]
+[ext_resource type="FontFile" uid="uid://cyai6u1vf7yd7" path="res://Assets/PixelifySans-Regular.ttf" id="1_sw1ca"]
 [ext_resource type="Script" path="res://Scenes/ShowHud.gd" id="1_vg2at"]
 
 [node name="ShowDialogueHUD" type="CanvasLayer"]
@@ -11,16 +11,21 @@ script = ExtResource("1_vg2at")
 anchors_preset = -1
 anchor_right = 0.224
 anchor_bottom = 0.292
-offset_right = -0.0160065
+offset_left = 298.0
+offset_right = 297.984
 offset_bottom = -0.0720062
 color = Color(1, 1, 1, 0.313726)
+metadata/_edit_use_anchors_ = true
 
 [node name="NamesOfContexts" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -299.0
+offset_left = 298.0
+offset_right = -1.0
 offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
@@ -32,6 +37,7 @@ total_watermelon:
 rain_state:"
 autowrap_mode = 2
 script = ExtResource("1_prukx")
+metadata/_edit_use_anchors_ = true
 
 [node name="Hunger" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -46,6 +52,7 @@ theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Health" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -61,6 +68,7 @@ theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="TotalApple" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -75,6 +83,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 6
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="TotalBanana" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -89,6 +98,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="TotalWatermelon" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -103,6 +113,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="RainState" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -117,3 +128,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
+metadata/_edit_use_anchors_ = true
