@@ -126,9 +126,9 @@ func get_open_ai_events_data(string_body: String) -> Array:
 					results.append("[ERROR]")
 			else:
 				print("Error: 'choices' field not found in the received data.\n
-				ChatGPT likely called too quickly.")
+ChatGPT likely called too quickly.")
 				#results.append("[ERROR]")
-				pass
+				return ["[DONE]"]
 
 	return results
 
