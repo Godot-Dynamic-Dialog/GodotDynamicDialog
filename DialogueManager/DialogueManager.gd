@@ -3,6 +3,7 @@ extends Node
 var dialogue_database = DialogueDatabase
 
 var game_context = { "hunger": 0, "health": 0, "total_banana": 0, "total_watermelon": 0, "total_apple": 0}
+var game_scene = "Overworld"
 
 #@onready var dialogue_box = $DialogueBox
 #@onready var dialogue_text = dialogue_box.get_node("DialogueText")

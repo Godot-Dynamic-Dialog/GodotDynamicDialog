@@ -10,7 +10,7 @@ script = ExtResource("1_vg2at")
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = -1
 anchor_right = 0.224
-anchor_bottom = 0.292
+anchor_bottom = 0.347556
 offset_left = 298.0
 offset_right = 297.984
 offset_bottom = -0.0720062
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 298.0
 offset_right = -1.0
-offset_bottom = -150.0
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -34,7 +34,8 @@ health:
 total_apple:
 total_banana:
 total_watermelon:
-rain_state:"
+rain_state:
+game_scene:"
 autowrap_mode = 2
 script = ExtResource("1_prukx")
 metadata/_edit_use_anchors_ = true
@@ -129,3 +130,14 @@ theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="CurrentScene" type="Label" parent="NamesOfContexts"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 61.0
+offset_right = 84.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_sw1ca")
+theme_override_font_sizes/font_size = 7
+text = "Overworld"

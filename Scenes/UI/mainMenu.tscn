@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://bbcy5ij8pkf5k"]
 
-[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_2uyp7"]
+[ext_resource type="FontFile" uid="uid://cyai6u1vf7yd7" path="res://Assets/PixelifySans-Regular.ttf" id="1_2uyp7"]
 [ext_resource type="Script" path="res://Scenes/UI/mainMenu.gd" id="1_i7ne0"]
-[ext_resource type="Texture2D" uid="uid://cycv3bhhqpyyo" path="res://icon.png" id="1_x0cuf"]
-[ext_resource type="Texture2D" uid="uid://dixct1ewdl6mv" path="res://Assets/background.jpg" id="1_yikjn"]
+[ext_resource type="Texture2D" uid="uid://dun18dib4kgv0" path="res://icon.png" id="1_x0cuf"]
+[ext_resource type="Texture2D" uid="uid://exj4ls8wkqsd" path="res://Assets/background.jpg" id="1_yikjn"]
 
 [sub_resource type="Theme" id="Theme_uqqsp"]
 default_font = ExtResource("1_2uyp7")
