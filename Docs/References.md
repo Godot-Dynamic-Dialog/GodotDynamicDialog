@@ -1,0 +1,29 @@
+# References for Godot Dynamic Dialog
+
+All the content provided in this file was used to create the Godot Dynamic Dialog project. We would like to thank the creators of the content for making it available for use in game development.
+
+## Assets
+
+- Game Asset Pack from [Sharm](https://opengameart.org/content/tiny-16-basic).
+- Pixel Font from [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans).
+
+## Content References
+
+- [AI-Driven Dynamic Dialog by Elan Ruskin](https://www.youtube.com/watch?v=tAbBID3N64A)
+- [Godot UI Basics by Godotneers](https://www.youtube.com/watch?v=1_OFJLyqlXI)
+- [Godot Components by Godotneers](https://www.youtube.com/watch?v=W8gYHTjDCic)
+- [Tilemap in Godot 4 by PlayWithFurcifer](https://www.youtube.com/watch?v=tQSL2scuqeU)
+- [Godot Changing Scenes by Arkeve](https://youtu.be/tp1OiUEq3Pk?si=hNfD6rUnUsobgC-e)
+- [Godot Scene Transition Effects by The Shaggy Dev](https://www.youtube.com/watch?v=yZQStB6nHuI)
+- [Interacting with Objects by Nathan Hoad](https://www.youtube.com/watch?v=-rytm4o1ndE&ab_channel=NathanHoad)
+- [Beginner Dialogue Tutorial by Nathan Hoad](https://www.youtube.com/watch?v=UhPFk8FSbd8&ab_channel=NathanHoad)
+- [Godot 4 Instantiate Tutorial by Gwizz](https://www.youtube.com/watch?v=Qs8oSGmhx-U&ab_channel=Gwizz)
+- [Creating an Enemy in Godot 4 by DevWorm](https://youtu.be/9u59U-DWNJs?si=FyL-_4yMm-AN48Wt)
+- [Godot Documentation](https://docs.godotengine.org/en/stable/index.html)
+
+## Technology References
+
+- [Godot Engine](https://godotengine.org/): For game development and immersive experiences.
+- [GD Script](https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_basics.html): For scripting in Godot Engine.
+- [HTTPSSE Client](https://docs.godotengine.org/en/stable/classes/class_httpclient.html): For real-time communication between Godot Engine and OpenAI API.
+- [OpenAI API](https://openai.com/blog/openai-api): Utilized for advanced natural language processing to generate dialog.

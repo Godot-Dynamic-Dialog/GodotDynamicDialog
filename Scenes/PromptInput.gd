@@ -56,6 +56,8 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			stream_used_status_ai_message = false
 			await get_tree().create_timer(4).timeout 
 			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
+			await get_tree().create_timer(4).timeout 
+			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
 			await get_tree().create_timer(2).timeout 
 			DialogueDatabase.NPC_text = ""
 			npc_response_ongoing = false

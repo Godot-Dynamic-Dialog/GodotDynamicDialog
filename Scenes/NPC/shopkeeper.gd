@@ -19,3 +19,8 @@ func _on_interact_area_entered(area):
 #exiting area
 func _on_interact_area_exited(area):
 	DialogueDatabase.NPC = false
+	
+#func _update_npc_text(outputText : String):
+#	print(outputText)
+#	get_node("NPCSpeechFrame/NPCTextMargins/ChatMessageNPC").set_text("YPO")
+	
