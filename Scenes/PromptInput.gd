@@ -16,15 +16,12 @@ var request : HTTPRequest
 signal message_processed(message)
 var message_ai = preload("res://Scenes/chat_message_ai.tscn")
 signal stream_busy(is_busy:bool)
+var npc_response_ongoing : bool = false
 
 var stream_reply_buffer: String
 var stream_reply_final: String
 var stream_used_status_ai_message = false
 var stream_ongoing = false
-
-
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():#
@@ -57,9 +54,13 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			# We reset the reply, ready for the next stream
 			stream_reply_final = ""
 			stream_used_status_ai_message = false
+			await get_tree().create_timer(4).timeout 
+			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
+			await get_tree().create_timer(4).timeout 
+			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
 			await get_tree().create_timer(2).timeout 
-			await get_tree().create_timer(2).timeout 
-			get_node("ChatMessageAI").set_text("")
+			DialogueDatabase.NPC_text = ""
+			npc_response_ongoing = false
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -78,17 +79,27 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			get_node("ChatMessageAI").set_text(stream_reply_buffer)
+			if DialogueDatabase.NPC or npc_response_ongoing:
+				if stream_reply_buffer != "":
+#					var npcNode = load("res://Scenes/NPC/shopkeeper.gd").new()
+#					npcNode._update_npc_text(stream_reply_buffer)
+					DialogueDatabase.NPC_text = stream_reply_buffer
+			else:
+				get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text(stream_reply_buffer)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if get_node("SpeechFrame/TextMargins/ChatMessageAI").get_text() == "":
+		get_node("SpeechFrame").hide()
+	else:
+		get_node("SpeechFrame").show()
+	
 
 func _on_gd_gpt_pressed():	
 	# var prompt : String = get_node("TextEdit").text
-	
+	if DialogueDatabase.NPC:
+		npc_response_ongoing = true
 	# Prompt variables
 	
 	### NPC VARIABLES ###

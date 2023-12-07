@@ -1,18 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl3pe88eyrurq"]
+[gd_scene load_steps=7 format=3 uid="uid://cl3pe88eyrurq"]
 
 [ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="1_iwidv"]
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="2_n2rs8"]
 [ext_resource type="PackedScene" uid="uid://dw2eb0obqeyws" path="res://Scenes/chat_message_ai.tscn" id="2_yqakw"]
 [ext_resource type="Script" path="res://addons/HTTPSSEClient/HTTPSSEClient_modified.gd" id="3_wr48q"]
+[ext_resource type="Texture2D" uid="uid://c5bwqsjovwrw0" path="res://Assets/speech_bubble_small.png" id="5_k73sn"]
+[ext_resource type="Script" path="res://Scenes/TextMargins.gd" id="6_mmhp8"]
 
 [node name="PromptInput" type="CanvasLayer"]
 script = ExtResource("1_iwidv")
-
-[node name="ChatMessageAI" parent="." instance=ExtResource("2_yqakw")]
-offset_left = 73.0
-offset_top = 61.0
-offset_right = 171.0
-offset_bottom = 61.0
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -46,5 +42,35 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HTTPSSEClient" type="Node" parent="."]
 script = ExtResource("3_wr48q")
+
+[node name="SpeechFrame" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(-0.09, 0)
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.463
+anchor_right = 0.469
+anchor_bottom = 0.463
+offset_left = -17.0
+offset_top = -31.008
+offset_right = 1.90399
+offset_bottom = 0.991997
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="SpeechFrame"]
+layout_mode = 2
+texture = ExtResource("5_k73sn")
+patch_margin_left = 18
+patch_margin_top = 14
+patch_margin_right = 25
+patch_margin_bottom = 18
+
+[node name="TextMargins" type="MarginContainer" parent="SpeechFrame"]
+layout_mode = 2
+script = ExtResource("6_mmhp8")
+
+[node name="ChatMessageAI" parent="SpeechFrame/TextMargins" instance=ExtResource("2_yqakw")]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = ""
 
 [connection signal="pressed" from="Button" to="." method="_on_gd_gpt_pressed"]
