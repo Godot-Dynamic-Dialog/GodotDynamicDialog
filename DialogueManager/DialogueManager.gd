@@ -18,6 +18,7 @@ func get_context(key: String):
 	# Function to update the game context, incrementing the value if the key exists
 func increment_context(key: String, increment: int = 1) -> void:
 	if game_context.has(key):
+		#won't allow health to update past 100, making it max health
 		if key == "health" && game_context[key] == 100:
 			print("You are at max health")
 		else:
