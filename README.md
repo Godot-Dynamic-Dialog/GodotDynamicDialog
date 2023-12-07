@@ -9,10 +9,10 @@ Welcome to the Godot Dynamic Dialog project! This innovative system is designed 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
-- [Getting Started](#getting-started)
+- [Installation](#installation)
 - [Project Structure](#project-structure)
 - [Documentation](#documentation)
-- [Acknowledgments](#acknowledgments)
+- [References](#references)
 - [License](#license)
 
 ## Introduction
@@ -34,9 +34,9 @@ Godot Dynamic Dialog is built upon a robust selection of technologies, each chos
 - [**HTTPSSE Client**](https://docs.godotengine.org/en/stable/classes/class_httpclient.html): For real-time communication between Godot Engine and OpenAI API.
 - [**OpenAI API**](https://openai.com/blog/openai-api): Utilized for advanced natural language processing to generate dialog.
 
-## Getting Started
+## Installation
 
-To get started with Godot Dynamic Dialog, please follow our [Installation Guide](./Docs/Installation.md). This guide will walk you through the process of setting up the project on your local machine.
+To get started with Godot Dynamic Dialog, please follow our [`/Docs/Installation.md`](./Docs/Installation.md). This guide will walk you through the process of setting up the project on your local machine.
 
 ## Project Structure
 
@@ -58,13 +58,9 @@ Our project is structured as follows:
 
 For more information on how to use Godot Dynamic Dialog, including installation guides and references, please check out the [`/Docs`](./Docs/) Folder.
 
-## Acknowledgments
+## References
 
-Assets used in this project are courtesy of the following creators:
-
-- Game Asset Pack from [Sharm](https://opengameart.org/content/tiny-16-basic).
-
-We sincerely thank the artists for making these resources available for use in game development.
+Checkout the [`/Docs/References.md`](./Docs/References.md) file for a list of all the assets and references used in this project.
 
 ## License
 
