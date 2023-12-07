@@ -53,9 +53,10 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			# We reset the reply, ready for the next stream
 			stream_reply_final = ""
 			stream_used_status_ai_message = false
-			await get_tree().create_timer(2).timeout 
-			await get_tree().create_timer(2).timeout 
+			await get_tree().create_timer(4).timeout 
 			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
+			await get_tree().create_timer(2).timeout 
+			DialogueDatabase.NPC_text = ""
 			
 		elif string == "[EMPTY DELTA]":
 			pass
@@ -74,8 +75,13 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 		else:
 			# We process the partial reply
 			stream_reply_buffer += string
-			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text(stream_reply_buffer)
-
+			if (DialogueDatabase.NPC == true):
+				if stream_reply_buffer != "":
+#					var npcNode = load("res://Scenes/NPC/shopkeeper.gd").new()
+#					npcNode._update_npc_text(stream_reply_buffer)
+					DialogueDatabase.NPC_text = stream_reply_buffer
+			else:
+				get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text(stream_reply_buffer)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -84,9 +90,10 @@ func _process(delta):
 	else:
 		get_node("SpeechFrame").show()
 		
-	# Dynamically change text box height as text comes in
-#		var textHeight = $SpeechFrame/ChatMessageAI.get_content_height()
-		
+	if get_node("SpeechFrame/TextMargins/ChatMessageAI").get_text() == "":
+		get_node("SpeechFrame").hide()
+	else:
+		get_node("SpeechFrame").show()
 	
 
 

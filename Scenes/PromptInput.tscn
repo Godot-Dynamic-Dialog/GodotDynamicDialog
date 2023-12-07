@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl3pe88eyrurq"]
+[gd_scene load_steps=7 format=3 uid="uid://cl3pe88eyrurq"]
 
 [ext_resource type="Script" path="res://Scenes/PromptInput.gd" id="1_iwidv"]
-[ext_resource type="Texture2D" uid="uid://854xtp7idg8a" path="res://Assets/speech_tail.png" id="2_jau4u"]
 [ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="2_n2rs8"]
 [ext_resource type="PackedScene" uid="uid://dw2eb0obqeyws" path="res://Scenes/chat_message_ai.tscn" id="2_yqakw"]
 [ext_resource type="Script" path="res://addons/HTTPSSEClient/HTTPSSEClient_modified.gd" id="3_wr48q"]
@@ -10,13 +9,6 @@
 
 [node name="PromptInput" type="CanvasLayer"]
 script = ExtResource("1_iwidv")
-
-[node name="SpeechTail" type="Sprite2D" parent="."]
-visible = false
-z_index = 5
-position = Vector2(168.895, 105.931)
-scale = Vector2(0.287127, 0.318141)
-texture = ExtResource("2_jau4u")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1

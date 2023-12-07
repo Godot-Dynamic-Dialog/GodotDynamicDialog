@@ -1,15 +1,24 @@
 extends CharacterBody2D
 
-@onready var text_box = $text_box
-@onready var bubble = $text_box/NinePatchRect
-@onready var label = $text_box/MarginContainer/Label
-@onready var timer = $Timer
+#var message_npc = preload("res://Scenes/chat_message_npc.tscn")
+#var mess = message_npc.instantiate()
+#@onready var text_box = $SpeechFrame
+#@onready var bubble = $SpeechFrame/NinePatchRect
+#@onready var label = $SpeechFrame/TextMargins/ChatMessageNPC
+#@onready var timer = $Timer
+var npcText = ""
 
 
 #when timer is stopped, label becomes invisible
 func _process(delta):
-	if (timer.is_stopped()):
-		text_box.visible = false
+#	if (timer.is_stopped()):
+#		text_box.visible = false
+	npcText = DialogueDatabase.NPC_text
+	if npcText == "":
+		get_node("NPCSpeechFrame").hide()
+	else:
+		get_node("NPCSpeechFrame").show()
+		get_node("NPCSpeechFrame/NPCTextMargins/ChatMessageNPC").set_text(npcText)
 
 #entering interact area
 func _on_interact_area_entered(area):
@@ -24,3 +33,8 @@ func _on_interact_area_entered(area):
 #exiting area
 func _on_interact_area_exited(area):
 	DialogueDatabase.NPC = false
+	
+#func _update_npc_text(outputText : String):
+#	print(outputText)
+#	get_node("NPCSpeechFrame/NPCTextMargins/ChatMessageNPC").set_text("YPO")
+	

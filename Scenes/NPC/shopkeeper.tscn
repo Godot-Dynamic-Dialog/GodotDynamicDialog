@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d17knhs205d2j"]
+[gd_scene load_steps=8 format=3 uid="uid://d17knhs205d2j"]
 
 [ext_resource type="Texture2D" uid="uid://d34klnsax6iey" path="res://Assets/dead.png" id="1_5g78x"]
 [ext_resource type="Script" path="res://Scenes/NPC/shopkeeper.gd" id="1_84drj"]
-[ext_resource type="Texture2D" uid="uid://cveuepe3a8kro" path="res://Assets/speech_bubble.png" id="3_ihvuq"]
-[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="4_7wmsv"]
+[ext_resource type="Texture2D" uid="uid://c5bwqsjovwrw0" path="res://Assets/speech_bubble_small.png" id="3_6i47h"]
+[ext_resource type="Script" path="res://Scenes/TextMargins.gd" id="4_j3q0m"]
+[ext_resource type="PackedScene" uid="uid://ban2tpv7ctr3f" path="res://Scenes/chat_message_npc.tscn" id="5_bciw6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_frhhb"]
 radius = 6.0
@@ -34,37 +35,37 @@ shape = SubResource("CapsuleShape2D_sq8yx")
 wait_time = 5.0
 one_shot = true
 
-[node name="text_box" type="MarginContainer" parent="."]
-offset_left = 5.0
-offset_top = -75.0
-offset_right = 45.0
-offset_bottom = -35.0
-scale = Vector2(2.09234, 1.12133)
+[node name="NPCSpeechFrame" type="MarginContainer" parent="."]
+z_as_relative = false
+custom_minimum_size = Vector2(-0.09, 0)
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.463
+anchor_right = 0.469
+anchor_bottom = 0.463
+offset_left = -98.0
+offset_top = -15.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_vertical = 0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="text_box"]
+[node name="NPCBubble" type="NinePatchRect" parent="NPCSpeechFrame"]
+z_index = 1
 layout_mode = 2
-texture = ExtResource("3_ihvuq")
-patch_margin_left = 5
-patch_margin_top = 6
-patch_margin_right = 5
-patch_margin_bottom = 8
+texture = ExtResource("3_6i47h")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 11
+patch_margin_bottom = 7
 
-[node name="MarginContainer" type="MarginContainer" parent="text_box"]
+[node name="NPCTextMargins" type="MarginContainer" parent="NPCSpeechFrame"]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
+script = ExtResource("4_j3q0m")
 
-[node name="Label" type="Label" parent="text_box/MarginContainer"]
+[node name="ChatMessageNPC" parent="NPCSpeechFrame/NPCTextMargins" instance=ExtResource("5_bciw6")]
+z_index = 2
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 0.596078, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_7wmsv")
-theme_override_font_sizes/font_size = 5
-text = "GPT Response"
-autowrap_mode = 2
+text = ""
 
 [connection signal="area_entered" from="interact" to="." method="_on_interact_area_entered"]
 [connection signal="area_exited" from="interact" to="." method="_on_interact_area_exited"]
