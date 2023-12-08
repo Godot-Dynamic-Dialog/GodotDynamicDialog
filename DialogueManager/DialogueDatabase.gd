@@ -13,6 +13,7 @@ var rng = RandomNumberGenerator.new()
 var npc_mood = rng.randi_range(0, 5)
 
 var NPC_text = ""
+var call_dialogue : bool = false
 
 ###--- Rain state variable ---###
 # Rain states:

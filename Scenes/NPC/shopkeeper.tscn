@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d17knhs205d2j"]
 
-[ext_resource type="Texture2D" uid="uid://d34klnsax6iey" path="res://Assets/dead.png" id="1_5g78x"]
+[ext_resource type="Texture2D" uid="uid://c5llbmkmro1qj" path="res://Assets/dead.png" id="1_5g78x"]
 [ext_resource type="Script" path="res://Scenes/NPC/shopkeeper.gd" id="1_84drj"]
 [ext_resource type="Texture2D" uid="uid://c5bwqsjovwrw0" path="res://Assets/speech_bubble_small.png" id="3_6i47h"]
 [ext_resource type="Script" path="res://Scenes/TextMargins.gd" id="4_j3q0m"]
@@ -67,5 +67,5 @@ z_index = 2
 layout_mode = 2
 text = ""
 
-[connection signal="area_entered" from="interact" to="." method="_on_interact_area_entered"]
-[connection signal="area_exited" from="interact" to="." method="_on_interact_area_exited"]
+[connection signal="body_entered" from="interact" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_body_exited"]

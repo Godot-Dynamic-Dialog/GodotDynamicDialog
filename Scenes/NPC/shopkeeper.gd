@@ -13,12 +13,14 @@ func _process(delta):
 		get_node("NPCSpeechFrame/NPCTextMargins/ChatMessageNPC").set_text(npcText)
 
 #entering interact area
-func _on_interact_area_entered(area):
-	DialogueDatabase.NPC = true
+func _on_body_entered(body):
+	if (body.name == "Player"):
+		DialogueDatabase.NPC = true
 
 #exiting area
-func _on_interact_area_exited(area):
-	DialogueDatabase.NPC = false
+func _on_body_exited(body):
+	if (body.name == "Player"):
+		DialogueDatabase.NPC = false
 	
 #func _update_npc_text(outputText : String):
 #	print(outputText)
