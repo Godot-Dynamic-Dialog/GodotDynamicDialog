@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw2eb0obqeyws"]
+[gd_scene load_steps=4 format=3 uid="uid://ban2tpv7ctr3f"]
 
-[ext_resource type="Script" path="res://Scenes/chat_message_ai.gd" id="1_5f3fa"]
-[ext_resource type="FontFile" uid="uid://5yht27x1ioa" path="res://Assets/PixelifySans-Regular.ttf" id="1_kujgl"]
+[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="1_xbtxt"]
+[ext_resource type="Script" path="res://Scenes/chat_message_ai.gd" id="2_e0470"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dpfe"]
 content_margin_left = 5.0
@@ -18,11 +18,12 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
-[node name="ChatMessageAI" type="RichTextLabel"]
+[node name="ChatMessageNPC" type="RichTextLabel"]
 theme_override_colors/default_color = Color(0.203922, 0.203922, 0.203922, 1)
-theme_override_fonts/normal_font = ExtResource("1_kujgl")
+theme_override_fonts/normal_font = ExtResource("1_xbtxt")
+theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_7dpfe")
-text = "WELL AINT IT A BRIGHT DAY IN YE OLDE FARMTOWN EH LOTS OF TOMATOES AND POTATOES JUST WHAT YAH LIKE TO SEE ON A TUESDAY AFTERNOON"
+text = "gsegsegges"
 fit_content = true
 scroll_active = false
-script = ExtResource("1_5f3fa")
+script = ExtResource("2_e0470")

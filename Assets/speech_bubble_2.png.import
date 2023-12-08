@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cemifqcnpm4fl"
-path="res://.godot/imported/rain1.png-c746b7af3cd80883dd8e2187725d3b26.ctex"
+uid="uid://bwn5kjltwjiou"
+path="res://.godot/imported/speech_bubble_2.png-1ae221eaae6d9c3723f9e68657a664fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rain1.png"
-dest_files=["res://.godot/imported/rain1.png-c746b7af3cd80883dd8e2187725d3b26.ctex"]
+source_file="res://Assets/speech_bubble_2.png"
+dest_files=["res://.godot/imported/speech_bubble_2.png-1ae221eaae6d9c3723f9e68657a664fb.ctex"]
 
 [params]
 

@@ -22,5 +22,5 @@ mono_crash.*.json
 # Project Specific
 .env
 .csproj
-.import
-.tmp
+*.import
+*.tmp

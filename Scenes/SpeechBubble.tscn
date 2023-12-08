@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwb4mcs4xbl00"]
+
+[ext_resource type="Texture2D" uid="uid://bwn5kjltwjiou" path="res://Assets/speech_bubble_2.png" id="1_lpdsp"]
+[ext_resource type="PackedScene" uid="uid://dw2eb0obqeyws" path="res://Scenes/chat_message_ai.tscn" id="2_ilrmh"]
+
+[node name="SpeechBubble" type="NinePatchRect"]
+texture = ExtResource("1_lpdsp")
+patch_margin_left = 12
+patch_margin_top = 11
+patch_margin_right = 12
+patch_margin_bottom = 31
+
+[node name="SpeechTextFrame" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 75.0
+
+[node name="ChatMessageAI" parent="SpeechTextFrame" instance=ExtResource("2_ilrmh")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)

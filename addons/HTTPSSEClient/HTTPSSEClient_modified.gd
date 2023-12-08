@@ -125,8 +125,10 @@ func get_open_ai_events_data(string_body: String) -> Array:
 					printerr("Error: 'delta' field not found in the first choice")
 					results.append("[ERROR]")
 			else:
-				printerr("Error: 'choices' field not found in the received data")
-				results.append("[ERROR]")
+				print("Error: 'choices' field not found in the received data.\n
+ChatGPT likely called too quickly.")
+				#results.append("[ERROR]")
+				return ["[DONE]"]
 
 	return results
 

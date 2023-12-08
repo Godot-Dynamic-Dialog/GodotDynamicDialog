@@ -33,6 +33,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i7ne0")
@@ -153,4 +155,5 @@ uri = "https://github.com/Godot-Dynamic-Dialog/GodotDynamicDialog"
 [connection signal="tree_exiting" from="VBoxContainer/VBoxContainer/Options" to="VBoxContainer/VBoxContainer/Options" method="_on_tree_exiting"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Exit" to="VBoxContainer/VBoxContainer/Exit" method="_on_pressed"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="CenterContainer/LinkButton" to="." method="_on_link_button_pressed"]
