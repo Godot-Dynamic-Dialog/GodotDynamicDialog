@@ -22,6 +22,7 @@ var stream_reply_buffer: String
 var stream_reply_final: String
 var stream_used_status_ai_message = false
 var stream_ongoing = false
+var dialogue_ongoing : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():#
@@ -55,8 +56,7 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 			stream_reply_final = ""
 			stream_used_status_ai_message = false
 			await get_tree().create_timer(4).timeout 
-			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
-			await get_tree().create_timer(4).timeout 
+			dialogue_ongoing = false
 			get_node("SpeechFrame/TextMargins/ChatMessageAI").set_text("")
 			await get_tree().create_timer(2).timeout 
 			DialogueDatabase.NPC_text = ""
@@ -90,6 +90,16 @@ func _on_new_sse_event(partial_reply : Array, ai_status_message : ChatMessageAI)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# Test if something has called a response
+	if (DialogueDatabase.call_dialogue
+		and not dialogue_ongoing):
+		# Reset variables
+		dialogue_ongoing = true
+		DialogueDatabase.call_dialogue = false
+		# Call response
+		_on_gd_gpt_pressed()
+	
 	if get_node("SpeechFrame/TextMargins/ChatMessageAI").get_text() == "":
 		get_node("SpeechFrame").hide()
 	else:

@@ -5,7 +5,9 @@ extends Control
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# Dev mode OFF by default
+	DialogueDatabase.developer_mode = 0
+	get_tree().set_debug_collisions_hint(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,9 +32,9 @@ func _on_link_button_pressed():
 
 #dev mode 
 func _on_check_button_toggled(button_pressed):
-	if(button_pressed):
+	if(button_pressed): # Dev mode ON
 		DialogueDatabase.developer_mode = 1
 		get_tree().set_debug_collisions_hint(true)
-	else:
+	else: # Dev mode OFF
 		DialogueDatabase.developer_mode = 0
 		get_tree().set_debug_collisions_hint(false)

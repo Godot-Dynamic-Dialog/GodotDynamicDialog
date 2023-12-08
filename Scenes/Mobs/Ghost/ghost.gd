@@ -27,6 +27,7 @@ func take_damage():
 func _on_area_2d_body_entered(body):
 	if (body.name == "Player"):
 		chasePlayer()
+		DialogueDatabase.call_dialogue = true
 
 func _on_area_2d_body_exited(body):
 	if (body.name == "Player"):
