@@ -17,9 +17,11 @@ func _physics_process(delta):
 
 func chasePlayer():
 	chase = true
+	DialogueManager.update_context("ghost_chase", true)
 
 func stopChase():
 	chase = false
+	DialogueManager.update_context("ghost_chase", false)
 
 func take_damage():
 	queue_free()

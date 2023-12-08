@@ -1,51 +1,82 @@
 [
 	{
-		"id": "health",
-		"conditions": {
-			"health": 100
-		},
-		"text": "High Health"
+		"id": "player_healthy",
+		"conditions": { "player_healthy": true },
+		"text": "You are healthy."
 	},
 	{
-		"id": "health",
-		"conditions": {
-			"health": 50
-		},
-		"text": "Low Health"
+		"id": "player_hurt",
+		"conditions": { "player_hurt": true },
+		"text": "You are hurt."
 	},
 	{
-		"id": "hunger",
-		"conditions": {
-			"hunger": 5
-		},
-		"text": "Hunger satisfied"
+		"id": "hunger_full",
+		"conditions": { "full": true },
+		"text": "Your hunger satisfied."
 	},
 	{
-		"id": "hunger",
-		"conditions": {
-			"hunger": 1
-		},
-		"text": "Still hungry"
+		"id": "hunger_empty",
+		"conditions": { "hungry": true },
+		"text": "You are hungry."
 	},
 	{
-		"id": "total_apple",
-		"conditions": {
-			"total_apple": 5
-		},
-		"text": "Lots of apples"
+		"id": "apples",
+		"conditions": {"apples": true },
+		"text": "You have a lot of apples."
 	},
 	{
-		"id": "total_watermelon",
-		"conditions": {
-			"total_watermelon": 5
-		},
-		"text": "Lots of watermelon"
+		"id": "watermelons",
+		"conditions": { "watermelons": true },
+		"text": "You have a lot of watermelon."
 	},
 	{
 		"id": "total_banana",
-		"conditions": {
-			"total_banana": 5
-		},
-		"text": "Lots of bananas"
+		"conditions": { "bananas": true },
+		"text": "You have a lot of bananas."
+	},
+	{
+		"id": "ghost_chase",
+		"conditions": { "ghost_chase": true },
+		"text": "A ghost is chasing you."
+	},
+	{
+		"id": "bat_chase",
+		"conditions": { "bat_chase": true },
+		"text": "A bat is chasing you."
+	},
+	{
+		"id": "tree",
+		"conditions": { "tree": true },
+		"text": "You are near a tree."
+	},
+	{
+		"id": "location_cave",
+		"conditions": { "cave": true },
+		"text": "You are in a cave."
+	},
+	{
+		"id": "location_outside",
+		"conditions": { "outside": true },
+		"text": "You are outdoors, there is a cave nearby."
+	},
+	{
+		"id": "weather_dry",
+		"conditions": { "dry" : true },
+		"text": "It is not raining."
+	},
+	{
+		"id": "weather_rain",
+		"conditions": { "rain": true },
+		"text": "It is lightly raining."
+	},
+	{
+		"id": "weather_heavy_rain",
+		"conditions": { "heavy_rain": true },
+		"text": "There is a heavy downpour of rain."
+	},
+	{
+		"id": "chest",
+		"conditions": { "chest": true },
+		"text": "There is a chest nearby."
 	}
 ]

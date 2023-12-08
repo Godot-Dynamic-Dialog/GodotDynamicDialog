@@ -87,28 +87,28 @@ func _on_gd_gpt_pressed():
 	#var action : String = "MC has just finished slaying a dragon"
 	var MC : String =  "an adventurer"
 	var apple : String = str(DialogueManager.get_context("total_apple"))
-	var extra : String = "you just saw an apple tree."
 	var hunger : String = str(DialogueManager.get_context("hunger"))
 	var env : String = "It is a dry desert day"
 	var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
+	var ghost : String = str(DialogueManager.get_context("ghost_chase"))
 	var promptStruct = (
 # Monologue Prompt
 "
 You are a character with an internal monologue. 
 You are %s. 
-%s.
 Your Hunger points are %s / 100.
 You have eaten %s apples.
 Your HP is %s. 
 %s 
 Your mood is %s.
+%s
 Don't need to comment on all of the above, 
 only respond with the text of the monologue. 
 Stay under 150 characters.
 ")
 
-	var prompt = promptStruct % [MC, env, hunger, apple, extra, hp, mood]
+	var prompt = promptStruct % [MC, env, hunger, apple, hp, mood, ghost]
 	print("Prompt:\n", prompt)
 	
 	var ai_message = message_ai.instantiate()
