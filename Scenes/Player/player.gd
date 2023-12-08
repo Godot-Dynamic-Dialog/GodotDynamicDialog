@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var ACCELERATION = 600
 @export var FRICTION = 550
 
+@export var HEALTH = 100
+
 enum {
 	MOVE,
 	ATTACK
@@ -69,6 +71,7 @@ func attack_animation_finished():
 func _on_hitbox_body_entered(body):
 	if (body.has_method("take_damage") and (state == ATTACK)):
 		body.take_damage()
+
 	
 #INTERACTION FUNCTIONS
 
@@ -100,3 +103,11 @@ func update_interactions():
 #allows the position of the player to be manipulated, used by portals (doorways)
 func _ready():
 	self.global_position = Global.player_map_position
+
+
+
+func _on_area_2d_body_entered(body):
+	if (body.is_in_group("mobs")):
+		DialogueManager.update_context("player_hurt", true)
+		DialogueManager.update_context("player_healthy", false)
+		print(DialogueManager.get_context("player_hurt"))

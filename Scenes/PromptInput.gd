@@ -140,6 +140,7 @@ func _on_gd_gpt_pressed():
 	var hunger : String = str(DialogueManager.get_context("hunger"))
 	var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
+	var ghost : String = str(DialogueManager.get_context("ghost_chase"))
 	var extra: String = ""
 	### END ADVENTURER VARIABLES ###
 	
@@ -186,8 +187,8 @@ Don't need to comment on all of the above,
 only respond with the text of the monologue. 
 Stay under 150 characters.
 ")
-		prompt = promptStruct % [MC, apple, watermelon, banana, weather, hunger, mood]
-		
+
+	var prompt = promptStruct % [MC, env, hunger, apple, hp, mood, ghost]
 	print("Prompt:\n", prompt)
 	
 	var ai_message = message_ai.instantiate()
