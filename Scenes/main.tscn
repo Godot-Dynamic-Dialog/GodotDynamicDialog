@@ -402,7 +402,7 @@ position = Vector2(352, 192)
 [node name="CaveEntrance" parent="." instance=ExtResource("7_risp2")]
 position = Vector2(392, 40)
 
-[node name="Ghost" parent="." instance=ExtResource("11_5kdk5")]
+[node name="Ghost" parent="." groups=["mobs"] instance=ExtResource("11_5kdk5")]
 position = Vector2(384, 168)
 
 [node name="MainRain" parent="." instance=ExtResource("13_p0a21")]
