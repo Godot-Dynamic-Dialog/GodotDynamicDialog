@@ -2,7 +2,7 @@ extends Node
 
 var dialogue_database = DialogueDatabase
 
-var game_context = {"outside": true, "total_apple": 0, "total_banana": 0, "total_watermelon": 0, "player_healthy": true, "hunger_full": true}
+var game_context = {"outside": true, "total_apple": 0, "total_banana": 0, "total_watermelon": 0, "player_healthy": true, "hunger_full": true, "weather_clear": true}
 var player_health = 10
 
 func update_context(key: String, value) -> void:
