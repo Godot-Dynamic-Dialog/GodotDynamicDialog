@@ -60,17 +60,17 @@
 		"text": "You are outdoors, there is a cave nearby."
 	},
 	{
-		"id": "weather_dry",
-		"conditions": { "dry" : true },
+		"id": "weather_clear",
+		"conditions": { "weather_clear" : true },
 		"text": "It is not raining."
 	},
 	{
-		"id": "weather_rain",
+		"id": "rain",
 		"conditions": { "rain": true },
 		"text": "It is lightly raining."
 	},
 	{
-		"id": "weather_heavy_rain",
+		"id": "heavy_rain",
 		"conditions": { "heavy_rain": true },
 		"text": "There is a heavy downpour of rain."
 	},
