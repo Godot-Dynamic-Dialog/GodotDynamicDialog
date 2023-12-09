@@ -76,26 +76,15 @@ func _on_hitbox_body_entered(body):
 
 #SIGNAL ON AREA ENTERED
 func _on_interaction_area_area_entered(area):
-	all_interactions.insert(0, area)
-	update_interactions()
-	
-	
 	if area.has_method("collect"):
 		area.collect()
+	if area.has_method("proximity"):
+		area.proximity("on")
 		
 #SIGNAL ON AREA EXITED
 func _on_interaction_area_area_exited(area):
-	all_interactions.erase(area)
-	update_interactions()
-
-#function to update label
-func update_interactions():
-	if all_interactions:
-		#grabs interct_label variable defined in each object
-		interactLabel.text = all_interactions[0].interact_label
-		
-	else:
-		interactLabel.text = ""
+	if area.has_method("proximity"):
+		area.proximity("off")
 
 
 #had to have this down here elsewise it caused issues with above code
