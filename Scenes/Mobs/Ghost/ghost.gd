@@ -21,7 +21,7 @@ func chasePlayer():
 
 func stopChase():
 	chase = false
-	DialogueManager.update_context("ghost_chase", false)
+	DialogueManager.remove_context("ghost_chase")
 
 func take_damage():
 	queue_free()

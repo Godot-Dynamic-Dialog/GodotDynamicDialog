@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt81ja7c3kxxw"]
 
 [ext_resource type="PackedScene" uid="uid://dbcv1lvs4wld" path="res://Scenes/Objects/fruits.tscn" id="1_1dkr2"]
-[ext_resource type="Texture2D" uid="uid://dl5tdamrkleyc" path="res://Assets/banana.png" id="1_evp1s"]
+[ext_resource type="Texture2D" uid="uid://csxledqoeaw8m" path="res://Assets/banana.png" id="1_evp1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_darr7"]
 resource_local_to_scene = true

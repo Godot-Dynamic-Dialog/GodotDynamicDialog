@@ -30,7 +30,7 @@ func chasePlayer():
 
 func stopChase():
 	chase = false
-	DialogueManager.update_context("bat_chase", false)
+	DialogueManager.remove_context("bat_chase")
 
 func take_damage():
 	queue_free()
