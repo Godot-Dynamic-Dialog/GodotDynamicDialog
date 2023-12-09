@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_xba4t"]
 [ext_resource type="PackedScene" uid="uid://cl3pe88eyrurq" path="res://Scenes/PromptInput.tscn" id="2_ieakw"]
-[ext_resource type="Texture2D" uid="uid://bb3hl6lvutxfq" path="res://Assets/tiles.png" id="2_ih2nm"]
+[ext_resource type="Texture2D" uid="uid://dgcx03tf36xvv" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_smu4t"]
 [ext_resource type="PackedScene" uid="uid://cremcdet2rlpy" path="res://Scenes/Objects/well.tscn" id="4_7xcy5"]
 [ext_resource type="PackedScene" uid="uid://dbdfc10qjav02" path="res://Scenes/Objects/apple.tscn" id="5_mafvm"]
@@ -18,8 +18,8 @@
 [ext_resource type="Script" path="res://Scenes/Weather/HeavyRain.gd" id="16_llvw4"]
 [ext_resource type="PackedScene" uid="uid://lcvbg5jnamtj" path="res://Scenes/Objects/watermelon.tscn" id="16_tqygu"]
 [ext_resource type="PackedScene" uid="uid://bt81ja7c3kxxw" path="res://Scenes/Objects/banana.tscn" id="17_y71rb"]
-[ext_resource type="PackedScene" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
+[ext_resource type="PackedScene" uid="uid://cvhu1xm2ecqne" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
+[ext_resource type="PackedScene" uid="uid://c7di5npf3casw" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
 [ext_resource type="PackedScene" uid="uid://d17knhs205d2j" path="res://Scenes/NPC/shopkeeper.tscn" id="21_rafgx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
@@ -401,7 +401,7 @@ position = Vector2(352, 192)
 [node name="CaveEntrance" parent="." instance=ExtResource("7_risp2")]
 position = Vector2(392, 40)
 
-[node name="Ghost" parent="." instance=ExtResource("11_5kdk5")]
+[node name="Ghost" parent="." groups=["mobs"] instance=ExtResource("11_5kdk5")]
 position = Vector2(384, 168)
 
 [node name="MainRain" parent="." instance=ExtResource("13_p0a21")]

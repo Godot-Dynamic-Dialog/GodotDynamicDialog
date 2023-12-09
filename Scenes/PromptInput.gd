@@ -134,12 +134,13 @@ func _on_gd_gpt_pressed():
 	
 	### ADVENTURER VARIABLES ###
 	var MC : String =  "an adventurer"
-	var apple : String = str(DialogueManager.get_context("total_apple"))
-	var banana : String = str(DialogueManager.get_context("total_banana"))
-	var watermelon : String = str(DialogueManager.get_context("total_watermelon"))
-	var hunger : String = str(DialogueManager.get_context("hunger"))
-	var hp : String = str(DialogueManager.get_context("health"))
+	#var apple : String = str(DialogueManager.get_context("total_apple"))
+	#var banana : String = str(DialogueManager.get_context("total_banana"))
+	#var watermelon : String = str(DialogueManager.get_context("total_watermelon"))
+	#var hunger : String = str(DialogueManager.get_context("hunger"))
+	#var hp : String = str(DialogueManager.get_context("health"))
 	var mood : String = "exhausted"
+	var ghost : String = str(DialogueManager.get_context("ghost_chase"))
 	var extra: String = ""
 	### END ADVENTURER VARIABLES ###
 	
@@ -162,7 +163,7 @@ func _on_gd_gpt_pressed():
 	if (DialogueDatabase.NPC == true):
 		var promptStruct = (
 			# NPC Prompt
-			"
+"
 You are %s. 
 %s. 
 The weather is %s. 
@@ -176,12 +177,11 @@ Stay under 150 characters.
 	else:
 		var promptStruct = (
 			# Monologue Prompt
-			"
+"
 You are %s in a foreign land. 
-You have eaten %s apples, %s watermelon, and %s bananas since discovering this area. 
 The weather is %s. 
-Your hunger points are at %s. 
-Your mood is %s. 
+Your mood is %s.
+%s
 Don't need to comment on all of the above, 
 only respond with the text of the monologue. 
 Stay under 150 characters.
