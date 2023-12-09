@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbdfc10qjav02"]
+[gd_scene load_steps=3 format=3 uid="uid://dbdfc10qjav02"]
 
-[ext_resource type="Texture2D" uid="uid://boe7m3gnsdjah" path="res://Assets/apple.png" id="1_c7j5r"]
 [ext_resource type="PackedScene" uid="uid://dbcv1lvs4wld" path="res://Scenes/Objects/fruits.tscn" id="1_w8hx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7jfj"]
@@ -11,9 +10,6 @@ size = Vector2(14, 16)
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_e7jfj")
-
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("1_c7j5r")
 
 [node name="InteractArea" parent="." index="2"]
 scale = Vector2(1.69743, 1.74949)
