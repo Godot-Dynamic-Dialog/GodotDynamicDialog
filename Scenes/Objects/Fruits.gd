@@ -19,7 +19,7 @@ func collect():
 #	DialogueManager.update_context("hunger", true)
 #	DialogueManager.trigger_dialogue("hunger")
 #
-#	DialogueManager.increment_context("health", 10)
+	DialogueManager.update_health(10)
 #	DialogueManager.trigger_dialogue("health")
 #
 	DialogueManager.increment_context("total_" + current_fruit, 1)

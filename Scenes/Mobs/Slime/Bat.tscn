@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dga31it1rxr3q"]
 
-[ext_resource type="Texture2D" uid="uid://jetnawbeeoap" path="res://Assets/mobs.png" id="1_02u3e"]
+[ext_resource type="Texture2D" uid="uid://cce6m55m6gn7" path="res://Assets/mobs.png" id="1_02u3e"]
 [ext_resource type="Script" path="res://Scenes/Mobs/Slime/Bat.gd" id="1_wq0tj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkfri"]
