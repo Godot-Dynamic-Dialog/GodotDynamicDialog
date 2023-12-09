@@ -109,5 +109,5 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if (body.is_in_group("mobs")):
 		DialogueManager.update_context("player_hurt", true)
-		DialogueManager.update_context("player_healthy", false)
+		DialogueManager.remove_context("player_healthy")
 		print(DialogueManager.get_context("player_hurt"))

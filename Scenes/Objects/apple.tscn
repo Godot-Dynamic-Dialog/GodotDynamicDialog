@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://boe7m3gnsdjah" path="res://Assets/apple.png" id="1_c7j5r"]
 [ext_resource type="PackedScene" uid="uid://dbcv1lvs4wld" path="res://Scenes/Objects/fruits.tscn" id="1_w8hx7"]
+[ext_resource type="Texture2D" uid="uid://t5evnk8yixag" path="res://Assets/apple.png" id="2_pjalm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7jfj"]
 resource_local_to_scene = true
@@ -13,7 +14,7 @@ size = Vector2(14, 16)
 shape = SubResource("RectangleShape2D_e7jfj")
 
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("1_c7j5r")
+texture = ExtResource("2_pjalm")
 
 [node name="InteractArea" parent="." index="2"]
 scale = Vector2(1.69743, 1.74949)
