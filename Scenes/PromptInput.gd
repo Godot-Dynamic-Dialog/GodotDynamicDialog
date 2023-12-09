@@ -186,7 +186,7 @@ Don't need to comment on all of the above,
 only respond with the text of the monologue. 
 Stay under 150 characters.
 ")
-		prompt = promptStruct % [MC, apple, watermelon, banana, weather, hunger, mood]
+		prompt = promptStruct % [MC, weather, mood, ghost]
 		
 	print("Prompt:\n", prompt)
 	
