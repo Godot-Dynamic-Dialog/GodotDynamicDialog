@@ -6,6 +6,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vpbqf"]
 radius = 7.0
 height = 18.0
+[ext_resource type="Texture2D" uid="uid://3fvh31y0l43l" path="res://Assets/character.png" id="2_svemd"]
 
 [sub_resource type="Animation" id="Animation_y0t7s"]
 length = 0.35
@@ -503,6 +504,10 @@ radius = 14.7373
 line_spacing = 1.0
 font_size = 8
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vpbqf"]
+radius = 7.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_qlbjc")
@@ -511,10 +516,6 @@ script = ExtResource("1_qlbjc")
 texture = ExtResource("2_svemd")
 hframes = 4
 vframes = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_vpbqf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -536,7 +537,6 @@ metadata/_edit_group_ = true
 
 [node name="Hitbox" type="Area2D" parent="Marker2D"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(8, 4)
 
 [node name="HitboxCollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hitbox"]
@@ -568,6 +568,17 @@ offset_bottom = -14.0
 label_settings = SubResource("LabelSettings_o3hoo")
 horizontal_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_vpbqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.560001, 0.680001)
+shape = SubResource("CapsuleShape2D_vpbqf")
+
 [connection signal="body_entered" from="Marker2D/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
