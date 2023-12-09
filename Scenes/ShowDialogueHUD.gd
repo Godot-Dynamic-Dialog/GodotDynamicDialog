@@ -18,4 +18,4 @@ func _process(delta):
 	$TotalApple.text = str(DialogueManager.game_context["total_apple"])
 	$TotalBanana.text = str(DialogueManager.game_context["total_banana"])
 	$TotalWatermelon.text = str(DialogueManager.game_context["total_watermelon"])
-	
+	$CurrentScene.text = str(DialogueManager.game_context["outside"])

@@ -414,6 +414,7 @@ script = ExtResource("16_llvw4")
 next_scene_path = "res://Scenes/Cave.tscn"
 player_spawn_location = Vector2(-8, -8)
 player_direction_facing = Vector2(0, 1)
+scene_entering = "Cave"
 
 [node name="Apple" parent="." instance=ExtResource("5_mafvm")]
 position = Vector2(96, 200)
