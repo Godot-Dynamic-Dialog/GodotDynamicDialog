@@ -19,15 +19,13 @@ func collect():
 #	DialogueManager.update_context("hunger", true)
 #	DialogueManager.trigger_dialogue("hunger")
 #
-#	DialogueManager.increment_context("health", 10)
+	DialogueManager.update_health(10)
 #	DialogueManager.trigger_dialogue("health")
 #
-#	DialogueManager.increment_context("total_" + current_fruit, 1)
-#	DialogueManager.trigger_dialogue("total_" + current_fruit)
+	DialogueManager.increment_context("total_" + current_fruit, 1)
+	DialogueManager.trigger_dialogue("total_" + current_fruit)
 	DialogueManager.update_context("hungry", false)
 	DialogueManager.update_context("full", true)
-	DialogueManager.update_context("player_hurt", false)
-	DialogueManager.update_context("player_healthy", true)
 	DialogueManager.update_context(current_fruit + "s", true)
 	
 	print(DialogueManager.game_context)

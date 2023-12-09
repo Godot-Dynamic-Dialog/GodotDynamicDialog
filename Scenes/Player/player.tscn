@@ -3,10 +3,6 @@
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_qlbjc"]
 [ext_resource type="Texture2D" uid="uid://d6q7jlrvub6n" path="res://Assets/character.png" id="2_svemd"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vpbqf"]
-radius = 7.0
-height = 18.0
-
 [sub_resource type="Animation" id="Animation_y0t7s"]
 length = 0.35
 tracks/0/type = "value"
@@ -493,8 +489,8 @@ states/Run/position = Vector2(516, 100.945)
 transitions = ["Run", "Idle", SubResource("AnimationNodeStateMachineTransition_q7n23"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ppe3d"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_oq87p"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_7yu2a"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_n8h7k"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_o40r7")]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tod3v"]
-radius = 7.0
-height = 20.0
+radius = 9.00001
+height = 27.9999
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tkkyn"]
 radius = 14.7373
@@ -549,6 +545,7 @@ position = Vector2(-2, 10)
 scale = Vector2(0.590166, 0.557411)
 
 [node name="InteractionArea" type="Area2D" parent="InteractionComponents"]
+visible = false
 position = Vector2(60, -19)
 collision_layer = 0
 collision_mask = 4
@@ -576,6 +573,9 @@ shape = SubResource("CapsuleShape2D_vpbqf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.560001, 0.680001)
 shape = SubResource("CapsuleShape2D_vpbqf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.504
 
 [connection signal="body_entered" from="Marker2D/Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]

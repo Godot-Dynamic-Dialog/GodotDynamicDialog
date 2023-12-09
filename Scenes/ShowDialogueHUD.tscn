@@ -29,13 +29,13 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
-text = "hunger:
-health:
+text = "hunger_full:
+player_healthy:
 total_apple:
 total_banana:
 total_watermelon:
 rain_state:
-game_scene:"
+outside:"
 autowrap_mode = 2
 script = ExtResource("1_prukx")
 metadata/_edit_use_anchors_ = true
@@ -45,31 +45,29 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.518
 anchor_bottom = 3.273
-offset_left = 28.0
-offset_right = -299.03
+offset_left = 43.0
+offset_right = -284.03
 offset_bottom = -205.018
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
 autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Health" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.518
 anchor_bottom = 3.273
-offset_left = 26.0
+offset_left = 57.0
 offset_top = 11.0
-offset_right = -299.03
+offset_right = -268.03
 offset_bottom = -183.018
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0
 "
-metadata/_edit_use_anchors_ = true
 
 [node name="TotalApple" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -84,7 +82,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 6
 text = "0"
-metadata/_edit_use_anchors_ = true
 
 [node name="TotalBanana" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -99,7 +96,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
-metadata/_edit_use_anchors_ = true
 
 [node name="TotalWatermelon" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -114,7 +110,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
-metadata/_edit_use_anchors_ = true
 
 [node name="RainState" type="Label" parent="NamesOfContexts"]
 layout_mode = 1
@@ -129,7 +124,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_sw1ca")
 theme_override_font_sizes/font_size = 7
 text = "0"
-metadata/_edit_use_anchors_ = true
 
 [node name="CurrentScene" type="Label" parent="NamesOfContexts"]
 layout_mode = 0

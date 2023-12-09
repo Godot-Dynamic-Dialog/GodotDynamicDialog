@@ -12,7 +12,6 @@ extends CharacterBody2D
 @export var ACCELERATION = 600
 @export var FRICTION = 550
 
-@export var HEALTH = 100
 
 enum {
 	MOVE,
@@ -108,6 +107,10 @@ func _ready():
 
 func _on_area_2d_body_entered(body):
 	if (body.is_in_group("mobs")):
+		DialogueManager.update_health(-10)
+		if DialogueManager.player_health <= 0:
+			DialogueManager.player_health = 0
+			print("Player health at 0, use your imagination for the player fainting like Pokemon")
 		DialogueManager.update_context("player_hurt", true)
 		DialogueManager.update_context("player_healthy", false)
-		print(DialogueManager.get_context("player_hurt"))
+		print(DialogueManager.game_context)
