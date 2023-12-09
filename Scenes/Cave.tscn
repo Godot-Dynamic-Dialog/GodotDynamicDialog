@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://m2hetha383la"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_8mbyw"]
-[ext_resource type="Texture2D" uid="uid://rmyte122fvng" path="res://Assets/tiles.png" id="1_pp2yt"]
+[ext_resource type="Texture2D" uid="uid://dgcx03tf36xvv" path="res://Assets/tiles.png" id="1_pp2yt"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_gfx07"]
 [ext_resource type="PackedScene" uid="uid://hcdtajw7vlmj" path="res://Scenes/Portal.tscn" id="3_kva1f"]
 [ext_resource type="Script" path="res://Scenes/CaveFruitSpawn.gd" id="3_m88q7"]

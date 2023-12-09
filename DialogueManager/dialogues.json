@@ -20,19 +20,19 @@
 		"text": "You are hungry."
 	},
 	{
-		"id": "apples",
-		"conditions": {"apples": true },
-		"text": "You have a lot of apples."
+		"id": "total_apple",
+		"conditions": {"total_apple": 0 },
+		"text": "Number of apples: "
 	},
 	{
-		"id": "watermelons",
-		"conditions": { "watermelons": true },
-		"text": "You have a lot of watermelon."
+		"id": "total_watermelon",
+		"conditions": { "total_watermelon": 0 },
+		"text": "Number of watermelons: "
 	},
 	{
 		"id": "total_banana",
-		"conditions": { "bananas": true },
-		"text": "You have a lot of bananas."
+		"conditions": { "total_banana": 0 },
+		"text": "Number of bananas: "
 	},
 	{
 		"id": "ghost_chase",
