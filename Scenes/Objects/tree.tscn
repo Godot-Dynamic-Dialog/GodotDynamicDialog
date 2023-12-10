@@ -19,4 +19,5 @@ vframes = 15
 frame = 38
 
 [node name="InteractArea" parent="." instance=ExtResource("2_lyoom")]
+scale = Vector2(14.6351, 12.1029)
 script = ExtResource("3_7fgwc")

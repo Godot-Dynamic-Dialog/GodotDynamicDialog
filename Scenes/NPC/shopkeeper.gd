@@ -16,6 +16,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if (body.name == "Player"):
 		DialogueDatabase.NPC = true
+		DialogueDatabase.call_dialogue = true
 
 #exiting area
 func _on_body_exited(body):

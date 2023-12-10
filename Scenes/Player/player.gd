@@ -100,6 +100,6 @@ func _on_area_2d_body_entered(body):
 		if DialogueManager.player_health <= 0:
 			DialogueManager.player_health = 0
 			print("Player health at 0, use your imagination for the player fainting like Pokemon")
-		DialogueManager.update_context("player_hurt", true)
-		DialogueManager.update_context("player_healthy", false)
+		DialogueManager.update_context("player_hurt", 0)
+		DialogueManager.update_context("player_healthy", 0)
 		print(DialogueManager.get_context("player_hurt"))

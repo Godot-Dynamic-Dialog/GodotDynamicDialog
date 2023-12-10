@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 func chasePlayer():
 	chase = true
-	DialogueManager.update_context("bat_chase", true)
+	DialogueManager.update_context("bat_chase", 0)
 
 func stopChase():
 	chase = false
