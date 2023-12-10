@@ -25,6 +25,18 @@ Includes the following components:
     https://fonts.google.com/specimen/Pixelify+Sans
     Licensed under the SIL Open Font License.
 
+    "Adventure and Beyond"
+    Created by Alexander Nakarada
+    Availible on Youtube or BreakingCopyright.com
+    https://www.youtube.com/watch?v=LYf2gOIt_OQ&list=PLfP6i5T0-DkLTWwznhWjQ1sm_GasKuMPY&index=24&ab_channel=BreakingCopyright%E2%80%94RoyaltyFreeMusic
+    Licensed under CC BY 3.0
+
+    "The Celtic Handmaiden"
+    Created by geoffharvey
+    Availible on Pixabay.com
+    https://pixabay.com/music/folk-the-celtic-handmaiden-147078/
+    Free for use under the Pixabay Content License.
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
