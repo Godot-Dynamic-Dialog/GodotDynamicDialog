@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var all_interactions = []
 @onready var interactLabel = $InteractionComponents/Label
 
-
-
+@onready var main_bgm = $"../main_bgm"
+@onready var tavern_bgm = $"../tavern_bgm"
 @export var MAX_SPEED = 65
 @export var ACCELERATION = 600
 @export var FRICTION = 550
@@ -103,3 +103,30 @@ func _on_area_2d_body_entered(body):
 		DialogueManager.update_context("player_hurt", 0)
 		DialogueManager.update_context("player_healthy", 0)
 		print(DialogueManager.get_context("player_hurt"))
+
+#TRIGGERED WHEN PLAYER ENTERS TAVERN
+func _on_tavern_body_entered(body):
+	if (body.name == "Player"):
+		#MUSIC IS ENABLED
+		if(DialogueDatabase.bgm == 1):
+			#records current playback position into variable before exiting
+			DialogueDatabase.main_bgm_pos = main_bgm.get_playback_position()
+			main_bgm.stop()
+			
+			#retrieves last playback position for that audio if exists. default is 0
+			tavern_bgm.play()
+			tavern_bgm.seek(DialogueDatabase.tavern_bgm_pos)
+			
+			
+#TRIGERRED WHEN PLAYER EXITS TAVERN
+func _on_tavern_body_exited(body):
+	if (body.name == "Player"):
+		#MUSIC IS ENABLED
+		if(DialogueDatabase.bgm == 1):
+			#records current playback position into variable before exiting
+			DialogueDatabase.tavern_bgm_pos = tavern_bgm.get_playback_position()
+			tavern_bgm.stop()
+			
+			#retrieves last playback position for that audio if exists. default is 0
+			main_bgm.play()
+			main_bgm.seek(DialogueDatabase.main_bgm_pos)
