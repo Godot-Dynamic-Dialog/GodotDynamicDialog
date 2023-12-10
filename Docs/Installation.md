@@ -1,6 +1,6 @@
 # Installation Guide for Godot Dynamic Dialog
 
-This guide will walk you through the process of setting up Godot Dynamic Dialog on your local machine. We assume that you will be using Windows for this process. If you are using a different operating system, please refer to the [Godot Engine Documentation](https://docs.godotengine.org/en/stable/getting_started/step_by_step/compiling.html) for more information.
+This guide will walk you through the process of setting up Godot Dynamic Dialog on your local machine. We assume that you will be using Windows for this process. If you are using a different operating system, please refer to the [Godot Engine Documentation](https://docs.godotengine.org/en/stable/index.html) for more information.
 
 > :warning: **Note**: You will need to obtain an OpenAI API Key for this project to work. You can do so by signing up for the [OpenAI API](https://openai.com/blog/openai-api).
 

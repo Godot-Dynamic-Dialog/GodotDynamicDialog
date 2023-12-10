@@ -5,6 +5,7 @@ All the content provided in this file was used to create the Godot Dynamic Dialo
 ## Assets
 
 - Game Asset Pack from [Sharm](https://opengameart.org/content/tiny-16-basic).
+- Game Asset Pack from [ArMM1998](https://opengameart.org/content/zelda-like-tilesets-and-sprites).
 - Pixel Font from [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans).
 
 ## Content References
@@ -20,6 +21,10 @@ All the content provided in this file was used to create the Godot Dynamic Dialo
 - [Godot 4 Instantiate Tutorial by Gwizz](https://www.youtube.com/watch?v=Qs8oSGmhx-U&ab_channel=Gwizz)
 - [Creating an Enemy in Godot 4 by DevWorm](https://youtu.be/9u59U-DWNJs?si=FyL-_4yMm-AN48Wt)
 - [Godot Documentation](https://docs.godotengine.org/en/stable/index.html)
+- [Godot API Requests by Zenva](https://www.youtube.com/watch?v=EsCmGHWYVtk)
+- [Godot Health Bar by Chris Tutorials](https://youtu.be/aP8Cv_RvBlI?si=3ynkJvbh3jeskpEX)
+- [Godot Timer Node by Gwizz](https://youtu.be/Zf6awHRr7bU?si=1GIcZFPUQJpylBVV)
+- [ChatGPT Stream in Godot by Diego Ocampo Perez](https://github.com/oceanbuilders/ChatGPT-stream-for-Godot-4)
 
 ## Technology References
 
