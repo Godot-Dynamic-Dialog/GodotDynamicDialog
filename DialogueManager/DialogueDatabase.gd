@@ -37,7 +37,7 @@ func load_dialogues():
 		for dialogue_data in result:
 			var dialogue = PlayerDialogue.new()
 			dialogue.id = dialogue_data["id"]
-			dialogue.conditions = dialogue_data["conditions"]
+			dialogue.number = dialogue_data["number"]
 			dialogue.text = dialogue_data["text"]
 			dialogues.append(dialogue)
 	else:
@@ -46,13 +46,7 @@ func load_dialogues():
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
 		if dialogue.id == event_id:
-			var conditions_met = true
-			for key in dialogue.conditions.keys():
-				if not context.has(key) or context[key] != dialogue.conditions[key]:
-					conditions_met = false
-					break
-			if conditions_met:
-				return dialogue
+			return dialogue
 	return null
 
 
