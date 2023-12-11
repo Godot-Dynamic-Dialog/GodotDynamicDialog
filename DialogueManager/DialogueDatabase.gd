@@ -25,7 +25,7 @@ var tavern_bgm_pos = 0
 	# 2 == Heavy rain
 	
 @export var rainState = 0
-@export var numOfFruits = 50
+@export var numOfFruits = 20
 @export var fruits = [apple, watermelon, banana]
 @export var developer_mode = 0
 

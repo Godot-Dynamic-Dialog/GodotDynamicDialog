@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8avj8dg4andl"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Options.gd" id="1_goqlf"]
-[ext_resource type="Texture2D" uid="uid://bsfxiad60ktqa" path="res://Assets/background.jpg" id="1_h1tn8"]
-[ext_resource type="FontFile" uid="uid://dljra27vhww84" path="res://Assets/PixelifySans-Regular.ttf" id="3_govfu"]
+[ext_resource type="Texture2D" uid="uid://dacdvb6sike5a" path="res://Assets/background.jpg" id="1_h1tn8"]
+[ext_resource type="FontFile" uid="uid://bv61l8xb2pdfl" path="res://Assets/PixelifySans-Regular.ttf" id="3_govfu"]
 
 [sub_resource type="Theme" id="Theme_uqqsp"]
 default_font = ExtResource("3_govfu")
@@ -63,7 +63,7 @@ popup/item_2/id = 2
 
 [node name="fruit_slider" type="HSlider" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-max_value = 50.0
+max_value = 20.0
 
 [node name="bgm_toggle" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
