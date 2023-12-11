@@ -5,3 +5,6 @@ extends CanvasLayer
 func _ready():
 	if(DialogueDatabase.developer_mode != 1):
 		hide()
+
+func _process(delta):
+	pass

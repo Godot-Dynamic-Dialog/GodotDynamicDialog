@@ -393,6 +393,7 @@ position = Vector2(-7, 19)
 next_scene_path = "res://Scenes/main.tscn"
 player_spawn_location = Vector2(391, 54)
 player_direction_facing = Vector2(0, -1)
+scene_entering = "Overworld"
 
 [node name="Bat" parent="." instance=ExtResource("7_purr7")]
 position = Vector2(129, -64)

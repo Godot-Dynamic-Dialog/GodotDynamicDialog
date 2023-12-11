@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8avj8dg4andl"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Options.gd" id="1_goqlf"]
-[ext_resource type="Texture2D" uid="uid://dixct1ewdl6mv" path="res://Assets/background.jpg" id="1_h1tn8"]
-[ext_resource type="FontFile" uid="uid://dg5ck0bgmm7yp" path="res://Assets/PixelifySans-Regular.ttf" id="3_govfu"]
+[ext_resource type="Texture2D" uid="uid://dacdvb6sike5a" path="res://Assets/background.jpg" id="1_h1tn8"]
+[ext_resource type="FontFile" uid="uid://bv61l8xb2pdfl" path="res://Assets/PixelifySans-Regular.ttf" id="3_govfu"]
 
 [sub_resource type="Theme" id="Theme_uqqsp"]
 default_font = ExtResource("3_govfu")
@@ -36,8 +36,8 @@ texture = ExtResource("1_h1tn8")
 layout_mode = 0
 offset_left = 96.0
 offset_top = -18.0
-offset_right = 480.0
-offset_bottom = 198.0
+offset_right = 474.0
+offset_bottom = 233.0
 scale = Vector2(0.86979, 1.06979)
 alignment = 1
 
@@ -63,7 +63,11 @@ popup/item_2/id = 2
 
 [node name="fruit_slider" type="HSlider" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-max_value = 50.0
+max_value = 20.0
+
+[node name="bgm_toggle" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Background Music"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -103,24 +107,25 @@ text = "Back
 
 [node name="Rain Type" type="Label" parent="."]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 68.0
-offset_right = 118.0
-offset_bottom = 94.0
+offset_left = 60.0
+offset_top = 73.0
+offset_right = 136.0
+offset_bottom = 99.0
 text = "Rain Type
 "
 
 [node name="Fruit Spawns" type="Label" parent="."]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 102.0
-offset_right = 142.0
-offset_bottom = 128.0
+offset_left = 60.0
+offset_top = 104.0
+offset_right = 159.0
+offset_bottom = 130.0
 text = "Fruit spawns
 "
 
 [connection signal="item_focused" from="VBoxContainer/VBoxContainer/dropdown" to="." method="_on_option_button_item_focused"]
 [connection signal="item_selected" from="VBoxContainer/VBoxContainer/dropdown" to="." method="_on_option_button_item_selected"]
 [connection signal="value_changed" from="VBoxContainer/VBoxContainer/fruit_slider" to="." method="_on_fruit_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/bgm_toggle" to="." method="_on_bgm_toggle_toggled"]
 [connection signal="pressed" from="back/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="back/Back" to="back/Back" method="_on_pressed" flags=18]

@@ -17,7 +17,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-InteractionManager="*res://Scenes/InteractionManager.tscn"
 DialogueDatabase="*res://DialogueManager/DialogueDatabase.gd"
 DialogueManager="*res://DialogueManager/DialogueManager.gd"
 Rain="*res://Scenes/Weather/Rain.gd"
@@ -31,7 +30,6 @@ Banana="*res://Scenes/Objects/Old/banana.tscn"
 
 window/size/viewport_width=384
 window/size/viewport_height=216
-window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
