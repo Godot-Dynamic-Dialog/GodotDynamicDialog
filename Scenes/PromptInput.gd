@@ -134,7 +134,7 @@ func _on_gd_gpt_pressed():
 	
 	var prompt = []
 	if (DialogueDatabase.NPC == true):
-		prompt = "You are an NPC storekeep in a video game. Write a voice line based on the following facts about the player character, only respond with the text of the voice line. Stay under 150 characters. Do not include quotations."
+		prompt = "You are an NPC tavernkeep in a video game. Write a voice line based on the following facts about the player character, only respond with the text of the voice line. Stay under 150 characters. Do not include quotations."
 	else:
 		prompt = "You are a the main character of a video game. Write a voice line based on the following facts, only respond with the text of the voice line. Stay under 150 characters. Do not include quotations."
 	prompt += DialogueManager.create_prompt()
