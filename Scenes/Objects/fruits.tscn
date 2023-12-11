@@ -13,5 +13,6 @@ script = ExtResource("1_686oc")
 shape = SubResource("RectangleShape2D_0xb5b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 
 [node name="InteractArea" parent="." instance=ExtResource("2_k6htr")]
