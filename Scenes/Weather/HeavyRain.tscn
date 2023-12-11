@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddhe3kgfx53ce"]
 
-[ext_resource type="Texture2D" uid="uid://d4nlhujexf06s" path="res://Assets/rain1.png" id="1_8vm4g"]
+[ext_resource type="Texture2D" uid="uid://cm3c8wyjro1gv" path="res://Assets/rain1.png" id="1_8vm4g"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_25fxg"]
 emission_shape = 3
