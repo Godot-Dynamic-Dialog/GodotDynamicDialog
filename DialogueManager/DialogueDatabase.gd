@@ -15,6 +15,9 @@ var npc_mood = rng.randi_range(0, 5)
 var NPC_text = ""
 var call_dialogue : bool = false
 
+var bgm = 1
+var main_bgm_pos = 0
+var tavern_bgm_pos = 0
 ###--- Rain state variable ---###
 # Rain states:
 	# 0 == No rain -- default
@@ -22,7 +25,7 @@ var call_dialogue : bool = false
 	# 2 == Heavy rain
 	
 @export var rainState = 0
-@export var numOfFruits = 50
+@export var numOfFruits = 20
 @export var fruits = [apple, watermelon, banana]
 @export var developer_mode = 0
 
@@ -37,7 +40,7 @@ func load_dialogues():
 		for dialogue_data in result:
 			var dialogue = PlayerDialogue.new()
 			dialogue.id = dialogue_data["id"]
-			dialogue.conditions = dialogue_data["conditions"]
+			dialogue.number = dialogue_data["number"]
 			dialogue.text = dialogue_data["text"]
 			dialogues.append(dialogue)
 	else:
@@ -46,13 +49,7 @@ func load_dialogues():
 func get_dialogue_for_event(event_id: String, context: Dictionary) -> PlayerDialogue:
 	for dialogue in dialogues:
 		if dialogue.id == event_id:
-			var conditions_met = true
-			for key in dialogue.conditions.keys():
-				if not context.has(key) or context[key] != dialogue.conditions[key]:
-					conditions_met = false
-					break
-			if conditions_met:
-				return dialogue
+			return dialogue
 	return null
 
 
@@ -64,7 +61,6 @@ func getRainState():
 func getNumOfFruits():
 	return numOfFruits
 	
-
 	
 	
 	

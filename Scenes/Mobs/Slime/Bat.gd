@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var player = $"../Player"
 
-const SPEED = 75.0
+const SPEED = 30.0
 var chase = false
 var player_detect = null
 
@@ -26,11 +26,11 @@ func _physics_process(delta):
 
 func chasePlayer():
 	chase = true
-	DialogueManager.update_context("bat_chase", true)
+	DialogueManager.update_context("bat_chase", 0)
 
 func stopChase():
 	chase = false
-	DialogueManager.update_context("bat_chase", false)
+	DialogueManager.remove_context("bat_chase")
 
 func take_damage():
 	queue_free()

@@ -9,3 +9,6 @@ func _ready():
 	
 	if (rainState != 1):
 		hide()
+	else:
+		DialogueManager.update_context("rain", 0)
+		DialogueManager.remove_context("weather_clear")

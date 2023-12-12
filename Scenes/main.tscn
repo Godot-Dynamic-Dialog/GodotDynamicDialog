@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4lhqu3mr88aq"]
+[gd_scene load_steps=30 format=3 uid="uid://c4lhqu3mr88aq"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_xba4t"]
 [ext_resource type="PackedScene" uid="uid://cl3pe88eyrurq" path="res://Scenes/PromptInput.tscn" id="2_ieakw"]
-[ext_resource type="Texture2D" uid="uid://dgcx03tf36xvv" path="res://Assets/tiles.png" id="2_ih2nm"]
+[ext_resource type="Texture2D" uid="uid://y0uakjhbro40" path="res://Assets/tiles.png" id="2_ih2nm"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_smu4t"]
 [ext_resource type="PackedScene" uid="uid://cremcdet2rlpy" path="res://Scenes/Objects/well.tscn" id="4_7xcy5"]
 [ext_resource type="PackedScene" uid="uid://dbdfc10qjav02" path="res://Scenes/Objects/apple.tscn" id="5_mafvm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Tilemap/TileMap.gd" id="6_d8ysi"]
 [ext_resource type="PackedScene" uid="uid://07ugbrxmb7nr" path="res://Scenes/Objects/tree.tscn" id="6_v8wjo"]
 [ext_resource type="PackedScene" uid="uid://boi6ofya8suhr" path="res://Scenes/Objects/cave_entrance.tscn" id="7_risp2"]
+[ext_resource type="Script" path="res://Scenes/Objects/tree.gd" id="9_cwunl"]
 [ext_resource type="PackedScene" uid="uid://bxx5taw2bblgt" path="res://Scenes/Mobs/Ghost/ghost.tscn" id="11_5kdk5"]
 [ext_resource type="PackedScene" uid="uid://d2stelkgoeaop" path="res://Scenes/Weather/Rain.tscn" id="13_p0a21"]
 [ext_resource type="Script" path="res://Scenes/Weather/Rain.gd" id="14_fouvh"]
@@ -21,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cvhu1xm2ecqne" path="res://Scenes/ShowDialogueHUD.tscn" id="19_qcixd"]
 [ext_resource type="PackedScene" uid="uid://c7di5npf3casw" path="res://Scenes/UI/ExitGameButton.tscn" id="20_ojuqt"]
 [ext_resource type="PackedScene" uid="uid://d17knhs205d2j" path="res://Scenes/NPC/shopkeeper.tscn" id="21_rafgx"]
+[ext_resource type="AudioStream" uid="uid://cal3xbnow7sei" path="res://audio/music/Alexander Nakarada - Adventure Beyond.mp3" id="23_eyt5t"]
+[ext_resource type="Script" path="res://Scenes/AudioStreamPlayer.gd" id="24_8uc8u"]
+[ext_resource type="AudioStream" uid="uid://dobsxdn2u1lu2" path="res://audio/music/the-celtic-handmaiden-147078.mp3" id="25_m2gds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w0kc"]
 texture = ExtResource("2_ih2nm")
@@ -354,6 +358,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7w0kc")
 sources/1 = SubResource("TileSetScenesCollectionSource_xhsrj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yg7r5"]
+size = Vector2(87, 64)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xba4t")
 
@@ -397,6 +404,7 @@ position = Vector2(120, 8)
 
 [node name="Tree" parent="." instance=ExtResource("6_v8wjo")]
 position = Vector2(352, 192)
+script = ExtResource("9_cwunl")
 
 [node name="CaveEntrance" parent="." instance=ExtResource("7_risp2")]
 position = Vector2(392, 40)
@@ -411,6 +419,7 @@ script = ExtResource("14_fouvh")
 script = ExtResource("16_llvw4")
 
 [node name="Portal" parent="." instance=ExtResource("16_2nrf0")]
+position = Vector2(393, 48)
 next_scene_path = "res://Scenes/Cave.tscn"
 player_spawn_location = Vector2(-8, -8)
 player_direction_facing = Vector2(0, 1)
@@ -431,9 +440,32 @@ position = Vector2(128, 232)
 [node name="PromptInput" parent="." instance=ExtResource("2_ieakw")]
 
 [node name="shopkeeper" parent="." instance=ExtResource("21_rafgx")]
-position = Vector2(109, 33)
+position = Vector2(144, 7)
+
+[node name="tavern" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tavern"]
+position = Vector2(135.5, 22)
+shape = SubResource("RectangleShape2D_yg7r5")
+
+[node name="main_bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_eyt5t")
+autoplay = true
+bus = &"Music"
+script = ExtResource("24_8uc8u")
+
+[node name="tavern_bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_m2gds")
+bus = &"Music"
 
 [connection signal="hidden" from="MainRain" to="MainRain" method="_on_hidden"]
 [connection signal="ready" from="MainRain" to="." method="_on_rain_ready"]
 [connection signal="ready" from="MainRain" to="MainRain" method="_on_ready"]
 [connection signal="tree_exiting" from="MainRain" to="MainRain" method="_on_tree_exiting"]
+[connection signal="area_entered" from="tavern" to="." method="_on_tavern_area_entered"]
+[connection signal="area_entered" from="tavern" to="Player" method="_on_tavern_area_entered"]
+[connection signal="area_shape_entered" from="tavern" to="Player" method="_on_tavern_area_shape_entered"]
+[connection signal="body_entered" from="tavern" to="." method="_on_tavern_body_entered"]
+[connection signal="body_entered" from="tavern" to="Player" method="_on_tavern_body_entered"]
+[connection signal="body_exited" from="tavern" to="." method="_on_tavern_body_exited"]
+[connection signal="body_exited" from="tavern" to="Player" method="_on_tavern_body_exited"]

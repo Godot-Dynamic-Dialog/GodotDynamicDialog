@@ -24,3 +24,5 @@ mono_crash.*.json
 .csproj
 *.import
 *.tmp
+
+.images/

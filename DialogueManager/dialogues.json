@@ -1,82 +1,82 @@
 [
 	{
 		"id": "player_healthy",
-		"conditions": { "player_healthy": true },
+		"number": true,
 		"text": "You are healthy."
 	},
 	{
 		"id": "player_hurt",
-		"conditions": { "player_hurt": true },
+		"number": true ,
 		"text": "You are hurt."
 	},
 	{
 		"id": "hunger_full",
-		"conditions": { "full": true },
+		"number": true,
 		"text": "Your hunger satisfied."
 	},
 	{
 		"id": "hunger_empty",
-		"conditions": { "hungry": true },
+		"number": true,
 		"text": "You are hungry."
 	},
 	{
 		"id": "total_apple",
-		"conditions": {"total_apple": 0 },
+		"number": 0,
 		"text": "Number of apples: "
 	},
 	{
 		"id": "total_watermelon",
-		"conditions": { "total_watermelon": 0 },
+		"number": 0,
 		"text": "Number of watermelons: "
 	},
 	{
 		"id": "total_banana",
-		"conditions": { "total_banana": 0 },
+		"number": 0,
 		"text": "Number of bananas: "
 	},
 	{
 		"id": "ghost_chase",
-		"conditions": { "ghost_chase": true },
+		"number": true,
 		"text": "A ghost is chasing you."
 	},
 	{
 		"id": "bat_chase",
-		"conditions": { "bat_chase": true },
+		"number": true,
 		"text": "A bat is chasing you."
 	},
 	{
 		"id": "tree",
-		"conditions": { "tree": true },
+		"number": true,
 		"text": "You are near a tree."
 	},
 	{
 		"id": "location_cave",
-		"conditions": { "cave": true },
+		"number": true,
 		"text": "You are in a cave."
 	},
 	{
 		"id": "location_outside",
-		"conditions": { "outside": true },
+		"number": true,
 		"text": "You are outdoors, there is a cave nearby."
 	},
 	{
-		"id": "weather_dry",
-		"conditions": { "dry" : true },
+		"id": "weather_clear",
+		"number": true,
 		"text": "It is not raining."
 	},
 	{
-		"id": "weather_rain",
-		"conditions": { "rain": true },
+		"id": "rain",
+		"number": true,
 		"text": "It is lightly raining."
 	},
 	{
-		"id": "weather_heavy_rain",
-		"conditions": { "heavy_rain": true },
+		"id": "heavy_rain",
+		"number": true,
 		"text": "There is a heavy downpour of rain."
 	},
 	{
 		"id": "chest",
-		"conditions": { "chest": true },
+		"number": true,
 		"text": "There is a chest nearby."
 	}
 ]

@@ -132,61 +132,12 @@ func _on_gd_gpt_pressed():
 	### END NPC VARIABLES ###
 	
 	
-	### ADVENTURER VARIABLES ###
-	var MC : String =  "an adventurer"
-	#var apple : String = str(DialogueManager.get_context("total_apple"))
-	#var banana : String = str(DialogueManager.get_context("total_banana"))
-	#var watermelon : String = str(DialogueManager.get_context("total_watermelon"))
-	#var hunger : String = str(DialogueManager.get_context("hunger"))
-	#var hp : String = str(DialogueManager.get_context("health"))
-	var mood : String = "exhausted"
-	var ghost : String = str(DialogueManager.get_context("ghost_chase"))
-	var extra: String = ""
-	### END ADVENTURER VARIABLES ###
-	
-	### Weather ###
-	var weather: String = ""
-	if(DialogueDatabase.rainState == 0):
-		weather = "Sunny"
-	if(DialogueDatabase.rainState == 1):
-		weather = "Light rain"
-	if(DialogueDatabase.rainState == 2):
-		weather = "Pouring rain"
-		
-	### END VARIABLES ###
-	
-	# Checks dialogue database for the NPC boolean variable, to see whether you are in range of an NPC
-	# We can use this system with a number instead of bool for more prompt struct choices if we want
-	# variable can be changed based on different signals for NPCS, object interaction, etc
-	
 	var prompt = []
 	if (DialogueDatabase.NPC == true):
-		var promptStruct = (
-			# NPC Prompt
-"
-You are %s. 
-%s. 
-The weather is %s. 
-Your mood is %s. 
-Don't need to comment on all of the above, 
-only respond with the text of the monologue, 
-no quotations. 
-Stay under 150 characters.
-")
-		prompt = promptStruct % [NPC, NPC2, weather, npc_mood]
+		prompt = "You are an NPC tavernkeep in a video game. Write a voice line based on the following facts about the player character, only respond with the text of the voice line. Stay under 150 characters. Do not include quotations."
 	else:
-		var promptStruct = (
-			# Monologue Prompt
-"
-You are %s in a foreign land. 
-The weather is %s. 
-Your mood is %s.
-%s
-Don't need to comment on all of the above, 
-only respond with the text of the monologue. 
-Stay under 150 characters.
-")
-		prompt = promptStruct % [MC, weather, mood, ghost]
+		prompt = "You are a the main character of a video game. Write a voice line based on the following facts, only respond with the text of the voice line. Stay under 150 characters. Do not include quotations."
+	prompt += DialogueManager.create_prompt()
 		
 	print("Prompt:\n", prompt)
 	
