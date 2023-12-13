@@ -7,6 +7,8 @@ All the content provided in this file was used to create the Godot Dynamic Dialo
 - Game Asset Pack from [Sharm](https://opengameart.org/content/tiny-16-basic).
 - Game Asset Pack from [ArMM1998](https://opengameart.org/content/zelda-like-tilesets-and-sprites).
 - Pixel Font from [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans).
+- Game music from [BreakingCopyright](https://www.youtube.com/watch?v=LYf2gOIt_OQ&list=PLfP6i5T0-DkLTWwznhWjQ1sm_GasKuMPY&index=24&ab_channel=BreakingCopyright%E2%80%94RoyaltyFreeMusic).
+- Tavern music from [Pixabay](https://pixabay.com/music/folk-the-celtic-handmaiden-147078/).
 
 ## Content References
 
