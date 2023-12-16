@@ -18,4 +18,7 @@ func _process(delta):
 	$TotalApple.text = str(DialogueManager.game_context["total_apple"])
 	$TotalBanana.text = str(DialogueManager.game_context["total_banana"])
 	$TotalWatermelon.text = str(DialogueManager.game_context["total_watermelon"])
-	$CurrentScene.text = str(DialogueManager.game_context["location_outside"])
+	if (DialogueDatabase.cave_state == 0):
+		$CurrentScene.text = str(DialogueManager.game_context["location_outside"])
+	if (DialogueDatabase.cave_state == 1):
+		$CurrentScene.text = str(DialogueManager.game_context["location_cave"])
