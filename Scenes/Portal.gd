@@ -29,6 +29,23 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		Global.player_map_position = player_spawn_location
 		#this one isn't working, it's just here for if we want to do this
 		Global.player_facing = player_direction_facing
+		
+		#if cave_state is false, enter cave on portal interaction
+		if (DialogueDatabase.cave_state == 0):
+			DialogueManager.update_context("location_cave", 0)
+			DialogueManager.remove_context("location_outside")
+			DialogueDatabase.cave_state = 1
+			print("Cave entered. ", DialogueDatabase.cave_state)
+			get_tree().change_scene_to_file("res://Scenes/Cave.tscn")
+		
+		#if cave_state is true, exit cave on portal interaction
+		else:
+			DialogueManager.update_context("location_outside", 0)
+			DialogueManager.remove_context("location_cave")
+			DialogueDatabase.cave_state = 0
+			print("Cave exited. ", DialogueDatabase.cave_state)
+			get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	
 	
 	#$SceneTransition.play_animation_backwards
 	

@@ -18,6 +18,8 @@ var call_dialogue : bool = false
 var bgm = 1
 var main_bgm_pos = 0
 var tavern_bgm_pos = 0
+
+var cave_state = 0
 ###--- Rain state variable ---###
 # Rain states:
 	# 0 == No rain -- default

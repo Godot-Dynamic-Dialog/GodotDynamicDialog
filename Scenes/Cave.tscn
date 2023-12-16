@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://m2hetha383la"]
 
 [ext_resource type="Script" path="res://Scenes/Global.gd" id="1_8mbyw"]
-[ext_resource type="Texture2D" uid="uid://dgcx03tf36xvv" path="res://Assets/tiles.png" id="1_pp2yt"]
+[ext_resource type="Texture2D" uid="uid://b5uikl4dhjwbn" path="res://Assets/tiles.png" id="1_pp2yt"]
 [ext_resource type="PackedScene" uid="uid://culk7qt4b4ddq" path="res://Scenes/Player/player.tscn" id="2_gfx07"]
 [ext_resource type="PackedScene" uid="uid://hcdtajw7vlmj" path="res://Scenes/Portal.tscn" id="3_kva1f"]
 [ext_resource type="Script" path="res://Scenes/CaveFruitSpawn.gd" id="3_m88q7"]
@@ -393,7 +393,6 @@ position = Vector2(-7, 19)
 next_scene_path = "res://Scenes/main.tscn"
 player_spawn_location = Vector2(391, 54)
 player_direction_facing = Vector2(0, -1)
-scene_entering = "Overworld"
 
 [node name="Bat" parent="." instance=ExtResource("7_purr7")]
 position = Vector2(129, -64)
